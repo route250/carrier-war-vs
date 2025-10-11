@@ -1,0 +1,407 @@
+{
+  "winner_side": "A",
+  "winner_model": "Claude-Sonnet-4",
+  "B": {
+    "provider": "openai",
+    "model": "gpt-5-mini",
+    "usage": {
+      "prompt_tokens": 477934,
+      "cache_read_tokens": 424704,
+      "cache_write_tokens": 0,
+      "completion_tokens": 6215,
+      "reasoning_tokens": 0,
+      "total_tokens": 484149,
+      "prompt_price": 0.0127,
+      "cached_price": 0.0101,
+      "completion_price": 0.0119,
+      "total_price": 0.0347
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 0,
+      "carrier_request_count": 18,
+      "carrier_request_errors": 8,
+      "squadron_request_count": 6,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 3,
+      "trip_count": {
+        "BC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            24,
+            2
+          ],
+          [
+            30,
+            2
+          ]
+        ],
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            14,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            24,
+            4
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            4
+          ]
+        ],
+        "BSQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            1
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            18,
+            3
+          ],
+          [
+            25,
+            6
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            4
+          ],
+          [
+            28,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "anthropic",
+    "model": "Claude-Sonnet-4",
+    "usage": {
+      "prompt_tokens": 386441,
+      "cache_read_tokens": 365235,
+      "cache_write_tokens": 21053,
+      "completion_tokens": 7685,
+      "reasoning_tokens": 0,
+      "total_tokens": 394126,
+      "prompt_price": 0.0004,
+      "cached_price": 0.1045,
+      "cache_write_price": 0.0753,
+      "completion_price": 0.1099,
+      "total_price": 0.2148
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 0,
+      "carrier_request_count": 1,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 6,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 3,
+      "trip_count": {
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            13,
+            6
+          ],
+          [
+            14,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            3
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            20,
+            4
+          ],
+          [
+            21,
+            4
+          ],
+          [
+            24,
+            2
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            2
+          ],
+          [
+            29,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ],
+        "AC1": [
+          [
+            4,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "ASQ2": [
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            20,
+            4
+          ],
+          [
+            21,
+            4
+          ],
+          [
+            22,
+            4
+          ],
+          [
+            25,
+            1
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            4
+          ],
+          [
+            28,
+            2
+          ],
+          [
+            30,
+            4
+          ]
+        ]
+      }
+    }
+  }
+}

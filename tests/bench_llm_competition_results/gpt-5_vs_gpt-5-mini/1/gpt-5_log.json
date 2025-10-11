@@ -1,0 +1,214 @@
+[
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 1 of 30.\n\n\nYour forces:\n- Your carrier AC1: position (15, 8), stationary, HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"初期推定：敵空母は右下(26,26)近傍。こちらAC1は(15,8)。まずは敵推定海域の手前に索敵扇形を展開し、先見優位を得る。空母は島影に寄らず海上を維持しつつ東南へ前進、発艦半径22を活用して(24,20)～(26,24)付近を重点索敵。ASQは2隊で異なる扇端に投射して発見率向上。帰還経路で敵位置補正予定。次ターン以降、敵機の来向で回避機動を計画。\",\"action\":{\"carrier_target\":{\"x\":17,\"y\":10},\"launch_target\":{\"x\":24,\"y\":20}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 2 of 30.\n\nRecent events:\n- your squadron(ASQ1) set a new target toward position (24, 20) while at (17, 10).\n\nYour forces:\n- Your carrier AC1: position (16, 9), en route to target (17, 10), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (17, 10), outbound toward (24, 20), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は(26,26)近傍想定。AC1は安全を保ちつつ東南へ前進し発艦半径を拡大。ASQ1は(24,20)方面で索敵中。重複を避け、ASQ2はやや東側(26,22)へ投射し扇形でカバー。島影を避けつつ可及的に早期発見を狙う。次ターン、敵機の進出方向で回避判断。\",\"action\":{\"carrier_target\":{\"x\":17,\"y\":10},\"launch_target\":{\"x\":26,\"y\":22}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 3 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (22, 16) while at (19, 14).\n- your squadron(ASQ2) set a new target toward position (26, 22) while at (17, 11).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (22, 16) (previously at (22, 16)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (17, 10), en route to target (17, 10), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (19, 14), outbound toward (24, 20), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (17, 11), outbound toward (26, 22), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵機BSQ1を(22,16)で確認。敵空母はその北西〜西方にいる可能性が高いが、右下(26,26)近傍初期を踏まえると(24-28,22-28)の範囲が本命。ASQ1は(24,20)へ、ASQ2は(26,22)へ向かっており良い扇形。空母はさらに南東へ少し前進し、索敵半径を維持しつつ危険域に入りすぎない位置へ。次の扇端として(26,24)〜(28,26)を狙う。敵機の来向(北西→南東)から敵空母はASQ1/2目標のやや南側もあり得る。被発見リスクを抑えつつ圧力を継続。\",\"action\":{\"carrier_target\":{\"x\":18,\"y\":12},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 4 of 30.\n\nRecent events:\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (20, 12) while at (18, 12).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (22, 12) while at (18, 12).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (23, 15) while at (22, 16).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (20, 12) while at (22, 16).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (22, 12) while at (22, 16).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (23, 15) while at (19, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (20, 12) while at (19, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (22, 12) while at (19, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (23, 15) (previously at (24, 15)), HP 100/100.\n- Enemy squadron BSQ1: last known position (20, 12) (previously at (22, 16)), HP 40/40.\n- Enemy squadron BSQ2: last known position (22, 12) (previously at (24, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (18, 12), en route to target (18, 12), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (22, 16), outbound toward (23, 15), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 15), outbound toward (23, 15), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1を(23,15)で確実に捕捉。ASQ1/2は既に攻撃目標へ向けて突入中。こちら空母は敵機BSQ1(20,12)・BSQ2(22,12)を視認、敵は我の位置近傍を索敵中。被雷回避と波状攻撃回避のため、AC1は南西へ退避し発見位置から外れる。発艦済みのため空母は安全優先。次は撃破報告に応じて敵の再発艦に備え機動継続。\",\"action\":{\"carrier_target\":{\"x\":16,\"y\":14},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 5 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (18, 13) while at (23, 14).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (20, 12) while at (23, 14).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (18, 12) while at (22, 14).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (17, 13) while at (16, 13).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (18, 13) while at (16, 13).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (22, 14) while at (23, 16).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (22, 14) while at (23, 14).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (18, 13) while at (23, 14).\n- your squadron(ASQ2) is engaging an enemy carrier(BC1) while at (23, 14).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 100/100.\n- Enemy squadron BSQ1: last known position (17, 13) (previously at (22, 16)), HP 40/40.\n- Enemy squadron BSQ2: last known position (18, 13) (previously at (24, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (16, 13), en route to target (16, 14), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (23, 16), outbound toward (22, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 14), engaging an enemy target at (22, 14), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1を(22,14)で捕捉・交戦中。ASQ2が既に攻撃、ASQ1も突入間近。敵機BSQ1/2がこちら空母近傍(17-18,13)で索敵中のため、空母は位置をずらして波状攻撃回避。西南へ下げて敵の予測から外れる。追加発艦は現時点で不要、まずは撃破優先。撃破後は帰還路の敵機動向で機動継続判断。\",\"action\":{\"carrier_target\":{\"x\":14,\"y\":15},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 6 of 30.\n\nRecent events:\n- your squadron(ASQ2) initiated an attack on an enemy carrier(BC1) while at (23, 14).\n- your squadron(ASQ2) hit an enemy carrier(BC1) causing 22 damage while at (23, 14).\n- your squadron(ASQ2) is returning to the carrier while at (23, 14).\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ1) while at (16, 13).\n- your carrier(AC1) hit an enemy squadron(BSQ1) causing 29 damage while at (16, 13).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (17, 12) while at (16, 13).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (22, 14) while at (21, 15).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (17, 13) while at (21, 15).\n- your squadron(ASQ1) is engaging an enemy carrier(BC1) while at (21, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 73/100.\n- Enemy squadron BSQ1: last known position (17, 13) (previously at (22, 16)), HP 19/40.\n- Enemy squadron BSQ2: last known position (17, 12) (previously at (24, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (16, 13), en route to target (14, 15), HP 71/100, speed 2, vision 4.\n- Your squadron ASQ1: position (21, 15), engaging an enemy target at (22, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 14), returning to the carrier, HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1に22ダメ後、ASQ1が続撃中。こちらAC1は被弾しHP71、敵機BSQ1は残19で至近、BSQ2も近い。空母はさらに南西へ退避し追尾を外す。ASQ1で撃沈狙い、ASQ2は帰還優先。敵空母位置は(22,14)据え置きと判断、撃破後は敵機の帰還方向で位置推定しつつ機動継続。\",\"action\":{\"carrier_target\":{\"x\":13,\"y\":17},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 7 of 30.\n\nRecent events:\n- your squadron(ASQ1) initiated an attack on an enemy carrier(BC1) while at (21, 15).\n- your squadron(ASQ1) hit an enemy carrier(BC1) causing 12 damage while at (21, 15).\n- your squadron(ASQ1) is returning to the carrier while at (21, 15).\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ2) while at (16, 13).\n- your carrier(AC1) hit an enemy squadron(BSQ2) causing 27 damage while at (16, 13).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (20, 14) while at (16, 13).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (21, 14) while at (21, 15).\n- your squadron(ASQ2) spotted an enemy carrier(BC1) at (22, 14) while at (19, 13).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (21, 14) while at (19, 13).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (17, 12) while at (19, 13).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 45/100.\n- Enemy squadron BSQ1: last known position (21, 14) (previously at (22, 16)), HP 19/40.\n- Enemy squadron BSQ2: last known position (17, 12) (previously at (24, 14)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (16, 13), en route to target (13, 17), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: position (21, 15), returning to the carrier, HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 13), returning to the carrier, HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(22,14)据え置きでHP45。こちらASQ1/2は両方帰還中で再攻撃には再武装が必要。敵機BSQ1(21,14・残19)とBSQ2(17,12・残24)が依然接近中。空母は被弾しHP44で脆弱、まずは敵機群の予測経路から外れるため更に南西へ退避し、帰還機の合流と再発艦準備を優先。敵空母は動いても近傍の海域であり、次の発艦で(22,14)±1〜2を再攻撃予定。\",\"action\":{\"carrier_target\":{\"x\":12,\"y\":19},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 8 of 30.\n\nRecent events:\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (19, 13) while at (16, 14).\n- your squadron(ASQ2) spotted an enemy carrier(BC1) at (22, 14) while at (17, 14).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (19, 13) while at (17, 14).\n- your squadron(ASQ2) landed on the carrier while at (16, 14).\n- your squadron(ASQ1) spotted an enemy carrier(BC1) at (22, 14) while at (17, 15).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (20, 13) while at (17, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 45/100.\n- Enemy squadron BSQ2: last known position (20, 13) (previously at (24, 14)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (16, 14), en route to target (12, 19), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: position (17, 15), returning to the carrier, HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は依然(22,14)でHP45。こちらはASQ2が着艦、ASQ1が着艦間近。敵BSQ2は(20,13)で依然周辺をうろつくが、まずは二隊を揃えて速やかに再攻撃を実施したい。空母は過度に離れると航続が無駄になるので、現位置近辺で微後退しつつ回頭・再武装の時間を稼ぐ。ASQ1着艦後、両隊同時に(22,14)へ波状攻撃を再開予定。\",\"action\":{\"carrier_target\":{\"x\":15,\"y\":16},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: Carrier target was rejected. x=15 y=16 is not on sea. Please specify a valid coordinate, such as x=14 y=15.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"訂正：座標(15,16)は陸上だったため不可。現位置周辺の海上に留まりつつ再武装・収容を優先し、次ターンASQ1着艦後に両隊同時発艦でBC1(22,14)へ再攻撃する。敵BSQ2は(20,13)付近にいるが、こちらは位置を大きく晒さず小移動のみ。\",\"action\":{\"carrier_target\":{\"x\":14,\"y\":15},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 9 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (21, 14) while at (16, 15).\n- your squadron(ASQ1) landed on the carrier while at (16, 14).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 45/100.\n- No enemy squadrons are currently visible.\n\nYour forces:\n- Your carrier AC1: position (16, 14), en route to target (14, 15), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"両隊が収容完了。敵空母BC1は(22,14)でHP45、今が同時攻撃の好機。こちら空母は被弾で脆弱のため位置は大きく動かず、即時両隊を(22,14)へ向けて発艦し撃沈を狙う。敵機は視界外に消えたが、攻勢で主導権を握る。\",\"action\":{\"carrier_target\":null,\"launch_target\":{\"x\":22,\"y\":14}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 10 of 30.\n\nRecent events:\n- your squadron(ASQ1) set a new target toward position (22, 14) while at (15, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 45/100.\n- No enemy squadrons are currently visible.\n\nYour forces:\n- Your carrier AC1: position (14, 15), en route to target (14, 15), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: position (15, 15), outbound toward (22, 14), HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は(22,14)で据え置き想定、HP45。ASQ1はすでに突入中。同時打撃を確実にするためASQ2も即時同座標へ発艦。空母は被弾で脆弱なため現位置維持でリスク最小化。撃沈を最優先。\",\"action\":{\"carrier_target\":null,\"launch_target\":{\"x\":22,\"y\":14}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 11 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (19, 14) while at (19, 15).\n- your squadron(ASQ2) set a new target toward position (22, 14) while at (15, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (22, 14) (previously at (24, 15)), HP 45/100.\n- Enemy squadron BSQ1: last known position (19, 14) (previously at (21, 14)), HP 19/40.\n\nYour forces:\n- Your carrier AC1: position (14, 15), en route to target (14, 15), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: position (19, 15), outbound toward (22, 14), HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (15, 15), outbound toward (22, 14), HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(22,14)想定のまま、ASQ1/ASQ2が同時突入コース。敵BSQ1(19,14 残19)をASQ1が視認、こちら空母に迫る可能性あり。だが今は決定打を優先。空母は位置秘匿のため静止維持し、航空打撃でBC1撃沈を狙う。敵機の帰還方向・動向で次ターン以降の機動を判断。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 12 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (17, 14) while at (21, 15).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (15, 14) while at (14, 15).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (24, 16) while at (23, 15).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (21, 14) while at (23, 15).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (24, 16) while at (19, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (15, 14) while at (19, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (21, 14) while at (19, 15).\n- your squadron(ASQ1) is engaging an enemy carrier(BC1) while at (23, 15).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 16) (previously at (25, 15)), HP 45/100.\n- Enemy squadron BSQ1: last known position (15, 14) (previously at (21, 14)), HP 19/40.\n- Enemy squadron BSQ2: last known position (21, 14) (previously at (23, 15)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (14, 15), en route to target (14, 15), HP 44/100, speed 2, vision 4.\n- Your squadron ASQ1: position (23, 15), engaging an enemy target at (24, 16), HP 28/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 15), outbound toward (24, 16), HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は(24,16)へ後退しHP45。ASQ1が交戦開始、ASQ2も追随中。敵BSQ1(15,14)が至近で危険、BSQ2(21,14)も中距離。空母は被弾済みで危険なので南西へ退避し軸をずらして波状攻撃を回避しつつ、発艦半径内は維持。航空打撃で決着を狙う。\",\"action\":{\"carrier_target\":{\"x\":12,\"y\":17},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 13 of 30.\n\nRecent events:\n- your squadron(ASQ1) initiated an attack on an enemy carrier(BC1) while at (23, 15).\n- your squadron(ASQ1) hit an enemy carrier(BC1) causing 9 damage while at (23, 15).\n- your squadron(ASQ1) is returning to the carrier while at (23, 15).\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ1) while at (14, 15).\n- your carrier(AC1) hit an enemy squadron(BSQ1) causing 13 damage while at (14, 15).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (19, 14) while at (23, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (18, 14) while at (22, 15).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (17, 14) while at (14, 15).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (24, 16) while at (23, 16).\n- your squadron(ASQ2) is engaging an enemy carrier(BC1) while at (23, 16).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 16) (previously at (25, 15)), HP 30/100.\n- Enemy squadron BSQ1: last known position (15, 14) (previously at (21, 14)), HP 11/40.\n- Enemy squadron BSQ2: last known position (17, 14) (previously at (23, 15)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (14, 15), en route to target (12, 17), HP 31/100, speed 2, vision 4.\n- Your squadron ASQ1: position (23, 15), returning to the carrier, HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 16), engaging an enemy target at (24, 16), HP 18/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,16)でHP30。ASQ2が交戦中、ASQ1は帰還中。こちら空母はHP31と危険、敵BSQ1/2が接近中(15,14 残11 と17,14 残24)。生存優先で空母は南西退避を継続しつつ、ASQ2の一撃で撃沈を狙う。ASQ1は回収後、必要なら追撃発艦。\",\"action\":{\"carrier_target\":{\"x\":12,\"y\":19},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 14 of 30.\n\nRecent events:\n- your squadron(ASQ2) initiated an attack on an enemy carrier(BC1) while at (23, 16).\n- your squadron(ASQ2) hit an enemy carrier(BC1) causing 6 damage while at (23, 16).\n- your squadron(ASQ2) is returning to the carrier while at (23, 16).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (17, 14) while at (13, 15).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (14, 14) while at (13, 16).\n- your squadron(ASQ1) spotted an enemy carrier(BC1) at (24, 16) while at (19, 15).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (19, 14) while at (19, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (19, 14) while at (23, 16).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 16) (previously at (25, 15)), HP 18/100.\n- Enemy squadron BSQ1: last known position (19, 14) (previously at (21, 14)), HP 11/40.\n- Enemy squadron BSQ2: last known position (14, 14) (previously at (23, 15)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (13, 16), en route to target (12, 19), HP 31/100, speed 2, vision 4.\n- Your squadron ASQ1: position (19, 15), returning to the carrier, HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 16), returning to the carrier, HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,16)でHP18と瀕死。こちらASQ1/2は帰還中で、ASQ1は早めに再武装可能圏内。敵BSQ2が(14,14)で至近、空母HP31と脆弱のため更に南西へ退避して追撃線から外しつつ、次ターンASQ1の再発艦で止めを刺す。BC1は大きくは動けないと想定し、目標は据え置き圏(24,16±1-2)を想定。\",\"action\":{\"carrier_target\":{\"x\":12,\"y\":20},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 15 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (21, 15) while at (16, 15).\n- your squadron(ASQ2) spotted an enemy carrier(BC1) at (24, 17) while at (20, 16).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (12, 17) while at (12, 18).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (12, 17) while at (15, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (22, 16) while at (19, 16).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (25, 15)), HP 18/100.\n- Enemy squadron BSQ1: last known position (22, 16) (previously at (21, 14)), HP 11/40.\n- Enemy squadron BSQ2: last known position (12, 17) (previously at (23, 15)), HP 24/40.\n\nYour forces:\n- Your carrier AC1: position (12, 18), en route to target (12, 20), HP 31/100, speed 2, vision 4.\n- Your squadron ASQ1: position (15, 15), returning to the carrier, HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 16), returning to the carrier, HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)へ小移動、HP18で瀕死。こちらASQ1/2は帰還中で、ASQ1は着艦間近。敵BSQ2が(12,17)で至近接近、空母は南西退避継続で被弾回避を最優先しつつ、次ターンASQ1着艦後ただちに(24,17)へ発艦して止めを刺す。ASQ2も着艦次第追撃。敵空母は大きく離脱できないと判断。\",\"action\":{\"carrier_target\":{\"x\":11,\"y\":20},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 16 of 30.\n\nRecent events:\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ2) while at (12, 18).\n- your carrier(AC1) hit an enemy squadron(BSQ2) causing 16 damage while at (12, 18).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (23, 16) while at (18, 16).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (12, 17) while at (13, 18).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (12, 17) while at (15, 16).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (25, 15)), HP 18/100.\n- Enemy squadron BSQ2: last known position (12, 17) (previously at (23, 15)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (12, 18), en route to target (11, 20), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: position (13, 18), returning to the carrier, HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (15, 16), returning to the carrier, HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)付近でHP18の瀕死。こちらAC1はHP15まで低下、至近のBSQ2(12,17 残17)が危険。まずは空母の生存を最優先して南西へ退避し、ASQ1/2の着艦と即時再発艦で止めを刺す準備。次ターン、収容完了次第、両隊同時に(24,17)へ発艦して撃沈を狙う。\",\"action\":{\"carrier_target\":{\"x\":10,\"y\":21},\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 17 of 30.\n\nRecent events:\n- your squadron(ASQ1) landed on the carrier while at (12, 18).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (15, 17) while at (12, 18).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (15, 17) while at (12, 17).\n- your squadron(ASQ2) landed on the carrier while at (12, 18).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (25, 15)), HP 18/100.\n- Enemy squadron BSQ2: last known position (15, 17) (previously at (23, 15)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (12, 18), en route to target (10, 21), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)でHP18の瀕死。こちら両隊は収容完了し即時打撃可能。AC1はHP15で危険だが、このターンは位置維持しつつ同時発艦で決着を狙う。敵BSQ2(15,17 残17)は接近中だが、撃沈が最短の生存策。両隊とも(24,17)へ指示して一撃で仕留める。\",\"action\":{\"carrier_target\":null,\"launch_target\":{\"x\":24,\"y\":17}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 18 of 30.\n\nRecent events:\n- your squadron(ASQ1) set a new target toward position (24, 17) while at (12, 20).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (25, 15)), HP 18/100.\n- Enemy squadron BSQ2: last known position (15, 17) (previously at (23, 15)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (11, 20), en route to target (10, 21), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: position (12, 20), outbound toward (24, 17), HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"決着局面。敵空母BC1は(24,17)でHP18。ASQ1は既に突入航程、ASQ2も同座標へ即時発艦して同時打撃で確殺を狙う。AC1はHP15で危険のため退避継続し、生存を優先。\",\"action\":{\"carrier_target\":{\"x\":10,\"y\":22},\"launch_target\":{\"x\":24,\"y\":17}}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 19 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (15, 17) while at (16, 20).\n- your squadron(ASQ2) set a new target toward position (24, 17) while at (11, 22).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (15, 17) (previously at (17, 17)), HP 11/40.\n- Enemy squadron BSQ2: last known position (15, 17) (previously at (23, 15)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: position (16, 20), outbound toward (24, 17), HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (11, 22), outbound toward (24, 17), HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は直近(24,17)だったが「位置不明」に。大きくは動けず(23-26,16-19)にいる公算大。ASQ1/2は同一目標(24,17)へ進撃中で、扇形に少し幅を持たせると発見・撃破確率が上がるが、行動中は変更不可。現指示のまま突入しつつ、空母は西端で待避・生存優先。敵機BSQ1/2は(15,17)付近でこちらから遠ざかりつつあり、今は決着を急ぐ。次報で敵空母の新位置を得たら直ちに攻撃に移る。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 20 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (14, 17) while at (17, 20).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (12, 18) while at (10, 22).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (12, 18) while at (15, 22).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (12, 18) (previously at (17, 17)), HP 11/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: position (20, 20), outbound toward (24, 17), HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (15, 22), outbound toward (24, 17), HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は(24,17)から位置不明だが、移動可能範囲は(22-27,15-19)内と推定。ASQ1/2は(24,17)へ突入中で、接触すれば往路で攻撃可能。こちら空母はHP15で西端に退避済み、生存優先で静止。敵BSQ1は(12,18)でこちら近傍だが航空隊とは交戦しないため、勝利には敵空母撃沈を急ぐ。現行突入を維持し、次ターン以降の接触報告で追撃判断。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 21 of 30.\n\nRecent events:\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (9, 21) while at (10, 22).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (24, 17) while at (23, 18).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 18/100.\n- Enemy squadron BSQ1: last known position (9, 21) (previously at (17, 17)), HP 11/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 15/100, speed 2, vision 4.\n- Your squadron ASQ1: position (23, 18), outbound toward (24, 17), HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (18, 21), outbound toward (24, 17), HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は再度(24,17)で確認、HP18で瀕死。ASQ1は目標再設定済みで接触間近、ASQ2も追随。こちら空母はHP15で西端にて静止、生存優先で動かさない。今ターンは両隊の突入で撃沈を狙う。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 22 of 30.\n\nRecent events:\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ1) while at (10, 22).\n- your carrier(AC1) hit an enemy squadron(BSQ1) causing 8 damage while at (10, 22).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (20, 17) while at (24, 18).\n- your squadron(ASQ1) set a new target toward an enemy carrier(BC1) at (24, 17) while at (25, 18).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (24, 17) while at (21, 19).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (19, 17) while at (21, 19).\n- your squadron(ASQ1) is engaging an enemy carrier(BC1) while at (25, 18).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 18/100.\n- Enemy squadron BSQ1: last known position (9, 21) (previously at (17, 17)), HP 9/40.\n- Enemy squadron BSQ2: last known position (19, 17) (previously at (22, 17)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 7/100, speed 2, vision 4.\n- Your squadron ASQ1: position (25, 18), engaging an enemy target at (24, 17), HP 19/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (21, 19), outbound toward (24, 17), HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"決着局面。敵空母BC1は(24,17)でHP18、ASQ1が交戦中、ASQ2も接近中。こちらAC1はHP7で極めて危険だが移動しても逃げ切れないため位置維持し、撃沈を最優先。ASQ1の一撃＋ASQ2追撃で確殺を狙う。敵BSQは消耗しており、敵空母撃沈が最短勝利。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 23 of 30.\n\nRecent events:\n- your squadron(ASQ1) initiated an attack on an enemy carrier(BC1) while at (25, 18).\n- your squadron(ASQ1) hit an enemy carrier(BC1) causing 4 damage while at (25, 18).\n- your squadron(ASQ1) is returning to the carrier while at (25, 18).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (18, 17) while at (22, 19).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (13, 21) while at (10, 22).\n- your squadron(ASQ2) set a new target toward an enemy carrier(BC1) at (24, 17) while at (23, 17).\n- your squadron(ASQ2) is engaging an enemy carrier(BC1) while at (23, 17).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 8/100.\n- Enemy squadron BSQ1: last known position (13, 21) (previously at (17, 17)), HP 9/40.\n- Enemy squadron BSQ2: last known position (18, 17) (previously at (22, 17)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 7/100, speed 2, vision 4.\n- Your squadron ASQ1: position (25, 18), returning to the carrier, HP 15/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 17), engaging an enemy target at (24, 17), HP 12/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)でHP8、ASQ2が交戦中で止めの好機。ASQ1は帰還中。こちらAC1はHP7で瀕死、動いても致死圏から抜けにくいので位置維持し、敵空母撃沈を最優先。ASQ2の一撃で撃沈期待、万一残存ならASQ1を回収後即再発艦で追撃予定。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 24 of 30.\n\nRecent events:\n- your squadron(ASQ2) initiated an attack on an enemy carrier(BC1) while at (23, 17).\n- your squadron(ASQ2) hit an enemy carrier(BC1) causing 2 damage while at (23, 17).\n- your squadron(ASQ2) is returning to the carrier while at (23, 17).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (13, 20) while at (10, 22).\n- your squadron(ASQ1) spotted an enemy carrier(BC1) at (24, 17) while at (21, 18).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (17, 21) while at (21, 18).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 2/100.\n- Enemy squadron BSQ1: last known position (17, 21) (previously at (17, 17)), HP 9/40.\n- Enemy squadron BSQ2: last known position (13, 20) (previously at (22, 17)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 7/100, speed 2, vision 4.\n- Your squadron ASQ1: position (21, 18), returning to the carrier, HP 15/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (23, 17), returning to the carrier, HP 10/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)でHP2の瀕死。こちらは両隊とも帰還中だが、ASQ2が近距離、ASQ1も十分航続内。空母はHP7で瀕死のため動かさず被発見面積を増やさない。最速で止めを刺すため、次ターン以降の遅滞を避け、即時再発艦可能なASQ2の復路後の再攻撃と、ASQ1も帰艦後すぐ追撃の準備。現ターンは発艦不可のため空母は静止維持。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 25 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy carrier(BC1) at (24, 17) while at (20, 18).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (9, 21) while at (10, 22).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (20, 19) while at (17, 18).\n- your squadron(ASQ2) spotted an enemy carrier(BC1) at (24, 17) while at (19, 17).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (20, 19) while at (19, 17).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 2/100.\n- Enemy squadron BSQ1: last known position (20, 19) (previously at (17, 17)), HP 9/40.\n- Enemy squadron BSQ2: last known position (9, 21) (previously at (22, 17)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 7/100, speed 2, vision 4.\n- Your squadron ASQ1: position (17, 18), returning to the carrier, HP 15/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 17), returning to the carrier, HP 10/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母BC1は(24,17)でHP2。こちらAC1はHP7で瀕死、位置維持で被発見リスク最小化。ASQ1/2は帰還中で次ターン以降に再発艦し止めを刺す計画。現ターンは空母は静止、発艦指示なしで確実な帰艦を優先。\",\"action\":{\"carrier_target\":null,\"launch_target\":null}}"
+  },
+  {
+    "role": "user",
+    "content": "Aborted:\n\n Below is the current battle situation from your perspective.\n\nTurn 25 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy carrier(BC1) at (24, 17) while at (20, 18).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (9, 21) while at (10, 22).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (20, 19) while at (17, 18).\n- your squadron(ASQ2) spotted an enemy carrier(BC1) at (24, 17) while at (19, 17).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (20, 19) while at (19, 17).\n\nEnemy intelligence:\n- Enemy carrier BC1: last known position (24, 17) (previously at (24, 17)), HP 2/100.\n- Enemy squadron BSQ1: last known position (20, 19) (previously at (17, 17)), HP 9/40.\n- Enemy squadron BSQ2: last known position (9, 21) (previously at (22, 17)), HP 17/40.\n\nYour forces:\n- Your carrier AC1: position (10, 22), en route to target (10, 22), HP 7/100, speed 2, vision 4.\n- Your squadron ASQ1: position (17, 18), returning to the carrier, HP 15/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (19, 17), returning to the carrier, HP 10/40, operational range 22, speed 4, vision 5.\n"
+  }
+]

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <style>
+      .box { fill: rgba(255,255,255,0.0); stroke: #2b2b2b; stroke-width: 2.2; }
+      .subbox { fill: rgba(255,255,255,0.0); stroke: #4a4a4a; stroke-width: 2; }
+      .label { font: 22px 'Inter', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; fill: #111; }
+      .sublabel { font: 18px 'Inter', 'Noto Sans JP', sans-serif; fill: #222; }
+      .small { font: 16px 'Inter', 'Noto Sans JP', sans-serif; fill: #333; }
+      .arrow { stroke: #222; stroke-width: 2.2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-two { stroke: #222; stroke-width: 2.2; fill: none; marker-start: url(#arrowhead); marker-end: url(#arrowhead); }
+      .tag { font: 14px 'Inter', 'Noto Sans JP', sans-serif; fill: #111; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#222" />
+    </marker>
+  </defs>
+
+  <!-- Background transparent by default -->
+
+  <!-- Left: User (Browser) -->
+  <g id="user">
+    <rect class="box" x="60" y="160" rx="14" ry="14" width="280" height="200"/>
+    <text class="label" x="200" y="220" text-anchor="middle">ユーザー</text>
+    <text class="sublabel" x="200" y="255" text-anchor="middle">（ブラウザ）</text>
+  </g>
+
+  <!-- Center: Game Core -->
+  <g id="core">
+    <rect class="box" x="420" y="80" rx="16" ry="16" width="440" height="560"/>
+    <text class="label" x="640" y="120" text-anchor="middle">ゲームコア</text>
+
+    <!-- Submodules -->
+    <rect class="subbox" x="460" y="150" rx="10" ry="10" width="360" height="90"/>
+    <text class="sublabel" x="640" y="190" text-anchor="middle">ゲーム処理ルーチン</text>
+    <text class="small" x="640" y="215" text-anchor="middle">（ターン制 / 判定）</text>
+
+    <rect class="subbox" x="460" y="260" rx="10" ry="10" width="360" height="80"/>
+    <text class="sublabel" x="640" y="305" text-anchor="middle">ユニットデータ</text>
+
+    <rect class="subbox" x="460" y="360" rx="10" ry="10" width="360" height="80"/>
+    <text class="sublabel" x="640" y="405" text-anchor="middle">マップデータ</text>
+
+    <rect class="subbox" x="460" y="460" rx="10" ry="10" width="360" height="80"/>
+    <text class="sublabel" x="640" y="505" text-anchor="middle">ルールチェック</text>
+  </g>
+
+  <!-- Right: Opponent Logic -->
+  <g id="ai">
+    <rect class="box" x="930" y="140" rx="14" ry="14" width="290" height="380"/>
+    <text class="label" x="1075" y="190" text-anchor="middle">対戦ロジック</text>
+    <text class="sublabel" x="1075" y="220" text-anchor="middle">（LLM / ルールベース）</text>
+
+    <rect class="subbox" x="960" y="240" rx="8" ry="8" width="230" height="70"/>
+    <text class="sublabel" x="1075" y="283" text-anchor="middle">司令 / 行動計画</text>
+
+    <rect class="subbox" x="960" y="325" rx="8" ry="8" width="230" height="70"/>
+    <text class="sublabel" x="1075" y="368" text-anchor="middle">索敵 / 行動</text>
+
+    <rect class="subbox" x="960" y="410" rx="8" ry="8" width="230" height="70"/>
+    <text class="sublabel" x="1075" y="453" text-anchor="middle">攻撃</text>
+  </g>
+
+  <!-- Arrows -->
+  <!-- User -> Core (Input/Command) -->
+  <path class="arrow" d="M 340 260 C 380 260, 400 260, 420 260"/>
+  <text class="tag" x="380" y="245" text-anchor="middle">入力 / コマンド</text>
+
+  <!-- Core -> User (Screen update / Log) -->
+  <path class="arrow" d="M 420 320 C 380 320, 360 320, 340 320"/>
+  <text class="tag" x="380" y="340" text-anchor="middle">画面更新 / ログ</text>
+
+  <!-- Core <-> AI (API) -->
+  <path class="arrow-two" d="M 860 300 C 890 300, 910 300, 930 300"/>
+  <text class="tag" x="895" y="285" text-anchor="middle">API</text>
+</svg>

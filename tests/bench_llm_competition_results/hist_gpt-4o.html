@@ -1,0 +1,1275 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+table{table-layout:fixed;border-collapse:collapse;width:100%;}
+td{width:400px;border:1px solid #ccc;padding:10px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;vertical-align:top;}
+th{background:#f7f7f7;border:1px solid #ccc;padding:10px;vertical-align:top;}
+.col-header{background:#e6f0ff;}
+.row-header{background:#fff4e6;}
+</style></head><body>
+<h2>Model: gpt-4o</h2>
+<table>
+<colgroup>
+<col style="width:50px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+<col style="width:400px">
+</colgroup>
+<tr>
+<th class="row-header">turn</th>
+<th id="claude-haiku-3_vs_gpt-4o" class="col-header">
+<a href="hist_Claude-Haiku-3.html#claude-haiku-3_vs_gpt-4o">claude-haiku-3_vs_gpt-4o</a>
+</th>
+<th id="gemini-2.5-flash-lite_vs_gpt-4o" class="col-header">
+<a href="hist_gemini-2.5-flash-lite.html#gemini-2.5-flash-lite_vs_gpt-4o">gemini-2.5-flash-lite_vs_gpt-4o</a>
+</th>
+<th id="gemini-2.5-flash_vs_gpt-4o" class="col-header">
+<a href="hist_gemini-2.5-flash.html#gemini-2.5-flash_vs_gpt-4o">gemini-2.5-flash_vs_gpt-4o</a>
+</th>
+<th id="gpt-4o_vs_gpt-5-m" class="col-header">
+<a href="hist_gpt-5-M.html#gpt-4o_vs_gpt-5-m">gpt-4o_vs_gpt-5-m</a>
+</th>
+<th id="gpt-4o_vs_gpt-5-mini" class="col-header">
+<a href="hist_gpt-5-mini.html#gpt-4o_vs_gpt-5-mini">gpt-4o_vs_gpt-5-mini</a>
+</th>
+<th id="claude-haiku-3.5_vs_gpt-4o" class="col-header">
+<a href="hist_Claude-Haiku-3.5.html#claude-haiku-3.5_vs_gpt-4o">claude-haiku-3.5_vs_gpt-4o</a>
+</th>
+<th id="gpt-4o_vs_gpt-4o-mini" class="col-header">
+<a href="hist_gpt-4o-mini.html#gpt-4o_vs_gpt-4o-mini">gpt-4o_vs_gpt-4o-mini</a>
+</th>
+<th id="gpt-4o_vs_gpt-5" class="col-header">
+<a href="hist_gpt-5.html#gpt-4o_vs_gpt-5">gpt-4o_vs_gpt-5</a>
+</th>
+<th id="gpt-4.1_vs_gpt-4o" class="col-header">
+<a href="hist_gpt-4.1.html#gpt-4.1_vs_gpt-4o">gpt-4.1_vs_gpt-4o</a>
+</th>
+<th id="claude-sonnet-4.5_vs_gpt-4o" class="col-header">
+<a href="hist_Claude-Sonnet-4.5.html#claude-sonnet-4.5_vs_gpt-4o">claude-sonnet-4.5_vs_gpt-4o</a>
+</th>
+<th id="claude-sonnet-4_vs_gpt-4o" class="col-header">
+<a href="hist_Claude-Sonnet-4.html#claude-sonnet-4_vs_gpt-4o">claude-sonnet-4_vs_gpt-4o</a>
+</th>
+<th id="gpt-4.1-mini_vs_gpt-4o" class="col-header">
+<a href="hist_gpt-4.1-mini.html#gpt-4.1-mini_vs_gpt-4o">gpt-4.1-mini_vs_gpt-4o</a>
+</th>
+</tr>
+<tr>
+<th class="row-header">1</th>
+<td>
+敵空母はマップの左上付近にいる可能性が高い。まずは航空部隊を発艦させ、索敵を行う。空母は安全な距離を保ちながら、少し北西に移動して索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 18, "y": 15}, "launch_target": {"x": 5, "y": 5}}<br>```
+</td>
+<td>
+敵空母はマップの左上(3,3)近辺にいる可能性が高い。索敵範囲を広げるため、空母を北西に移動させつつ、航空部隊を発艦させて索敵を開始する。<br>```json<br>{"carrier_target": {"x": 21, "y": 21}, "launch_target": {"x": 10, "y": 10}}<br>```
+</td>
+<td>
+敵空母はマップの左上に位置している可能性が高いです。まずは航空部隊を発艦させ、索敵を行います。空母は北西方向に移動し、索敵範囲を広げます。<br>```json<br>{"carrier_target": {"x": 13, "y": 27}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>空母の移動先を海上に修正し、航空部隊の索敵範囲内に目標を設定します。<br>```json<br>{"carrier_target": {"x": 15, "y": 27}, "launch_target": {"x": 5, "y": 7}}<br>```
+</td>
+<td>
+敵空母はマップの左上にいる可能性が高い。まずは索敵範囲を広げるために空母を北西方向に移動し、航空部隊を発艦させて索敵を開始する。<br>```json<br>{"carrier_target": {"x": 14, "y": 25}, "launch_target": {"x": 10, "y": 10}}<br>```<br><br>空母の移動先を修正する必要がある。海上の座標を選択して索敵を続行する。<br>```json<br>{"carrier_target": {"x": 13, "y": 25}, "launch_target": {"x": 10, "y": 10}}<br>```
+</td>
+<td>
+敵空母はマップの左上に位置している可能性が高い。まずは航空部隊を発艦させ、索敵を行う。空母は少し北東に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 20, "y": 24}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>空母の移動先と航空部隊の索敵範囲を再確認する。空母は海上を移動し、航空部隊は発艦可能な範囲内で索敵を行う。<br>```json<br>{"carrier_target": {"x": 19, "y": 23}, "launch_target": {"x": 9, "y": 7}}<br>```
+</td>
+<td>
+敵空母はマップの左上付近にいる可能性が高い。まずは航空部隊を発艦させ、索敵を開始する。空母は安全な距離を保ちながら北西方向に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 27, "y": 21}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>航空部隊の索敵範囲を考慮し、敵空母の初期位置に近い範囲で索敵を行う。<br>```json<br>{"carrier_target": {"x": 27, "y": 21}, "launch_target": {"x": 13, "y": 11}}<br>```
+</td>
+<td>
+敵空母はマップの右下付近にいると推測される。まずは航空部隊を発艦させ、索敵を開始する。空母は少し前進し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 2, "y": 3}, "launch_target": {"x": 22, "y": 22}}<br>```<br><br>航空部隊の索敵範囲を考慮し、適切な目標地点を設定する必要がある。<br>```json<br>{"carrier_target": {"x": 2, "y": 3}, "launch_target": {"x": 15, "y": 18}}<br>```
+</td>
+<td>
+現在、敵空母はマップの左上(3,3)近傍にいる可能性が高い。まずは航空部隊を発艦させ、索敵を行う。空母は敵に発見されないように慎重に移動する。<br>```json<br>{"carrier_target": {"x": 21, "y": 15}, "launch_target": {"x": 10, "y": 10}}<br>```
+</td>
+<td>
+敵空母はマップの左上にいる可能性が高い。まずは索敵を行い、敵空母の位置を特定する必要がある。空母を北東方向に移動させ、航空部隊を発艦させて索敵を開始する。<br>```json<br>{"carrier_target": {"x": 21, "y": 19}, "launch_target": {"x": 10, "y": 10}}<br>```
+</td>
+<td>
+敵空母はマップ左上の(3,3)近辺にいる可能性が高い。まずは航空部隊を発艦させて索敵を開始する。空母は少し北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 20, "y": 14}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>空母の移動先を修正する必要がある。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 21, "y": 12}, "launch_target": {"x": 5, "y": 5}}<br>```
+</td>
+<td>
+敵空母はマップの左上(3,3)近辺にいる可能性が高い。まずは航空部隊を発艦させ、索敵を行う。空母は敵に発見されないように慎重に移動する。<br>```json<br>{"carrier_target": {"x": 23, "y": 24}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>敵空母の位置を考慮し、空母を海上で安全に移動させる。航空部隊は索敵範囲内で最も遠い地点を目指す。<br>```json<br>{"carrier_target": {"x": 22, "y": 25}, "launch_target": {"x": 11, "y": 9}}<br>```
+</td>
+<td>
+敵空母はマップの左上付近にいる可能性が高い。まずは航空部隊を発艦させ、索敵を行う。空母は安全な位置に留めつつ、敵の位置を特定することが重要。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>航空部隊の発艦範囲を確認し、適切な座標を指定する必要がある。敵空母の初期位置を考慮し、索敵範囲内で最適な位置を選ぶ。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 8, "y": 6}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">2</th>
+<td>
+BSQ1は順調に索敵を進めている。次に、BSQ2を別の方向に発艦させ、索敵範囲を広げる。空母は予定通り北西に移動し続ける。<br>```json<br>{"carrier_target": {"x": 18, "y": 15}, "launch_target": {"x": 7, "y": 7}}<br>```
+</td>
+<td>
+空母をさらに北西に移動させ、索敵範囲を広げる。BSQ1は索敵を続行中。BSQ2を別の方向に発艦させ、より広範囲をカバーする。<br>```json<br>{"carrier_target": {"x": 20, "y": 20}, "launch_target": {"x": 15, "y": 5}}<br>```
+</td>
+<td>
+BSQ1は索敵を続行中です。BSQ2を発艦させ、別のエリアを索敵します。空母はさらに北西へ移動し、索敵範囲を広げます。<br>```json<br>{"carrier_target": {"x": 13, "y": 25}, "launch_target": {"x": 7, "y": 5}}<br>```<br><br>空母の移動先を海上に修正します。BSQ2を発艦させ、別のエリアを索敵します。<br>```json<br>{"carrier_target": {"x": 15, "y": 24}, "launch_target": {"x": 7, "y": 5}}<br>```
+</td>
+<td>
+空母は北西に移動中で、BSQ1は索敵を開始している。BSQ2も発艦させて索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 13, "y": 25}, "launch_target": {"x": 8, "y": 8}}<br>```
+</td>
+<td>
+BSQ1が索敵を開始している。空母は引き続き北東に移動し、BSQ2を発艦させて別のエリアを索敵する。<br>```json<br>{"carrier_target": {"x": 19, "y": 23}, "launch_target": {"x": 10, "y": 8}}<br>```
+</td>
+<td>
+BSQ1が索敵中なので、BSQ2も発艦させて広範囲をカバーする。空母はさらに北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 26, "y": 20}, "launch_target": {"x": 15, "y": 9}}<br>```
+</td>
+<td>
+ASQ1は索敵を開始している。ASQ2も発艦させ、異なる方向を索敵することで敵空母を早期に発見する。空母はさらに前進し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 4, "y": 3}, "launch_target": {"x": 18, "y": 15}}<br>```
+</td>
+<td>
+BSQ1は索敵を続けている。敵空母の位置を特定するため、BSQ2を別の方向に発艦させる。空母は慎重に移動し、敵に発見されないようにする。<br>```json<br>{"carrier_target": {"x": 20, "y": 13}, "launch_target": {"x": 12, "y": 8}}<br>```
+</td>
+<td>
+BSQ1は索敵を開始しており、敵空母の位置を特定するために北西方向に向かっている。空母はさらに北東に移動し、BSQ2を発艦させて別のエリアを索敵する。<br>```json<br>{"carrier_target": {"x": 20, "y": 18}, "launch_target": {"x": 15, "y": 10}}<br>```
+</td>
+<td>
+BSQ1は索敵を開始している。BSQ2も発艦させて、別のエリアを索敵する。空母は予定通り移動を続ける。<br>```json<br>{"carrier_target": {"x": 21, "y": 12}, "launch_target": {"x": 6, "y": 6}}<br>```
+</td>
+<td>
+BSQ1は索敵を継続中。BSQ2を発艦させ、別の方向から索敵を行う。空母は安全な位置に移動を続ける。<br>```json<br>{"carrier_target": {"x": 22, "y": 25}, "launch_target": {"x": 12, "y": 8}}<br>```
+</td>
+<td>
+BSQ1は索敵のために進行中。BSQ2を別の方向に発艦させ、より広範囲を索敵する。空母はまだ安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 8}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">3</th>
+<td>
+BSQ1とBSQ2はそれぞれ異なる方向に向かって索敵を行っている。敵空母の位置を特定するため、引き続き索敵を続ける。空母は現在の位置を維持し、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+空母をさらに北西に移動させ、索敵範囲を広げる。BSQ1とBSQ2はそれぞれの方向で索敵を続行中。敵空母の位置を特定するため、空母の移動を続ける。<br>```json<br>{"carrier_target": {"x": 19, "y": 18}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を続行中です。空母はさらに北西へ移動し、索敵範囲を広げます。敵空母の位置を早期に特定することが重要です。<br>```json<br>{"carrier_target": {"x": 15, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を続行中。敵空母の位置を特定するため、空母は現在の位置を維持しつつ、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵を進めている。敵空母の位置を特定するため、空母は引き続き北東に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 19, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵中。敵空母の位置を特定するため、空母はさらに北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 25, "y": 18}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2はそれぞれ異なる方向に索敵を進めている。敵空母の位置を特定するため、空母はさらに前進し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 6, "y": 3}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2はそれぞれ異なる方向に索敵を進めている。敵空母の発見がまだないため、空母はさらに慎重に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 19, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を継続中だが、BSQ2の目標地点が近すぎた。次のターンでBSQ2の目標をより遠くに設定し直す必要がある。空母は引き続き北東に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 19, "y": 17}, "launch_target": {"x": 5, "y": 5}}<br>```<br><br>BSQ2の目標地点が近すぎたため、次のターンで帰還後に再設定する必要がある。現在は空母の移動に集中し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 19, "y": 17}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2はそれぞれ異なるエリアを索敵中。敵空母の位置を特定するため、引き続き索敵を続ける。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を継続中。敵空母の位置を特定するため、空母は現在の位置を維持しつつ、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2はそれぞれ異なる方向に索敵中。敵空母の位置を特定するため、空母はまだ動かさず、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">4</th>
+<td>
+BSQ1とBSQ2は順調に索敵を進めている。敵空母の位置を特定するため、引き続き索敵を続ける。空母は現在の位置を維持し、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊の位置が判明したが、空母の位置はまだ不明。敵航空部隊の動きから、敵空母は(15, 17)付近にいる可能性がある。空母をさらに北西に移動させ、索敵範囲を広げる。BSQ1とBSQ2は索敵を続行。<br>```json<br>{"carrier_target": {"x": 18, "y": 16}, "launch_target": null}<br>```<br><br>空母の移動先を修正し、海上を進む。敵空母の位置を特定するため、索敵を続ける。<br>```json<br>{"carrier_target": {"x": 19, "y": 16}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を続行中です。空母はさらに北西へ移動し、索敵範囲を広げます。敵空母の位置を早期に特定することが重要です。<br>```json<br>{"carrier_target": {"x": 15, "y": 21}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を継続中。敵空母の発見を待ちながら、空母は現在の位置を維持する。次のターンでの索敵結果に基づいて行動を決定する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵を継続中。敵空母の位置がまだ不明なので、空母はさらに北東に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 18, "y": 21}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。<br>```json<br>{"carrier_target": {"x": 19, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵を続けている。敵空母の位置を特定するため、空母はさらに北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 24, "y": 16}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2は索敵を続けている。敵空母の位置を特定するため、空母はさらに前進し、索敵範囲を広げる。敵が見つからない場合は、次のターンで新たな索敵範囲を設定する。<br>```json<br>{"carrier_target": {"x": 8, "y": 3}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊が発見されたが、空母の位置はまだ不明。敵航空部隊の動きから敵空母の位置を推測する。BSQ1とBSQ2は索敵を続ける。空母は慎重に移動し、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 18, "y": 10}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2はまだ索敵中。空母は現在の位置で待機し、次のターンでの帰還を待つ。敵空母の位置がまだ不明なので、次のターンで新たな索敵指示を出す準備をする。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は順調に索敵を進めている。敵空母の発見を期待しつつ、空母は引き続き現在の位置で待機する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵を継続中。敵空母の位置を特定するため、空母は現在の位置を維持しつつ、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は索敵範囲に近づいている。敵空母の発見を期待しつつ、空母はまだ安全な位置に留める。次のターンでの索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">5</th>
+<td>
+敵の航空部隊が発見されたが、空母の位置はまだ不明。敵航空部隊の動きから、敵空母は北西の方向にいる可能性が高い。空母を少し北に移動させ、索敵範囲を広げる。BSQ1とBSQ2はそのまま索敵を続行。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```<br><br>空母の移動先を修正する必要がある。敵空母の位置を特定するため、空母を北西に移動させる。<br>```json<br>{"carrier_target": {"x": 17, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が判明したため、攻撃を集中させる。空母を北西に移動させ、航空部隊の支援を強化する。BSQ1は敵空母を攻撃中。BSQ2を敵空母に向けて再指示する。<br>```json<br>{"carrier_target": {"x": 18, "y": 14}, "launch_target": {"x": 11, "y": 8}}<br>```<br><br>空母の移動先を修正し、海上を進む。航空部隊は現在攻撃中のため、指示は不要。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊を発見しましたが、空母の位置はまだ不明です。敵空母はおそらく北西方向にいると推測されます。空母をさらに北西に移動させ、索敵範囲を広げます。<br>```json<br>{"carrier_target": {"x": 15, "y": 19}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊を発見したが、空母の位置はまだ不明。敵航空部隊の位置から推測すると、敵空母は北西にいる可能性が高い。空母をさらに北西に移動させ、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 11, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊を発見したが、空母の位置はまだ不明。敵航空部隊の位置から推測すると、敵空母はさらに北西にいる可能性がある。空母を北西に移動させ、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 18, "y": 20}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵空母の位置を推測しつつ、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 17, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵を続けているが、まだ敵空母を発見していない。空母はさらに北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 23, "y": 14}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2は索敵を続けているが、まだ敵空母を発見していない。空母はさらに前進し、索敵範囲を広げる。次のターンで新たな索敵範囲を設定する準備をする。<br>```json<br>{"carrier_target": {"x": 10, "y": 3}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊の位置から、敵空母はまだ近くにいる可能性がある。BSQ1とBSQ2は索敵を続け、敵空母の位置を特定する。空母は慎重に移動し、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 17, "y": 9}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊が発見されたが、敵空母の位置はまだ不明。敵航空部隊の位置から推測すると、敵空母はその近くにいる可能性がある。空母をさらに北東に移動させ、次のターンで帰還した航空部隊を再度発艦させて索敵を続ける。<br>```json<br>{"carrier_target": {"x": 17, "y": 15}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を特定した。BSQ1とBSQ2は攻撃に向かっている。敵の反撃を避けるため、空母を南西に移動させる。<br>```json<br>{"carrier_target": {"x": 19, "y": 14}, "launch_target": null}<br>```<br><br>空母の移動先を修正する必要がある。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 20, "y": 15}, "launch_target": null}<br>```<br><br>空母の移動先を再度修正する。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 21, "y": 15}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊ASQ1を発見したが、敵空母の位置はまだ不明。敵空母はASQ1の近くにいる可能性がある。空母を少し前進させ、次の索敵に備える。<br>```json<br>{"carrier_target": {"x": 20, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊を発見したが、敵空母の位置はまだ不明。敵航空部隊の位置から、敵空母は北西方向にいる可能性が高い。空母を少し北西に移動させ、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 20, "y": 19}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">6</th>
+<td>
+敵空母の位置が特定された。BSQ1とBSQ2は敵空母に向かっているため、攻撃が期待できる。空母は現在の移動を続け、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 17, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母を攻撃中。空母をさらに北西に移動させ、支援を強化する。敵空母の撃沈を目指す。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を特定しました。BSQ1とBSQ2は攻撃に向かっています。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が判明した。BSQ2は攻撃に向かっている。空母をさらに北西に移動させ、BSQ1の帰還を待ちつつ、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 10, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を特定できた。BSQ1とBSQ2が攻撃に向かっている。空母は安全な距離を保ちながら、敵の動きを監視するために移動を続ける。<br>```json<br>{"carrier_target": {"x": 19, "y": 21}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵空母の位置を把握しているので、慎重に行動する。<br>```json<br>{"carrier_target": {"x": 19, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵を続けているが、まだ敵空母を発見していない。空母はさらに北西に移動し、索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 22, "y": 13}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2は索敵を続けている。敵空母をまだ発見していないため、空母をさらに前進させて索敵範囲を広げる。次のターンで新たな索敵範囲を設定する準備をする。<br>```json<br>{"carrier_target": {"x": 12, "y": 3}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が判明したため、BSQ1とBSQ2は攻撃を続行する。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 16, "y": 8}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が判明した。現在の位置から攻撃可能な範囲にいる。BSQ1はすでに敵空母に向かっているので、BSQ2が帰還次第、再度発艦させて攻撃を仕掛ける。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は敵空母を攻撃中。敵の反撃を避けるため、空母をさらに南西に移動させる。<br>```json<br>{"carrier_target": {"x": 21, "y": 17}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1の位置を特定した。BSQ1とBSQ2は攻撃に向かっている。空母は敵の攻撃を避けるために少し後退しつつ、次の行動に備える。<br>```json<br>{"carrier_target": {"x": 23, "y": 26}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊の動きから、敵空母はさらに北西にいる可能性が高い。空母をさらに北西に移動させ、索敵範囲を広げる。BSQ1とBSQ2は帰還中なので、次のターンで再度発艦を考える。<br>```json<br>{"carrier_target": {"x": 19, "y": 18}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">7</th>
+<td>
+BSQ2が敵空母を攻撃中で、BSQ1も接近中。敵空母の位置は確認済みなので、攻撃を続ける。空母は敵航空部隊からの攻撃を避けるため、さらに南に移動する。<br>```json<br>{"carrier_target": {"x": 17, "y": 13}, "launch_target": null}<br>```<br><br>空母の移動先を修正する必要がある。敵航空部隊からの攻撃を避けるため、空母を東に移動させる。<br>```json<br>{"carrier_target": {"x": 19, "y": 12}, "launch_target": null}<br>```<br><br>空母の移動先を再度修正する。敵の攻撃を避けるため、空母を南東に移動させる。<br>```json<br>{"carrier_target": {"x": 18, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還中で、BSQ2が敵空母を攻撃中。敵空母のHPが減少しているため、攻撃を続行する。空母をさらに北西に移動させ、支援を強化する。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母と交戦中です。BSQ1も攻撃に向かっています。空母は現在の位置を維持し、敵の動きを監視します。敵の動きに注意しつつ、次のターンでの攻撃を準備します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中。BSQ1が帰還中なので、次の攻撃に備えて空母をさらに北西に移動させる。<br>```json<br>{"carrier_target": {"x": 9, "y": 21}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母を攻撃中。敵航空部隊が接近しているため、空母の位置を調整しつつ、次の行動を考える。<br>```json<br>{"carrier_target": {"x": 18, "y": 22}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵航空部隊の動きに注意しつつ、空母の位置を調整する。<br>```json<br>{"carrier_target": {"x": 17, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊ASQ2を発見したが、敵空母の位置はまだ不明。ASQ2の動きから敵空母は北東にいる可能性がある。空母をさらに北西に移動させ、次の索敵に備える。<br>```json<br>{"carrier_target": {"x": 20, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊を発見したが、敵空母の位置はまだ不明。敵航空部隊の位置から推測すると、敵空母はその近くにいる可能性が高い。空母をさらに前進させ、ASQ2を敵空母の可能性がある位置に向かわせる。<br>```json<br>{"carrier_target": {"x": 14, "y": 3}, "launch_target": {"x": 20, "y": 17}}<br>```<br><br>敵空母の位置を推測しつつ、空母を安全な海域に移動させる。ASQ1の帰還を待ち、次の索敵に備える。<br>```json<br>{"carrier_target": {"x": 14, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母を攻撃中。敵航空部隊の位置を考慮し、空母はさらに安全な位置に移動する。敵空母への攻撃を継続し、撃沈を目指す。<br>```json<br>{"carrier_target": {"x": 15, "y": 7}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置がさらに更新された。BSQ1は攻撃に向かっている。BSQ2が帰還次第、再度発艦させて敵空母を攻撃する。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1は攻撃を成功させ、帰還中。BSQ2は攻撃中で、敵空母にダメージを与えている。敵の航空部隊がこちらに向かっている可能性があるため、空母をさらに南西に移動させる。<br>```json<br>{"carrier_target": {"x": 21, "y": 18}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1を攻撃中。BSQ2も攻撃に向かっている。空母は安全な位置に移動を続け、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 24, "y": 27}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を特定した。BSQ1が攻撃に向かっている。空母は現在の位置で待機し、次のターンでBSQ2を再度発艦させ、敵空母への攻撃を強化する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">8</th>
+<td>
+BSQ2が敵空母にダメージを与え、帰還中。BSQ1が引き続き攻撃中。敵空母のHPは70/100。空母は現在の位置を維持し、BSQ2の帰還を待つ。次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母をさらに北西に移動させ、航空部隊の帰還を待つ。帰還後、再度攻撃を指示する。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母と交戦中で、BSQ2は帰還中です。敵空母に大きなダメージを与えました。空母は現在の位置を維持し、敵の動きを監視します。次の攻撃に備えます。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母にダメージを与えた。次の攻撃に備えて、空母をさらに北西に移動させ、BSQ1とBSQ2の帰還を待つ。<br>```json<br>{"carrier_target": {"x": 8, "y": 19}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母にダメージを与えたが、敵航空部隊が接近中。空母を南に移動させて敵の攻撃を回避しつつ、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 21, "y": 24}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵航空部隊から距離を取るために南へ移動する。<br>```json<br>{"carrier_target": {"x": 20, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊ASQ2が南西に移動していることから、敵空母はさらに北東にいる可能性が高い。空母をさらに北西に移動させ、次の索敵に備える。<br>```json<br>{"carrier_target": {"x": 19, "y": 9}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊の動きから、敵空母は近くにいる可能性が高い。空母をさらに前進させ、次のターンでASQ1とASQ2を再度発艦させて索敵を強化する。<br>```json<br>{"carrier_target": {"x": 16, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母に大きなダメージを与えたが、まだ健在。BSQ1とBSQ2は帰還中。空母は敵航空部隊からの攻撃を避けるためにさらに移動する。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 14, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、敵航空部隊にダメージを与えた。BSQ2を再度発艦させ、敵空母を攻撃する。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 6, "y": 3}}<br>```
+</td>
+<td>
+敵空母に大きなダメージを与えた。敵の航空部隊がこちらに向かっている可能性があるため、空母をさらに南西に移動させて位置を変える。<br>```json<br>{"carrier_target": {"x": 21, "y": 20}, "launch_target": null}<br>```<br><br>空母の移動先を再度修正する。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 20, "y": 19}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母にダメージを与え、帰還中。BSQ2が攻撃中で、敵空母のHPをさらに削る可能性がある。空母は安全な位置に移動を続け、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 25, "y": 28}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が確認できたので、BSQ1とBSQ2が攻撃に向かっている。空母は現在の位置で待機し、敵航空部隊からの攻撃に備える。次のターンでの攻撃結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">9</th>
+<td>
+敵空母に対して効果的な攻撃を行い、HPを48/100まで減少させた。BSQ1とBSQ2は帰還中。敵航空部隊が接近しているため、空母を南に移動させて敵の攻撃を回避する。<br>```json<br>{"carrier_target": {"x": 18, "y": 13}, "launch_target": null}<br>```<br><br>空母の移動先を再度修正する。敵の攻撃を避けるため、空母を西に移動させる。<br>```json<br>{"carrier_target": {"x": 17, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が更新された。航空部隊が帰還次第、再度攻撃を指示する。空母は現在の位置で待機し、航空部隊の帰還を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母に大きなダメージを与えました。BSQ1とBSQ2は帰還中です。敵の航空部隊が接近しているため、空母を南に移動させて敵の攻撃を避けます。次の攻撃に備えて航空部隊を再編成します。<br>```json<br>{"carrier_target": {"x": 15, "y": 21}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が再確認できた。BSQ1を再度発艦させて攻撃を仕掛ける。BSQ2は帰還中なので、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 8, "y": 19}, "launch_target": {"x": 2, "y": 17}}<br>```
+</td>
+<td>
+敵空母の位置を再確認し、次の攻撃に備える。空母は南に移動して敵航空部隊から距離を取る。BSQ1とBSQ2が帰還したら、再度発艦して攻撃を仕掛ける。<br>```json<br>{"carrier_target": {"x": 20, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を特定するため、再度航空部隊を発艦させて索敵を行う。敵航空部隊の動きを考慮し、北東方向を重点的に探索する。<br>```json<br>{"carrier_target": {"x": 19, "y": 9}, "launch_target": {"x": 12, "y": 4}}<br>```
+</td>
+<td>
+敵航空部隊の動きから、敵空母は近くにいる可能性が高い。空母をさらに前進させ、次のターンでASQ1とASQ2を再度発艦させて索敵を強化する。<br>```json<br>{"carrier_target": {"x": 17, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が再確認された。BSQ1とBSQ2は帰還中で、次の攻撃に備える。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 13, "y": 5}, "launch_target": null}<br>```<br><br>空母の移動先を修正し、海上に設定する。次の攻撃に備えて準備を整える。<br>```json<br>{"carrier_target": {"x": 13, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母にダメージを与え、帰還中。BSQ2は敵空母に向かっている。敵空母のHPをさらに削るため、BSQ2の攻撃に期待する。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を確認し、敵の航空部隊もこちらに接近中。空母をさらに南西に移動させて、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 19, "y": 21}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1は大きなダメージを受けている。次の攻撃で撃沈を狙う。空母は安全な位置を維持しつつ、航空部隊の帰還を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中。BSQ1も攻撃に向かっている。敵航空部隊の位置を考慮し、空母を少し後退させて安全を確保する。<br>```json<br>{"carrier_target": {"x": 17, "y": 16}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">10</th>
+<td>
+敵空母の位置は確認済みで、敵航空部隊にダメージを与えた。BSQ1とBSQ2は帰還中。空母をさらに西に移動させ、敵の攻撃を避ける。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 16, "y": 11}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還し、再度攻撃準備が整った。敵空母の位置が更新されたため、BSQ1を発艦させ攻撃を指示する。BSQ2は帰還中。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 12, "y": 9}}<br>```
+</td>
+<td>
+敵空母の位置がさらに南に移動しています。空母を南に移動させ、次の攻撃に備えます。航空部隊が帰還したら、再度発艦して攻撃を続けます。<br>```json<br>{"carrier_target": {"x": 15, "y": 23}, "launch_target": null}<br>```<br><br>空母の移動先を海上に修正します。次の攻撃に備えます。<br>```json<br>{"carrier_target": {"x": 15, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2は帰還中。空母は現在の位置を維持し、次の攻撃に備える。敵の航空部隊の動きに注意を払いながら、次のターンでの状況を見極める。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置は把握しているが、敵航空部隊が接近中。空母をさらに南に移動させて敵の攻撃を回避しつつ、BSQ1とBSQ2の帰還を待つ。<br>```json<br>{"carrier_target": {"x": 20, "y": 25}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵航空部隊から距離を取るために南へ移動する。<br>```json<br>{"carrier_target": {"x": 19, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1の索敵範囲を広げるため、次回はより遠くを目標に設定する。BSQ2も発艦させ、広範囲をカバーする。<br>```json<br>{"carrier_target": {"x": 18, "y": 8}, "launch_target": {"x": 10, "y": 2}}<br>```<br><br>空母の移動先を修正し、BSQ2を発艦させて索敵範囲を広げる。<br>```json<br>{"carrier_target": {"x": 17, "y": 8}, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+敵航空部隊の動きから、敵空母は近くにいる可能性が高い。空母をさらに前進させ、ASQ1とASQ2が帰還次第、再度発艦させて索敵を強化する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が確認されているため、再度攻撃を仕掛ける。BSQ1とBSQ2を発艦させ、敵空母を狙う。空母は慎重に移動を続ける。<br>```json<br>{"carrier_target": {"x": 14, "y": 7}, "launch_target": {"x": 9, "y": 6}}<br>```
+</td>
+<td>
+敵空母の位置が確認され、BSQ2が攻撃に向かっている。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊がこちらに接近しているため、空母をさらに南西に移動させて位置を変える。敵空母の位置は把握しているので、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 18, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1の位置を確認。次の攻撃で撃沈を狙うため、航空部隊の帰還後すぐに再出撃させる準備をする。空母は安全な位置を維持。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2は帰還中。敵空母に大きなダメージを与えている。空母はさらに後退して安全を確保しつつ、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 16, "y": 15}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">11</th>
+<td>
+敵空母の位置は依然として確認済みで、敵航空部隊も視認している。BSQ1とBSQ2が帰還したら、再度発艦して攻撃を仕掛ける準備をする。空母は現在の位置を維持し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向けて攻撃中。BSQ2も発艦させ、敵空母への攻撃を強化する。敵空母のHPを削り切ることを目指す。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 12, "y": 9}}<br>```
+</td>
+<td>
+敵空母の位置は確認済みで、航空部隊が帰還中です。次のターンで再度発艦し、敵空母を攻撃します。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中。BSQ2を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 2, "y": 17}}<br>```
+</td>
+<td>
+敵空母の位置は把握しているが、敵航空部隊が接近中。空母をさらに南に移動させて敵の攻撃を回避しつつ、BSQ1とBSQ2の帰還を待つ。<br>```json<br>{"carrier_target": {"x": 19, "y": 24}, "launch_target": null}<br>```<br><br>空母の移動先を再確認し、海上の座標を指定する。敵航空部隊から距離を取るために安全な位置に移動する。<br>```json<br>{"carrier_target": {"x": 19, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+敵航空部隊ASQ1を発見したが、敵空母の位置はまだ不明。敵航空部隊の動きから、敵空母はさらに北東にいる可能性がある。空母を北西に移動させ、次の索敵に備える。<br>```json<br>{"carrier_target": {"x": 16, "y": 7}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が帰還し、発艦準備が整った。敵空母の位置を特定するため、ASQ1を発艦させる。ASQ2も帰還次第、再度発艦させる。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 20, "y": 15}}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させ、敵空母を攻撃する。空母は敵航空部隊からの攻撃を避けるために位置を調整する。<br>```json<br>{"carrier_target": {"x": 13, "y": 6}, "launch_target": {"x": 9, "y": 6}}<br>```
+</td>
+<td>
+BSQ2が敵空母に接近中で、攻撃が期待できる。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊がこちらに非常に近い。空母をさらに南西に移動させて、敵の攻撃を避ける。次の攻撃に備えて、航空部隊の帰還を待つ。<br>```json<br>{"carrier_target": {"x": 17, "y": 25}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1の位置はまだ把握している。航空部隊が帰還したら、すぐに再出撃して敵空母を攻撃する。空母は現在の位置を維持し、安全を確保する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母に大きなダメージを与えたが、まだ撃沈には至っていない。BSQ1とBSQ2は帰還中。空母をさらに後退させて安全を確保し、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 15, "y": 14}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">12</th>
+<td>
+BSQ1とBSQ2が帰還し、再度発艦可能。敵空母の位置は確認済みなので、再度攻撃を仕掛ける。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 6, "y": 7}}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に向けて攻撃中。敵空母のHPを削り切ることを目指し、攻撃を続行する。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が帰還し、再度発艦可能です。敵空母の位置は確認済みなので、BSQ2を発艦させて攻撃を再開します。BSQ1も帰還中です。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 8, "y": 7}}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。空母は現在の位置を維持し、敵の反撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が帰還し、再度発艦可能。敵空母の位置は把握しているので、再度攻撃を仕掛ける。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 11}}<br>```
+</td>
+<td>
+敵空母AC1の位置を特定した。BSQ1とBSQ2が攻撃に向かっている。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が発艦し、敵空母の位置を特定するために索敵を開始している。ASQ2も異なる方向に発艦させ、索敵を強化する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 19, "y": 17}}<br>```
+</td>
+<td>
+敵空母の位置が更新された。BSQ1とBSQ2は攻撃を続行中。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 11, "y": 6}, "launch_target": null}<br>```<br><br>空母の移動先を修正し、海上に設定する。敵空母への攻撃を継続する。<br>```json<br>{"carrier_target": {"x": 9, "y": 7}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母に接近し、攻撃が期待できる。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還し、再び発艦可能。敵空母の位置は把握しているので、次の攻撃を準備する。空母はさらに南西に移動して敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 17, "y": 25}, "launch_target": {"x": 6, "y": 9}}<br>```
+</td>
+<td>
+敵の航空部隊ASQ2が接近中。空母の位置が危険になる可能性があるため、少し後退しつつ、航空部隊の帰還を待つ。帰還後、すぐに再出撃して敵空母を攻撃する。<br>```json<br>{"carrier_target": {"x": 26, "y": 29}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置は依然として把握している。BSQ2を再度発艦させ、敵空母への攻撃を試みる。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 17}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">13</th>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させて、敵空母への攻撃を強化する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 6, "y": 7}}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母を攻撃中。敵空母のHPを削り切ることを目指し、攻撃を続行する。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっています。BSQ2も発艦させ、同じ目標を攻撃します。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 8, "y": 7}}<br>```
+</td>
+<td>
+BSQ1が敵空母にダメージを与え、BSQ2が攻撃に向かっている。敵空母のHPが減少しているので、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も同じ目標に向けて発艦させる。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 11}}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1を攻撃中。BSQ2も攻撃に向かっている。敵航空部隊ASQ1とASQ2の動きに注意しつつ、空母は現在の位置を維持して次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2が索敵を進めている。敵空母の位置を特定するため、空母は現在の位置を維持し、索敵結果を待つ。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母を攻撃中。空母は敵航空部隊からの攻撃を避けるために移動を続ける。敵空母を撃沈するために攻撃を継続する。<br>```json<br>{"carrier_target": {"x": 10, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中。BSQ1を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 7, "y": 3}}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。敵の航空部隊にダメージを与えたが、まだ脅威が残っている。空母をさらに南西に移動させて、敵の攻撃を避ける。BSQ2は次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 16, "y": 27}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ2が空母に接近している。空母をさらに後退させて安全を確保し、航空部隊の帰還後に再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": {"x": 27, "y": 30}, "launch_target": null}<br>```<br><br>敵の航空部隊ASQ2が空母に接近している。空母を安全な位置に移動させ、航空部隊の帰還後に再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": {"x": 25, "y": 27}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を把握しているので、BSQ1が攻撃に向かっている。BSQ2も発艦させ、敵空母への攻撃を強化する。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 17}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">14</th>
+<td>
+敵空母の位置が更新された。BSQ1とBSQ2がそれぞれ攻撃に向かっている。敵空母のHPは48/100なので、次の攻撃で大きなダメージを与えることが期待できる。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが19まで減少。次の攻撃で撃沈を狙う。航空部隊が帰還次第、再度攻撃を指示する。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+両方の航空部隊が敵空母に向かっています。攻撃が成功すれば、敵空母を撃沈できる可能性があります。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母に接近中で、BSQ1は帰還中。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に向かっている。敵空母を撃沈するために攻撃を続ける。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が攻撃を終えて帰還中。BSQ2が敵空母AC1を攻撃中。敵航空部隊ASQ1とASQ2の位置を確認しつつ、空母は現在の位置を維持して次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2が索敵を続けている。敵空母の位置を特定するため、空母は現在の位置を維持し、索敵結果を待つ。次のターンで敵空母を発見できる可能性がある。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還中で、BSQ2が敵空母を攻撃中。空母は敵航空部隊からの攻撃を避けるために移動を続ける。敵空母を撃沈するために攻撃を継続する。<br>```json<br>{"carrier_target": {"x": 9, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母にダメージを与え、帰還中。BSQ1が再度攻撃に向かっている。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1は敵空母に向かっているが、敵の航空部隊がこちらに接近中。空母をさらに南西に移動させて、敵の攻撃を避ける。BSQ2は次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 15, "y": 28}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ2にダメージを与えたが、空母も攻撃を受けた。空母を安全な位置に移動させ、航空部隊の帰還後に再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": {"x": 24, "y": 26}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。敵空母にさらなるダメージを与えることができれば勝利に近づく。空母は現在の位置で待機し、次の攻撃結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">15</th>
+<td>
+BSQ1とBSQ2が敵空母に接近中。敵空母のHPは48/100で、次の攻撃で大きなダメージを与えることが期待できる。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが19まで減少している。航空部隊が帰還次第、再度攻撃を指示し、敵空母の撃沈を狙う。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が不明ですが、航空部隊は攻撃を続行中です。敵の航空部隊が接近しているため、空母を南に移動させて敵の攻撃を避けます。<br>```json<br>{"carrier_target": {"x": 15, "y": 24}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中で、敵空母のHPが減少している。BSQ1は帰還中。次の攻撃で敵空母を撃沈することを目指す。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に接近中。攻撃が成功することを期待しつつ、空母は現在の位置を維持して状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが減少している。BSQ1とBSQ2が帰還中。次の攻撃に備えて空母の位置を調整し、再度攻撃を仕掛ける準備をする。<br>```json<br>{"carrier_target": {"x": 15, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1は索敵を終えて帰還中。ASQ2がまだ索敵を続けている。敵空母の位置を特定するため、空母は現在の位置を維持し、ASQ2の索敵結果を待つ。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母が大きなダメージを受けている。BSQ1とBSQ2は帰還中で、次の攻撃に備える。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 11, "y": 7}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1は敵空母に接近中。敵の航空部隊がこちらに接近しているため、空母をさらに南西に移動させる。BSQ2を発艦させて、敵空母の位置を再確認する。<br>```json<br>{"carrier_target": {"x": 14, "y": 29}, "launch_target": {"x": 6, "y": 9}}<br>```
+</td>
+<td>
+BSQ1が帰還し、再出撃の準備が整った。敵空母の位置は不明だが、ASQ2が近くにいるため、空母を安全な位置に移動させつつ、BSQ1を発艦させて索敵を再開する。<br>```json<br>{"carrier_target": {"x": 23, "y": 27}, "launch_target": {"x": 10, "y": 8}}<br>```<br><br>敵空母の位置を再確認するために、BSQ1を発艦させて索敵を行う。空母は安全な位置に移動する。<br>```json<br>{"carrier_target": {"x": 23, "y": 27}, "launch_target": {"x": 13, "y": 11}}<br>```
+</td>
+<td>
+敵空母に大きなダメージを与えている。BSQ2が攻撃中で、BSQ1は帰還中。敵航空部隊が近くにいるため、空母の位置を少し後退させて安全を確保する。<br>```json<br>{"carrier_target": {"x": 14, "y": 13}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">16</th>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も接近中。敵空母のHPは48/100で、次の攻撃で大きなダメージを与えることが期待できる。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+両航空部隊が帰還し、再度攻撃の準備が整った。敵空母の位置は(12, 11)で、HPが19。次の攻撃で撃沈を狙う。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 12, "y": 11}}<br>```
+</td>
+<td>
+敵空母の位置が確認できました。BSQ1とBSQ2は攻撃を続行中です。空母は南に移動して敵の攻撃を避けつつ、次の攻撃に備えます。<br>```json<br>{"carrier_target": {"x": 15, "y": 25}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが33まで減少している。BSQ1を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 0, "y": 21}}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中。BSQ2も接近中で、攻撃が成功することを期待する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1の位置は変わっていない。BSQ1を再度発艦させ、敵空母への攻撃を続ける。BSQ2も帰還後に再度攻撃を仕掛ける準備をする。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1は帰還中で、ASQ2が索敵を続けている。敵空母の位置を特定するため、空母は現在の位置を維持し、ASQ2の索敵結果を待つ。次のターンで新たな索敵を計画する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母が大きなダメージを受けているため、次の攻撃で撃沈を狙う。BSQ1を発艦させ、敵空母を攻撃する。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 10, "y": 7}, "launch_target": {"x": 6, "y": 5}}<br>```<br><br>空母の移動先を修正し、海上に設定する。BSQ1を発艦させ、敵空母を攻撃する。<br>```json<br>{"carrier_target": {"x": 10, "y": 6}, "launch_target": {"x": 6, "y": 5}}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は敵空母に向かっている。敵の航空部隊がこちらに接近しているため、空母をさらに南西に移動させる。敵空母の位置を特定し、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 29}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が索敵に向かっている。BSQ2も発艦させ、別の方向から索敵を行う。空母は安全な位置に移動を続ける。<br>```json<br>{"carrier_target": {"x": 23, "y": 27}, "launch_target": {"x": 14, "y": 12}}<br>```
+</td>
+<td>
+敵空母にさらにダメージを与えたが、まだ撃沈には至っていない。BSQ1とBSQ2は帰還中。敵航空部隊が近くにいるため、空母をさらに後退させて安全を確保する。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 12}, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">17</th>
+<td>
+BSQ1が敵空母にダメージを与え、BSQ2が攻撃中。敵空母のHPは30/100。次の攻撃で撃沈の可能性がある。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向けて攻撃中。BSQ2も発艦させ、敵空母への攻撃を強化する。敵空母の撃沈を目指す。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 12, "y": 11}}<br>```
+</td>
+<td>
+BSQ1が敵空母と交戦中で、BSQ2も攻撃に向かっています。空母は現在の位置を維持し、敵の動きを監視します。敵空母を撃沈するために攻撃を続けます。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。敵空母のHPが低下しているため、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が攻撃を成功させ、BSQ2も攻撃中。敵空母のHPが減少している。空母は現在の位置を維持し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1に向かっている。BSQ2も発艦させ、敵空母への攻撃を強化する。空母は現在の位置を維持して次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1とASQ2が帰還中。敵空母の位置はまだ不明。次のターンで両方の航空部隊を再度発艦させ、異なる方向に索敵を行う。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させ、敵空母を攻撃する。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 9, "y": 6}, "launch_target": {"x": 6, "y": 5}}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2は敵空母に接近中。敵の航空部隊がこちらに接近しているため、空母をさらに南に移動させる。敵空母の位置を特定し、次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 28}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が索敵中。敵空母の位置を特定するために、空母は安全な位置を維持しつつ、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を把握しているので、BSQ1を再度発艦させて攻撃を試みる。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 13, "y": 19}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">18</th>
+<td>
+敵空母のHPは20/100まで減少。次の攻撃で撃沈の可能性が高い。BSQ1とBSQ2が帰還したら、再度発艦して攻撃を仕掛ける準備をする。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に向けて攻撃中。敵空母のHPが19なので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に攻撃を続けています。敵空母は大きなダメージを受けています。空母は現在の位置を維持し、敵の動きを監視します。次の攻撃で敵空母を撃沈することを目指します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中。BSQ2を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 0, "y": 21}}<br>```
+</td>
+<td>
+敵空母のHPが大幅に減少している。BSQ1とBSQ2が帰還したら、再度発艦して最後の攻撃を仕掛ける準備をする。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母AC1に向かっている。敵空母のHPを削り切るために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2がもうすぐ帰還する。次のターンで両方の航空部隊を再度発艦させ、異なる方向に索敵を行う計画を立てる。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に向かっている。敵空母を撃沈するために攻撃を継続する。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 8, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、敵空母のHPが減少している。BSQ2を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 7, "y": 3}}<br>```
+</td>
+<td>
+敵空母の位置を特定した。BSQ1とBSQ2は攻撃に向かっている。空母を南に移動させて、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 13, "y": 27}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ1を発見したが、敵空母の位置はまだ不明。空母は安全な位置を維持しつつ、索敵結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させて、敵空母への攻撃を強化する。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 13, "y": 19}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">19</th>
+<td>
+敵空母のHPは20/100で、位置も確認済み。BSQ1は発艦準備完了。BSQ2が帰還したら、再度発艦して攻撃を仕掛ける。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 13, "y": 9}}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。敵空母のHPが19なので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母は残りHPが少なく、次の攻撃で撃沈できる可能性があります。BSQ1とBSQ2が帰還したら、再度発艦して攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。敵空母のHPが低下しているため、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を再確認し、次の攻撃に備える。BSQ1とBSQ2が帰還したら、再度発艦して敵空母を撃沈する。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1を攻撃中。BSQ2も攻撃に向かっている。敵空母のHPを削り切るために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が帰還し、発艦準備が整った。敵航空部隊の位置から、敵空母はその近くにいる可能性がある。ASQ1を発艦させ、敵空母の位置を特定する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 22, "y": 14}}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も間もなく到達する。敵空母を撃沈するために攻撃を継続する。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 7, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母にダメージを与え、帰還中。BSQ2が攻撃に向かっている。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中。敵の航空部隊がこちらに接近しているため、空母をさらに南に移動させて位置を変える。<br>```json<br>{"carrier_target": {"x": 13, "y": 26}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ1が空母に接近している。空母を安全な位置に移動させ、航空部隊の索敵結果を待つ。敵空母の位置を特定することが重要。<br>```json<br>{"carrier_target": {"x": 22, "y": 28}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。敵空母を撃沈するチャンスがある。空母は現在の位置で待機し、次の攻撃結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">20</th>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させて、敵空母への攻撃を強化する。敵空母のHPは20/100なので、次の攻撃で撃沈の可能性が高い。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 15, "y": 10}}<br>```
+</td>
+<td>
+敵空母のHPが9まで減少。次の攻撃で撃沈を狙う。BSQ2が攻撃中で、BSQ1は帰還中。空母は現在の位置で待機し、状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置が確認できました。BSQ1とBSQ2が帰還したら、再度発艦して攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが14まで減少している。BSQ2が攻撃に向かっており、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが残りわずか。BSQ1とBSQ2が帰還したら、最後の攻撃を仕掛ける準備をする。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが減少している。BSQ1が帰還中で、BSQ2が攻撃中。敵空母を撃沈するために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が発艦し、敵空母の位置を特定するために索敵を開始している。ASQ2が帰還次第、再度発艦させて索敵を強化する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中で、敵空母のHPは残りわずか。BSQ1は帰還中。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 6, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母に接近中で、攻撃が期待できる。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母にダメージを与え、帰還中。BSQ2が攻撃中。敵の航空部隊がこちらに接近しているため、空母をさらに南に移動させて位置を変える。<br>```json<br>{"carrier_target": {"x": 13, "y": 25}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ1が空母に非常に近い。空母をさらに安全な位置に移動させ、航空部隊の索敵結果を待つ。敵空母の位置を特定することが重要。<br>```json<br>{"carrier_target": {"x": 21, "y": 29}, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPがかなり減少している。BSQ2が攻撃中で、BSQ1は帰還中。次の攻撃で敵空母を撃沈できる可能性がある。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">21</th>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も接近中。敵空母のHPは20/100で、次の攻撃で撃沈の可能性が高い。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 20 of 30.<br><br>Recent events:<br>- your carrier(BC1) initiated an attack on an enemy squadron(ASQ2) while at (18, 13).<br>- your carrier(BC1) hit an enemy squadron(ASQ2) causing 10 damage while at (18, 13).<br>- your squadron(BSQ2) initiated an attack on an enemy carrier(AC1) while at (12, 12).<br>- your squadron(BSQ2) hit an enemy carrier(AC1) causing 2 damage while at (12, 12).<br>- your squadron(BSQ2) is returning to the carrier while at (12, 12).<br>- your carrier(BC1) spotted an enemy squadron(ASQ1) at (18, 12) while at (18, 13).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ1) at (18, 12) while at (15, 13).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ2) at (17, 13) while at (15, 13).<br><br>Your forces:<br>- Your carrier BC1: position (18, 13), en route to target (18, 13), HP 7/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (15, 13), returning to the carrier, HP 9/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (12, 12), returning to the carrier, HP 17/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: sunk, HP 0/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (18, 12), returning to the carrier, HP 5/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (17, 13), returning to the carrier, HP 16/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+敵空母のHPが少ないため、次の攻撃で撃沈を狙います。BSQ1とBSQ2が帰還したら、すぐに発艦して攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが非常に低い。BSQ2が攻撃に向かっており、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還し、BSQ2も間もなく帰還予定。敵空母のHPが少ないため、次の攻撃で撃沈を狙う。BSQ1を発艦させ、敵空母を攻撃する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 9, "y": 11}}<br>```
+</td>
+<td>
+敵空母AC1のHPが残り少ない。BSQ1とBSQ2が帰還中。次の攻撃で敵空母を撃沈するために、準備を整える。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が索敵を進めている。ASQ2を発艦させ、異なる方向に索敵を行い、敵空母の位置を特定する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 21, "y": 13}}<br>```
+</td>
+<td>
+敵空母のHPが非常に低い。次の攻撃で撃沈を狙う。BSQ1とBSQ2は帰還中で、次の攻撃に備える。空母は敵航空部隊からの攻撃を避けるために移動を続ける。<br>```json<br>{"carrier_target": {"x": 5, "y": 6}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母に接近中で、攻撃が期待できる。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を確認。BSQ2が攻撃中。空母をさらに南に移動させて、敵の攻撃を避ける。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 24}, "launch_target": null}<br>```
+</td>
+<td>
+敵の航空部隊ASQ1にダメージを与えたが、空母も攻撃を受けている。空母をさらに安全な位置に移動させ、航空部隊の索敵結果を待つ。敵空母の位置を特定することが重要。<br>```json<br>{"carrier_target": {"x": 20, "y": 30}, "launch_target": null}<br>```<br><br>空母を安全な位置に移動させる必要がある。航空部隊の索敵結果を待ちつつ、敵空母の位置を特定する。<br>```json<br>{"carrier_target": {"x": 21, "y": 29}, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中で、敵空母のHPは残りわずか。次の攻撃で撃沈を狙う。空母は安全な位置に留め、次の攻撃結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">22</th>
+<td>
+敵空母のHPは8/100まで減少。BSQ2が攻撃中で、次の攻撃で撃沈の可能性が高い。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1とBSQ2がもうすぐ帰還します。敵空母のHPが少ないため、次の攻撃で撃沈を狙います。帰還後、すぐに発艦して攻撃を続けます。空母は現在の位置を維持します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中で、敵空母のHPが非常に低い。次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。BSQ2も発艦させ、同じ目標に向けて攻撃を仕掛ける。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 9, "y": 11}}<br>```
+</td>
+<td>
+敵空母AC1のHPが少ないため、次の攻撃で撃沈を狙う。BSQ1を発艦させ、敵空母を攻撃する。BSQ2も帰還後に再度攻撃を仕掛ける準備をする。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1とASQ2が索敵を進めている。敵空母の位置を特定するため、空母は現在の位置を維持し、索敵結果を待つ。次のターンで敵空母を発見できる可能性がある。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have lost.<br><br>Turn 21 of 30.<br><br>Recent events:<br>- your carrier(BC1) initiated an attack on an enemy squadron(ASQ1) while at (11, 12).<br>- contact with your carrier(BC1) was lost while at (-1, -1).<br>- your squadron(BSQ1) spotted an enemy carrier(AC1) at (5, 5) while at (8, 7).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ1) at (11, 11) while at (9, 10).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ2) at (9, 9) while at (9, 10).<br>- your squadron(BSQ2) spotted an enemy carrier(AC1) at (4, 5) while at (5, 5).<br><br>Your forces:<br>- Your carrier BC1: sunk, HP 0/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (9, 10), returning to the carrier, HP 1/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (5, 5), returning to the carrier, HP 13/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (4, 5), en route to target (4, 5), HP 7/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (11, 11), returning to the carrier, HP 13/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (9, 9), returning to the carrier, HP 16/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+BSQ2が敵空母に接近し、攻撃が期待できる。BSQ1は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中。敵の航空部隊がこちらに接近しているため、空母をさらに南に移動させて位置を変える。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 23}, "launch_target": null}<br>```
+</td>
+<td>
+航空部隊が帰還中。敵空母の位置はまだ不明だが、ASQ1が近くにいるため、空母を安全な位置に維持しつつ、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPは残りわずか。BSQ1を再度発艦させ、敵空母への最後の攻撃を試みる。空母は安全な位置に留める。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 15, "y": 22}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">23</th>
+<td>
+敵空母のHPは1/100まで減少。次の攻撃で撃沈可能。BSQ1を発艦させて、敵空母を確実に撃沈する。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 16, "y": 10}}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が帰還し、発艦準備が整いました。敵空母のHPが少ないため、BSQ1を発艦させて攻撃を再開します。BSQ2も帰還後、すぐに発艦させます。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 5, "y": 4}}<br>```
+</td>
+<td>
+敵空母のHPが8まで減少している。BSQ1を再度発艦させ、敵空母への最後の攻撃を仕掛ける。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 0, "y": 25}}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に向かっている。敵空母のHPが少ないため、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1に向かっている。BSQ2も発艦させ、敵空母への攻撃を強化する。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1が帰還中で、ASQ2が索敵を続けている。敵空母の位置はまだ不明だが、敵航空部隊の動きから推測できる。空母は現在の位置を維持し、ASQ2の索敵結果を待つ。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ2が敵空母を攻撃中。BSQ1を再度発艦させ、敵空母への攻撃を強化する。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 7, "y": 3}}<br>```
+</td>
+<td>
+BSQ2が敵空母にダメージを与え、帰還中。敵空母は残りHPが少ない。空母をさらに南に移動させて、敵の攻撃を避ける。次の攻撃に備える。<br>```json<br>{"carrier_target": {"x": 13, "y": 22}, "launch_target": null}<br>```
+</td>
+<td>
+航空部隊が帰還中。敵空母の位置はまだ不明。空母を安全な位置に維持しつつ、次の攻撃に備える。帰還後、再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPは非常に低い。BSQ1が攻撃に向かっているので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵航空部隊の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">24</th>
+<td>
+敵空母のHPは1/100で、位置も確認済み。BSQ1が攻撃に向かっている。BSQ2も発艦させて、確実に撃沈を狙う。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 14, "y": 9}}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が敵空母に向かっています。BSQ2も発艦させ、同じ目標を攻撃します。敵空母を撃沈するために攻撃を続けます。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 5, "y": 4}}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。敵空母のHPが非常に低いため、次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に接近中。攻撃が成功することを期待しつつ、空母は現在の位置を維持して状況を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母AC1に向かっている。敵空母のHPを削り切るために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が帰還中で、ASQ2が索敵を続けている。敵空母の位置を特定するため、空母は現在の位置を維持し、ASQ2の索敵結果を待つ。次のターンで新たな索敵を計画する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ2が敵空母にダメージを与え、帰還中。BSQ1が攻撃に向かっている。敵空母のHPがさらに減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置を確認し、残りHPが少ない。次の攻撃で撃沈を狙う。空母をさらに南に移動させて、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 13, "y": 21}, "launch_target": null}<br>```
+</td>
+<td>
+航空部隊が帰還中で、敵空母の位置はまだ不明。空母を安全な位置に維持し、帰還後に再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPは非常に低い状態。BSQ1が攻撃に向かっているので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵航空部隊の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">25</th>
+<td>
+敵空母のHPは1/100で、位置も確認済み。BSQ1とBSQ2が攻撃に向かっているので、次の攻撃で撃沈の可能性が高い。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+両方の航空部隊が敵空母に向かっています。敵空母を撃沈するために攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中で、敵空母のHPが非常に低い。次の攻撃で撃沈を狙う。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が敵空母に非常に近い位置にいる。攻撃が成功することを期待しつつ、空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母AC1を攻撃中。BSQ2も攻撃に向かっている。敵空母のHPを削り切るために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1とASQ2が帰還中。敵空母の位置はまだ不明だが、次のターンで両方の航空部隊を再度発艦させ、異なる方向に索敵を行う計画を立てる。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が帰還し、再び発艦可能。敵空母の位置は把握しているので、次の攻撃を準備する。空母をさらに南に移動させて、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 13, "y": 20}, "launch_target": {"x": 0, "y": 4}}<br>```
+</td>
+<td>
+航空部隊が帰還中で、敵空母の位置はまだ不明。空母を安全な位置に維持し、帰還後に再出撃して敵空母を攻撃する準備をする。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母のHPが低く、BSQ1が攻撃に向かっている。BSQ2を再度発艦させ、敵空母への攻撃を強化する。空母は現在の位置で待機し、敵の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 17, "y": 23}}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">26</th>
+<td>
+敵空母のHPは1/100で、位置も確認済み。BSQ1とBSQ2が攻撃に向かっているので、次の攻撃で撃沈の可能性が高い。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+両航空部隊が敵空母に接近中です。敵空母を撃沈するために攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に非常に近づいている。敵空母のHPが8なので、次の攻撃で撃沈を狙う。BSQ2も準備が整っているので、必要に応じて発艦させる。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が攻撃を終えて帰還中。BSQ2がまだ攻撃中で、敵空母の撃沈を期待する。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが残り少ない。BSQ2が攻撃中で、BSQ1が帰還中。次の攻撃で敵空母を撃沈するために攻撃を続ける。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が帰還し、発艦準備が整った。敵空母の位置を特定するため、ASQ1を発艦させ、敵航空部隊の近くを索敵する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 20, "y": 18}}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```<br><br>BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に向かっている。敵の航空部隊が見えないため、空母をさらに南に移動させて位置を変える。次の攻撃で敵空母を撃沈することを目指す。<br>```json<br>{"carrier_target": {"x": 13, "y": 19}, "launch_target": null}<br>```
+</td>
+<td>
+航空部隊がまもなく帰還する。敵空母の位置は依然として不明だが、残りターンが少ないため、帰還後にすぐ再出撃して索敵と攻撃を行う必要がある。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も攻撃に向かっている。敵空母のHPは非常に低いため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">27</th>
+<td>
+BSQ1が敵空母を攻撃中で、BSQ2も接近中。敵空母のHPは1/100で、次の攻撃で撃沈の可能性が非常に高い。空母は現在の位置を維持し、敵の動きを監視する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1とBSQ2が敵空母に接近中です。敵空母を撃沈するために攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、敵空母のHPが非常に低い。次の攻撃で撃沈を狙う。BSQ2は必要に応じて発艦させる準備を整えている。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1とBSQ2が帰還中。敵空母の撃沈を確認できていないため、次のターンで再度攻撃を仕掛ける準備をする。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが非常に少ない。次の攻撃で撃沈を狙う。BSQ1とBSQ2が帰還後、再度攻撃を仕掛ける準備をする。空母は現在の位置を維持し、次の行動に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+ASQ1が敵空母の位置を特定するために索敵を開始している。ASQ2が帰還次第、再度発艦させて索敵を強化する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が敵空母に接近中で、攻撃が期待できる。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母のHPが減少しているため、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中。敵の航空部隊が見えないため、空母をさらに南に移動させて位置を変える。次の攻撃で敵空母を撃沈することを目指す。<br>```json<br>{"carrier_target": {"x": 13, "y": 18}, "launch_target": null}<br>```
+</td>
+<td>
+航空部隊が帰還し、再出撃の準備が整った。残りターンが少ないため、すぐに発艦して敵空母を索敵・攻撃する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 13, "y": 11}}<br>```
+</td>
+<td>
+敵空母のHPは残りわずか。BSQ2が攻撃に向かっているので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">28</th>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 27 of 30.<br><br>Recent events:<br>- your squadron(BSQ1) initiated an attack on an enemy carrier(AC1) while at (10, 6).<br>- your squadron(BSQ1) hit an enemy carrier(AC1) causing 0 damage while at (10, 6).<br>- your squadron(BSQ1) is returning to the carrier while at (10, 6).<br>- your squadron(BSQ2) is returning to the carrier while at (9, 7).<br><br>Your forces:<br>- Your carrier BC1: position (16, 11), en route to target (16, 11), HP 71/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (10, 6), returning to the carrier, HP 15/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (9, 7), returning to the carrier, HP 12/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: sunk, HP 0/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: on board a carrier, ready to launch., HP 16/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+
+</td>
+<td>
+BSQ1とBSQ2が敵空母に接近中です。敵空母を撃沈するために攻撃を続けます。空母は現在の位置を維持し、敵の動きを監視します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 27 of 30.<br><br>Recent events:<br>- your squadron(BSQ1) initiated an attack on an enemy carrier(AC1) while at (1, 28).<br>- your squadron(BSQ1) hit an enemy carrier(AC1) causing 1 damage while at (1, 28).<br>- your squadron(BSQ1) is returning to the carrier while at (1, 28).<br>- your carrier(BC1) spotted an enemy squadron(ASQ1) at (8, 20) while at (8, 19).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ2) at (3, 25) while at (1, 28).<br><br>Your forces:<br>- Your carrier BC1: position (8, 19), en route to target (8, 19), HP 30/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (1, 28), returning to the carrier, HP 18/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: on board a carrier, ready to launch., HP 9/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: sunk, HP 0/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (8, 20), engaging an enemy target at (8, 19), HP 11/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (3, 25), outbound toward (9, 20), HP 14/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+BSQ1とBSQ2が帰還中。敵空母の撃沈を確認できていないため、次のターンで再度攻撃を仕掛ける準備をする。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが非常に少ないため、次の攻撃で撃沈を狙う。BSQ1を発艦させ、敵空母を攻撃する。BSQ2も帰還後に再度攻撃を仕掛ける準備をする。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1が索敵を進めている。ASQ2を発艦させ、異なる方向に索敵を行い、敵空母の位置を特定する。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": {"x": 21, "y": 17}}<br>```
+</td>
+<td>
+
+</td>
+<td>
+BSQ1が敵空母を攻撃中で、敵空母のHPが減少している。BSQ2は帰還中で、次のターンで再度発艦させる準備をする。敵空母の撃沈を狙う。空母は現在の位置で待機し、次の攻撃に備える。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ1が敵空母に接近中。BSQ2は再び発艦可能。敵空母の位置は把握しているので、次の攻撃を準備する。空母をさらに南に移動させて、敵の攻撃を避ける。<br>```json<br>{"carrier_target": {"x": 13, "y": 17}, "launch_target": {"x": 4, "y": 11}}<br>```<br><br>空母の移動先を修正する必要がある。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 14, "y": 18}, "launch_target": {"x": 4, "y": 11}}<br>```<br><br>空母の移動先を再度修正する。海上の座標を選択する。<br>```json<br>{"carrier_target": {"x": 12, "y": 18}, "launch_target": {"x": 4, "y": 11}}<br>```
+</td>
+<td>
+BSQ1が索敵に向かっている。BSQ2も発艦させ、別の方向から索敵を行う。残りターンが少ないため、迅速に行動する必要がある。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 14, "y": 12}}<br>```
+</td>
+<td>
+敵空母のHPは非常に低い状態。BSQ2が攻撃に向かっているので、次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">29</th>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+敵空母の位置が確認できました。BSQ1が攻撃に向かっています。次のターンで敵空母を撃沈することを目指します。空母は現在の位置を維持します。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+最終ターンが近づいている。BSQ1とBSQ2が帰還したら、可能であれば最後の攻撃を仕掛ける。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```<br><br>最終ターンが近づいている。BSQ1とBSQ2が帰還したら、可能であれば最後の攻撃を仕掛ける。空母は現在の位置を維持する。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母AC1のHPが非常に少ないため、BSQ1が攻撃を続けている。BSQ2も発艦させ、敵空母を撃沈するために攻撃を強化する。<br>```json<br>{"carrier_target": null, "launch_target": {"x": 10, "y": 2}}<br>```
+</td>
+<td>
+ASQ1とASQ2が索敵を進めている。最終ターンで敵空母を発見するため、空母は現在の位置を維持し、索敵結果を待つ。<br>```json<br>{"carrier_target": {"x": 18, "y": 2}, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have lost.<br><br>Turn 28 of 30.<br><br>Recent events:<br>- your carrier(BC1) initiated an attack on an enemy squadron(ASQ2) while at (17, 15).<br>- contact with your carrier(BC1) was lost while at (-1, -1).<br>- your squadron(BSQ1) initiated an attack on an enemy carrier(AC1) while at (8, 4).<br>- your squadron(BSQ1) hit an enemy carrier(AC1) causing 4 damage while at (8, 4).<br>- your squadron(BSQ1) is returning to the carrier while at (8, 4).<br>- your squadron(BSQ2) spotted an enemy squadron(ASQ1) at (15, 10) while at (17, 15).<br>- your squadron(BSQ2) spotted an enemy squadron(ASQ2) at (18, 16) while at (17, 15).<br><br>Your forces:<br>- Your carrier BC1: sunk, HP 0/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (8, 4), returning to the carrier, HP 4/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (17, 15), returning to the carrier, HP 20/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (7, 3), en route to target (7, 3), HP 14/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (15, 10), returning to the carrier, HP 11/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (18, 16), returning to the carrier, HP 20/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+BSQ1が敵空母を攻撃中。BSQ2も敵空母に向かっている。空母は現在の位置で待機し、次の攻撃を見守る。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+敵空母の位置は依然として不明。最終ターンに向けて、BSQ1とBSQ2が索敵を続ける。敵空母を発見できれば攻撃を試みる。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+BSQ2が敵空母を攻撃中で、敵空母のHPは非常に低い。次の攻撃で撃沈を狙う。空母は現在の位置で待機し、敵の動きに注意を払う。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">30</th>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+最終ターンで敵空母を攻撃中です。敵空母のHPは残りわずかで、撃沈の可能性があります。戦況を見守ります。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+最終ターンであり、攻撃の機会はない。敵空母のHPが低いため、こちらのHPが勝っている可能性が高い。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+最終ターンで敵空母AC1のHPがわずかに残っている。BSQ1とBSQ2が攻撃中だが、撃沈には至らなかった。結果を待つ。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+最終ターンに到達したが、敵空母を発見できなかった。次回はより早期に索敵範囲を広げ、敵空母を特定する必要がある。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+最終ターンで敵空母に大きなダメージを与えたが、撃沈には至らなかった。敵空母のHPは9/100で、こちらの空母のHPは75/100。敵空母を先に発見し、優位に立っている。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+最終ターンにおいて、敵空母の位置を特定できなかった。敵航空部隊を攻撃する機会も限られていた。次回は索敵範囲を広げ、敵空母の位置を早期に特定する戦略が必要。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+<td>
+最終ターンで敵空母を撃沈できなかったが、敵空母のHPは非常に低い状態。こちらの空母のHPも低いため、引き分けの可能性が高い。次のゲームでは早期に敵空母を発見し、迅速に攻撃を仕掛ける戦略が必要。<br>```json<br>{"carrier_target": null, "launch_target": null}<br>```
+</td>
+</tr>
+<tr>
+<th class="row-header">31</th>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your squadron(BSQ1) initiated an attack on an enemy carrier(AC1) while at (2, 2).<br>- your squadron(BSQ1) hit an enemy carrier(AC1) causing 4 damage while at (2, 2).<br>- your squadron(BSQ1) is returning to the carrier while at (2, 2).<br>- your squadron(BSQ2) set a new target toward an enemy carrier(AC1) at (1, 1) while at (2, 1).<br>- your squadron(BSQ2) is engaging an enemy carrier(AC1) while at (2, 1).<br><br>Your forces:<br>- Your carrier BC1: position (15, 25), en route to target (15, 25), HP 58/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (2, 2), returning to the carrier, HP 11/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (2, 1), engaging an enemy target at (1, 1), HP 12/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (1, 1), en route to target (1, 1), HP 8/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (10, 18), outbound toward (10, 20), HP 27/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (8, 16), returning to the carrier, HP 20/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your squadron(BSQ2) landed on the carrier while at (19, 22).<br><br>Your forces:<br>- Your carrier BC1: position (19, 22), en route to target (19, 22), HP 26/100, speed 2, vision 4.<br>- Your squadron BSQ1: on board a carrier, ready to launch., HP 11/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: on board a carrier, ready to launch., HP 20/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (1, 9), en route to target (1, 9), HP 20/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (14, 18), outbound toward (18, 21), HP 11/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (10, 17), outbound toward (17, 21), HP 19/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your carrier(BC1) spotted an enemy squadron(ASQ2) at (12, 4) while at (15, 6).<br>- your squadron(BSQ1) set a new target toward an enemy carrier(AC1) at (10, 2) while at (9, 1).<br>- your squadron(BSQ2) set a new target toward an enemy carrier(AC1) at (10, 2) while at (11, 3).<br>- your squadron(BSQ2) spotted an enemy squadron(ASQ2) at (12, 4) while at (11, 3).<br>- your squadron(BSQ1) is engaging an enemy carrier(AC1) while at (9, 1).<br><br>Your forces:<br>- Your carrier BC1: position (15, 6), en route to target (15, 6), HP 16/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (9, 1), engaging an enemy target at (10, 2), HP 9/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (11, 3), outbound toward (10, 2), HP 12/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (10, 2), en route to target (10, 2), HP 6/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: on board a carrier, ready to launch., HP 3/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (12, 4), returning to the carrier, HP 10/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have lost.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (24, 19) while at (20, 18).<br>- your squadron(ASQ1) is returning to the carrier while at (20, 18).<br><br>Your forces:<br>- Your carrier AC1: position (18, 2), en route to target (18, 2), HP 100/100, speed 2, vision 4.<br>- Your squadron ASQ1: position (20, 18), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.<br>- Your squadron ASQ2: position (21, 11), outbound toward (21, 17), HP 40/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier BC1: position (29, 28), stationary, HP 100/100, speed 2, vision 4.<br>- Enemy squadron BSQ1: position (24, 19), outbound toward (22, 14), HP 40/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron BSQ2: position (28, 27), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your carrier(BC1) initiated an attack on an enemy squadron(ASQ1) while at (12, 18).<br>- your carrier(BC1) hit an enemy squadron(ASQ1) causing 25 damage while at (12, 18).<br>- your squadron(BSQ2) spotted an enemy squadron(ASQ1) at (11, 17) while at (8, 14).<br>- your carrier(BC1) spotted an enemy squadron(ASQ2) at (11, 18) while at (12, 18).<br>- your squadron(BSQ1) spotted an enemy carrier(AC1) at (6, 14) while at (7, 15).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ1) at (11, 17) while at (7, 15).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ2) at (11, 18) while at (7, 15).<br>- your squadron(BSQ2) set a new target toward an enemy carrier(AC1) at (6, 14) while at (5, 15).<br>- your squadron(BSQ2) is engaging an enemy carrier(AC1) while at (5, 15).<br><br>Your forces:<br>- Your carrier BC1: position (12, 18), en route to target (12, 18), HP 50/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (7, 15), returning to the carrier, HP 13/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (5, 15), engaging an enemy target at (6, 14), HP 17/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (6, 14), en route to target (8, 15), HP 9/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (11, 17), returning to the carrier, HP 24/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (11, 18), engaging an enemy target at (12, 18), HP 21/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+Aborted:<br><br> Below is the last battle situation.<br>Result (from your perspective): you have won.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ2) at (14, 21) while at (15, 16).<br>- your squadron(BSQ2) spotted an enemy squadron(ASQ2) at (14, 21) while at (17, 20).<br><br>Your forces:<br>- Your carrier BC1: position (21, 29), en route to target (21, 29), HP 46/100, speed 2, vision 4.<br>- Your squadron BSQ1: position (15, 16), outbound toward (13, 11), HP 19/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position (17, 20), outbound toward (14, 12), HP 25/40, operational range 22, speed 4, vision 5.<br><br>Enemy intelligence:<br>- Enemy carrier AC1: position (3, 7), en route to target (3, 7), HP 44/100, speed 2, vision 4.<br>- Enemy squadron ASQ1: position (6, 12), outbound toward (16, 25), HP 23/40, operational range 22, speed 4, vision 5.<br>- Enemy squadron ASQ2: position (14, 21), returning to the carrier, HP 20/40, operational range 22, speed 4, vision 5.<br>
+</td>
+<td>
+Aborted:<br><br> Below is the current battle situation from your perspective.<br><br>Turn 30 of 30.<br><br>Recent events:<br>- your squadron(BSQ2) initiated an attack on an enemy carrier(AC1) while at (18, 22).<br>- contact with your squadron(BSQ2) was lost while at (18, 22).<br>- your squadron(BSQ1) spotted an enemy squadron(ASQ1) at (15, 17) while at (12, 13).<br>- your squadron(BSQ1) landed on the carrier while at (13, 12).<br>- your carrier(BC1) spotted an enemy squadron(ASQ1) at (14, 14) while at (13, 12).<br><br>Enemy intelligence:<br>- Enemy carrier AC1: last known position (18, 23) (previously at (7, 13)), HP 11/100.<br>- Enemy squadron ASQ1: last known position (14, 14) (previously at (17, 21)), HP 7/40.<br><br>Your forces:<br>- Your carrier BC1: position (13, 12), en route to target (13, 12), HP 17/100, speed 2, vision 4.<br>- Your squadron BSQ1: on board a carrier, ready to launch., HP 2/40, operational range 22, speed 4, vision 5.<br>- Your squadron BSQ2: position unknown position, returning to the carrier, HP 0/40, operational range 22, speed 4, vision 5.<br>
+</td>
+</tr>
+</table>
+</body></html>

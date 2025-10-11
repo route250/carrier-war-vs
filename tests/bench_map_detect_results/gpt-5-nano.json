@@ -1,0 +1,291 @@
+{
+  "provider": "openai",
+  "model": "gpt-5-nano",
+  "reasoning": "minimal",
+  "座標(0, 0)は、海ですか？ JSON形式で回答し、'answer' フィールドに yes または no を指定して下さい。": {
+    "answer": "{\"answer\":\"yes\"}",
+    "elapsed": 1.9064300060272217,
+    "cost": {
+      "prompt_tokens": 405,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 16,
+      "reasoning_tokens": 0,
+      "total_tokens": 421,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(0, 0)に隣接する陸は何マスありますか？ JSON形式で回答し、'land_count' フィールドに整数を入れて下さい。": {
+    "answer": "{\"land_count\": 3}",
+    "elapsed": 1.2894229888916016,
+    "cost": {
+      "prompt_tokens": 409,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 18,
+      "reasoning_tokens": 0,
+      "total_tokens": 427,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(0, 0)に隣接するマスの座標を全て教えて下さい。 JSON形式で回答し、'neighbors' フィールドに (x,y) 座標の配列を入れて下さい。": {
+    "answer": "{\"neighbors\":[{\"x\":-1,\"y\":0},{\"x\":1,\"y\":0},{\"x\":-1,\"y\":-1},{\"x\":0,\"y\":-1},{\"x\":-1,\"y\":1},{\"x\":0,\"y\":1}]}",
+    "elapsed": 1.5734508037567139,
+    "cost": {
+      "prompt_tokens": 462,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 69,
+      "reasoning_tokens": 0,
+      "total_tokens": 531,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(1, 1)は、海ですか？ JSON形式で回答し、'answer' フィールドに yes または no を指定して下さい。": {
+    "answer": "{\"answer\":\"yes\"}",
+    "elapsed": 1.284576654434204,
+    "cost": {
+      "prompt_tokens": 405,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 16,
+      "reasoning_tokens": 0,
+      "total_tokens": 421,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(1, 1)に隣接する陸は何マスありますか？ JSON形式で回答し、'land_count' フィールドに整数を入れて下さい。": {
+    "answer": "{\"land_count\": 3}",
+    "elapsed": 1.251744031906128,
+    "cost": {
+      "prompt_tokens": 409,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 18,
+      "reasoning_tokens": 0,
+      "total_tokens": 427,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(1, 1)に隣接するマスの座標を全て教えて下さい。 JSON形式で回答し、'neighbors' フィールドに (x,y) 座標の配列を入れて下さい。": {
+    "answer": "{\"neighbors\":[{\"x\":0,\"y\":1},{\"x\":2,\"y\":1},{\"x\":0,\"y\":0},{\"x\":1,\"y\":0},{\"x\":0,\"y\":2},{\"x\":2,\"y\":2}]}",
+    "elapsed": 1.1581480503082275,
+    "cost": {
+      "prompt_tokens": 462,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 64,
+      "reasoning_tokens": 0,
+      "total_tokens": 526,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(2, 2)は、陸ですか？ JSON形式で回答し、'answer' フィールドに yes または no を指定して下さい。": {
+    "answer": "{\"answer\":\"yes\"}",
+    "elapsed": 1.0912120342254639,
+    "cost": {
+      "prompt_tokens": 406,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 16,
+      "reasoning_tokens": 0,
+      "total_tokens": 422,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(2, 2)に隣接する陸は何マスありますか？ JSON形式で回答し、'land_count' フィールドに整数を入れて下さい。": {
+    "answer": "{\"land_count\": 4}",
+    "elapsed": 1.556614875793457,
+    "cost": {
+      "prompt_tokens": 409,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 18,
+      "reasoning_tokens": 0,
+      "total_tokens": 427,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(2, 2)に隣接するマスの座標を全て教えて下さい。 JSON形式で回答し、'neighbors' フィールドに (x,y) 座標の配列を入れて下さい。": {
+    "answer": "{\"neighbors\":[{\"x\":1,\"y\":2},{\"x\":3,\"y\":2},{\"x\":1,\"y\":1},{\"x\":2,\"y\":1},{\"x\":1,\"y\":3},{\"x\":2,\"y\":3}]}",
+    "elapsed": 1.9570658206939697,
+    "cost": {
+      "prompt_tokens": 462,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 64,
+      "reasoning_tokens": 0,
+      "total_tokens": 526,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(3, 3)は、陸ですか？ JSON形式で回答し、'answer' フィールドに yes または no を指定して下さい。": {
+    "answer": "{\"answer\":\"yes\"}",
+    "elapsed": 1.0369207859039307,
+    "cost": {
+      "prompt_tokens": 406,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 16,
+      "reasoning_tokens": 0,
+      "total_tokens": 422,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(3, 3)に隣接する陸は何マスありますか？ JSON形式で回答し、'land_count' フィールドに整数を入れて下さい。": {
+    "answer": "{\"land_count\": 3}",
+    "elapsed": 1.0330121517181396,
+    "cost": {
+      "prompt_tokens": 409,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 18,
+      "reasoning_tokens": 0,
+      "total_tokens": 427,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(3, 3)に隣接するマスの座標を全て教えて下さい。 JSON形式で回答し、'neighbors' フィールドに (x,y) 座標の配列を入れて下さい。": {
+    "answer": "{\"neighbors\":[{\"x\":2,\"y\":3},{\"x\":4,\"y\":3},{\"x\":2,\"y\":2},{\"x\":3,\"y\":2},{\"x\":2,\"y\":4},{\"x\":3,\"y\":4}]}",
+    "elapsed": 2.1678919792175293,
+    "cost": {
+      "prompt_tokens": 462,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 64,
+      "reasoning_tokens": 0,
+      "total_tokens": 526,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(4, 4)は、海ですか？ JSON形式で回答し、'answer' フィールドに yes または no を指定して下さい。": {
+    "answer": "{\"answer\":\"yes\"}",
+    "elapsed": 1.13909912109375,
+    "cost": {
+      "prompt_tokens": 405,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 16,
+      "reasoning_tokens": 0,
+      "total_tokens": 421,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "座標(4, 4)に隣接する陸は何マスありますか？ JSON形式で回答し、'land_count' フィールドに整数を入れて下さい。": {
+    "answer": "{\"land_count\": 4}",
+    "elapsed": 1.138193130493164,
+    "cost": {
+      "prompt_tokens": 409,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 18,
+      "reasoning_tokens": 0,
+      "total_tokens": 427,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": false
+  },
+  "座標(4, 4)に隣接するマスの座標を全て教えて下さい。 JSON形式で回答し、'neighbors' フィールドに (x,y) 座標の配列を入れて下さい。": {
+    "answer": "{\"neighbors\":[{\"x\":3,\"y\":4},{\"x\":5,\"y\":4},{\"x\":3,\"y\":3},{\"x\":4,\"y\":3},{\"x\":3,\"y\":5},{\"x\":4,\"y\":5}]}",
+    "elapsed": 1.9578561782836914,
+    "cost": {
+      "prompt_tokens": 462,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "completion_tokens": 64,
+      "reasoning_tokens": 0,
+      "total_tokens": 526,
+      "prompt_price": 0.0,
+      "cached_price": 0.0,
+      "completion_price": 0.0,
+      "total_price": 0.0
+    },
+    "result": true
+  },
+  "elapsed": 21.54163861,
+  "summary": {
+    "CellType": {
+      "correct": 3,
+      "total": 5
+    },
+    "Count": {
+      "correct": 3,
+      "total": 5
+    },
+    "Neighbors": {
+      "correct": 2,
+      "total": 5
+    },
+    "Total": {
+      "correct": 8,
+      "total": 15
+    }
+  },
+  "cost": {
+    "prompt_tokens": 6382,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "completion_tokens": 495,
+    "reasoning_tokens": 0,
+    "total_tokens": 6877,
+    "prompt_price": 0.0003,
+    "cached_price": 0.0,
+    "completion_price": 0.0002,
+    "total_price": 0.0005
+  }
+}

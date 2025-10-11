@@ -1,0 +1,390 @@
+{
+  "winner_side": "B",
+  "winner_model": "gpt-4.1",
+  "B": {
+    "provider": "openai",
+    "model": "gpt-4.1",
+    "usage": {
+      "prompt_tokens": 297126,
+      "cache_read_tokens": 279040,
+      "cache_write_tokens": 0,
+      "completion_tokens": 4620,
+      "reasoning_tokens": 0,
+      "total_tokens": 301746,
+      "prompt_price": 0.0345,
+      "cached_price": 0.1331,
+      "completion_price": 0.0352,
+      "total_price": 0.2028
+    },
+    "activity": {
+      "last_turn": 26,
+      "json_errors": 0,
+      "carrier_request_count": 22,
+      "carrier_request_errors": 1,
+      "squadron_request_count": 8,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 5,
+      "trip_count": {
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            14,
+            4
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            22,
+            4
+          ],
+          [
+            24,
+            4
+          ]
+        ],
+        "BSQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            17,
+            3
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            21,
+            4
+          ],
+          [
+            24,
+            2
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            2
+          ]
+        ],
+        "BC1": [
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            23,
+            2
+          ],
+          [
+            24,
+            2
+          ],
+          [
+            26,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "openai",
+    "model": "gpt-5",
+    "usage": {
+      "prompt_tokens": 283481,
+      "cache_read_tokens": 247424,
+      "cache_write_tokens": 0,
+      "completion_tokens": 4193,
+      "reasoning_tokens": 0,
+      "total_tokens": 287674,
+      "prompt_price": 0.043,
+      "cached_price": 0.0295,
+      "completion_price": 0.04,
+      "total_price": 0.1125
+    },
+    "activity": {
+      "last_turn": 26,
+      "json_errors": 0,
+      "carrier_request_count": 9,
+      "carrier_request_errors": 1,
+      "squadron_request_count": 9,
+      "squadron_request_errors": 0,
+      "spotted_enemy_turn": 6,
+      "trip_count": {
+        "AC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            1
+          ]
+        ],
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            17,
+            2
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            20,
+            4
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            4
+          ],
+          [
+            24,
+            3
+          ]
+        ],
+        "ASQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            15,
+            3
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            21,
+            4
+          ],
+          [
+            24,
+            3
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            4
+          ]
+        ]
+      }
+    }
+  }
+}

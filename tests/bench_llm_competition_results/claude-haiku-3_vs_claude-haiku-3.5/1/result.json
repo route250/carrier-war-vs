@@ -1,0 +1,328 @@
+{
+  "winner_side": "A",
+  "winner_model": "Claude-Haiku-3.5",
+  "B": {
+    "provider": "anthropic",
+    "model": "Claude-Haiku-3",
+    "usage": {
+      "prompt_tokens": 297234,
+      "cache_read_tokens": 279160,
+      "cache_write_tokens": 17889,
+      "completion_tokens": 6375,
+      "reasoning_tokens": 0,
+      "total_tokens": 303609,
+      "prompt_price": 0.0,
+      "cached_price": 0.008,
+      "cache_write_price": 0.0051,
+      "completion_price": 0.0076,
+      "total_price": 0.0156
+    },
+    "activity": {
+      "last_turn": 23,
+      "json_errors": 0,
+      "carrier_request_count": 20,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 9,
+      "squadron_request_errors": 5,
+      "spotted_enemy_turn": 6,
+      "trip_count": {
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            15,
+            3
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            19,
+            3
+          ],
+          [
+            20,
+            2
+          ]
+        ],
+        "BC1": [
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            22,
+            2
+          ]
+        ],
+        "BSQ2": [
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            21,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "anthropic",
+    "model": "Claude-Haiku-3.5",
+    "usage": {
+      "prompt_tokens": 270132,
+      "cache_read_tokens": 250556,
+      "cache_write_tokens": 19398,
+      "completion_tokens": 7318,
+      "reasoning_tokens": 0,
+      "total_tokens": 277450,
+      "prompt_price": 0.0001,
+      "cached_price": 0.0191,
+      "cache_write_price": 0.0185,
+      "completion_price": 0.0279,
+      "total_price": 0.0471
+    },
+    "activity": {
+      "last_turn": 23,
+      "json_errors": 0,
+      "carrier_request_count": 7,
+      "carrier_request_errors": 2,
+      "squadron_request_count": 8,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 6,
+      "trip_count": {
+        "AC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            1
+          ]
+        ],
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            15,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            20,
+            2
+          ]
+        ],
+        "ASQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            17,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            2
+          ]
+        ]
+      }
+    }
+  }
+}

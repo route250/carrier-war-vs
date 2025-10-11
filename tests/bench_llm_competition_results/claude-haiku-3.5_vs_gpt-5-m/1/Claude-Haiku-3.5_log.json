@@ -1,0 +1,286 @@
+[
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 1 of 30.\n\n\nYour forces:\n- Your carrier AC1: position (0, 2), stationary, HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"初期ターンの索敵作戦を立案します。敵空母は(26,26)付近のランダム位置に存在すると想定されるため、北東方向に向けて広範囲の索敵を計画します。ASQ1とASQ2の2つの航空部隊を異なる方向に発艦させ、効率的に敵空母の位置を特定します。\n\n    作戦方針:\n    1. ASQ1は北東方向(10,15)を目標に発艦し、広範囲を索敵\n    2. ASQ2は東北東方向(15,10)を目標に発艦し、別の海域を索敵\n    3. 空母AC1は現在地から微動し、航空部隊の行動を支援\n\n    目的:\n    - 敵空母の早期発見\n    - 航空部隊の安全な索敵\n    - 情報収集と戦術的優位性の確保\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 1, \"y\": 3},\n        \"launch_target\": {\n            \"x\": 10,\n            \"y\": 15\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 2 of 30.\n\nRecent events:\n- your squadron(ASQ1) set a new target toward position (10, 15) while at (2, 4).\n\nYour forces:\n- Your carrier AC1: position (1, 3), en route to target (1, 3), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (2, 4), outbound toward (10, 15), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"ASQ1が(2, 4)から(10, 15)に向けて移動中です。現在の位置から、まだ敵空母を発見していません。次の戦術を検討します。\n\n    現状分析:\n    - ASQ1は索敵範囲を広げながら移動中\n    - AC1は微小な移動を完了\n    - ASQ2はまだ発艦していない\n\n    次のアクション:\n    1. ASQ2を別の方向に発艦させ、索敵範囲を拡大\n    2. AC1は安全な位置に移動し、航空部隊をサポート\n    3. 広範囲の索敵を継続し、敵空母の位置を特定\n\n    目標:\n    - 効率的な海域偵察\n    - 敵空母の早期発見\n    - 航空部隊の安全確保\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 3, \"y\": 5},\n        \"launch_target\": {\n            \"x\": 15,\n            \"y\": 10\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 3 of 30.\n\nRecent events:\n- your squadron(ASQ2) set a new target toward position (15, 10) while at (4, 4).\n\nYour forces:\n- Your carrier AC1: position (3, 4), en route to target (3, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (4, 8), outbound toward (10, 15), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (4, 4), outbound toward (15, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"両航空部隊(ASQ1, ASQ2)が異なる方向に索敵中です。現在の位置から、まだ敵空母は発見されていません。\n\n    戦術分析:\n    - ASQ1は(4, 8)から(10, 15)へ移動中\n    - ASQ2は(4, 4)から(15, 10)へ移動中\n    - AC1は安全な位置に移動を継続\n\n    次の戦略:\n    1. 現在の索敵ルートを維持\n    2. 航空部隊の移動経路上で敵空母の兆候を注意深く監視\n    3. 必要に応じて索敵パターンを調整\n\n    目的:\n    - 広範囲の効率的な偵察\n    - 敵空母の早期発見\n    - 航空部隊の安全確保と機動性維持\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 5, \"y\": 6},\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: Carrier target was rejected. x=5 y=6 is not on sea. Please specify a valid coordinate, such as x=4 y=5.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"地形エラーが発生しました。陸地を避けて、海上の安全な位置に空母を移動させる必要があります。\n\n    戦術修正:\n    - 陸地を避けた海上の移動経路を選択\n    - 航空部隊の索敵をサポートする位置に移動\n    - 現在の索敵ルートは継続\n\n    目的:\n    - 安全な空母移動\n    - 航空部隊の索敵支援\n    - 敵空母発見の可能性を維持\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 4, \"y\": 5},\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 4 of 30.\n\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (6, 12), outbound toward (10, 15), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (7, 5), outbound toward (15, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"現在の索敵状況を分析します。\n\n    索敵進捗:\n    - ASQ1は(6, 12)から(10, 15)へ移動中\n    - ASQ2は(7, 5)から(15, 10)へ移動中\n    - AC1は(4, 5)で安定\n\n    戦術評価:\n    1. 航空部隊は広範囲を徐々にカバーしつつある\n    2. まだ敵空母の兆候は掴めていない\n    3. 現在の索敵パターンを継続することが最適\n\n    次のアクション:\n    - 現在の索敵ルートを維持\n    - 航空部隊の移動を継続\n    - 敵空母発見に備えて警戒を続ける\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 5 of 30.\n\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (9, 14), outbound toward (10, 15), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (10, 7), outbound toward (15, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"索敵範囲が徐々に拡大しています。現在の状況を詳細に分析します。\n\n    索敵状況:\n    - ASQ1は(9, 14)まで進出し、目標(10, 15)に近づいている\n    - ASQ2は(10, 7)から(15, 10)へ移動中\n    - AC1は(4, 5)で静止中\n\n    戦術考察:\n    1. 両航空部隊は異なる海域を効率的にカバーしつつある\n    2. まだ敵空母の発見には至っていない\n    3. 現在の索敵パターンは妥当で継続すべき\n\n    次の行動方針:\n    - 現在の索敵ルートを維持\n    - 航空部隊の移動を継続\n    - 敵空母の早期発見に注力\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 6 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (13, 11) while at (10, 15).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (13, 11) while at (13, 9).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (15, 12) while at (13, 9).\n- your squadron(ASQ1) is returning to the carrier while at (10, 15).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (13, 11) (previously at (15, 12)), HP 40/40.\n- Enemy squadron BSQ2: last known position (15, 12) (previously at (15, 13)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (10, 15), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (13, 9), outbound toward (15, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"重要な展開が発生しました！敵航空部隊(BSQ1, BSQ2)を発見しましたが、敵空母の位置はまだ不明です。\n\n    戦術分析:\n    - BSQ1は(13, 11)に位置\n    - BSQ2は(15, 12)に位置\n    - ASQ1は帰投中\n    - ASQ2は索敵を継続中\n\n    緊急対応方針:\n    1. ASQ2の索敵を継続し、敵空母の位置を特定\n    2. ASQ1は安全に帰投させる\n    3. 敵航空部隊の動きを注意深く監視\n    4. 敵空母の位置を推測し、攻撃準備\n\n    推測される敵空母位置:\n    - BSQ1, BSQ2の近傍、おそらく(14, 12)周辺\n    - 次のターンで確認が必要\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 7 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (11, 10) while at (8, 11).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (11, 10) while at (15, 10).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (14, 8) while at (15, 10).\n- your squadron(ASQ2) is returning to the carrier while at (15, 10).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (11, 10) (previously at (15, 12)), HP 40/40.\n- Enemy squadron BSQ2: last known position (14, 8) (previously at (15, 13)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (8, 11), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (15, 10), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが活発化しています。重要な情報を整理します。\n\n    戦術分析:\n    - BSQ1は(11, 10)に移動\n    - BSQ2は(14, 8)に移動\n    - ASQ1とASQ2は共に帰投中\n    - 敵空母の位置はまだ不明\n\n    現在の状況評価:\n    1. 敵航空部隊は分散して移動している\n    2. 両航空部隊の帰投により、一時的に索敵能力が低下\n    3. 敵空母の位置を推測するには、さらなる情報が必要\n\n    次の戦略:\n    - 帰投した航空部隊を迅速に再発艦\n    - 敵航空部隊の最後の位置から敵空母を推測\n    - 新たな索敵ルートを設定\n\n    推測される敵空母位置:\n    - (12, 10)付近の可能性が高い\n    - 次のターンで確認が必要\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 8 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (11, 11) while at (8, 10).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (15, 11) while at (12, 10).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (14, 11) while at (11, 9).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (14, 11) (previously at (15, 12)), HP 40/40.\n- Enemy squadron BSQ2: last known position (15, 11) (previously at (15, 13)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (6, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (11, 9), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが複雑化しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1は(14, 11)に移動\n    - BSQ2は(15, 11)に位置\n    - ASQ1とASQ2は帰投中\n    - 敵空母の位置は依然として不明\n\n    現状評価:\n    1. 敵航空部隊は北東方向に移動を続けている\n    2. 両航空部隊の帰投により、現在索敵能力が低下\n    3. 敵空母の位置を特定するには、さらなる情報収集が必要\n\n    次の戦略:\n    - 帰投した航空部隊を迅速に再発艦\n    - 敵航空部隊の移動パターンから敵空母位置を推測\n    - 新たな索敵ルートを設定し、敵空母を発見\n\n    推測される敵空母位置:\n    - (14, 12)または(15, 12)付近の可能性が高い\n    - 次のターンで確認が必要\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 9 of 30.\n\nRecent events:\n- your squadron(ASQ1) landed on the carrier while at (4, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (14, 11) (previously at (15, 12)), HP 40/40.\n- Enemy squadron BSQ2: last known position (15, 11) (previously at (15, 13)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (8, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"現在の状況を慎重に分析します。\n\n    戦術評価:\n    - ASQ1が空母に帰投完了\n    - ASQ2は帰投途中\n    - 敵航空部隊(BSQ1, BSQ2)の最終確認位置は北東方向\n    - 敵空母の位置は依然として不明\n\n    次の戦略:\n    1. ASQ1を迅速に再発艦\n    2. 敵航空部隊の最後の位置から敵空母を推測\n    3. 北東方向への広範囲索敵を継続\n\n    索敵計画:\n    - ASQ1は(15, 12)付近を目標に発艦\n    - 敵空母の位置を特定することが最優先\n    - 敵航空部隊の動きを注意深く監視\n\n    推測される敵空母位置:\n    - (14, 12)または(15, 12)周辺\n    - 次のターンで確定的な情報を得る必要がある\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 15,\n            \"y\": 12\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 10 of 30.\n\nRecent events:\n- your squadron(ASQ1) set a new target toward position (15, 12) while at (5, 6).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (14, 11) (previously at (15, 12)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (4, 5), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (5, 6), outbound toward (15, 12), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (5, 5), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"索敵作戦を継続し、敵空母の位置特定に注力します。\n\n    現状分析:\n    - ASQ1が(5, 6)から(15, 12)に向けて発艦\n    - ASQ2は空母に帰投途中\n    - BSQ1の最終確認位置は(14, 11)\n    - 敵空母の位置は依然として不明\n\n    戦術方針:\n    1. ASQ1の索敵を継続し、敵空母の位置を特定\n    2. ASQ2の帰投を完了させる\n    3. 北東方向への探索を維持\n\n    次のアクション:\n    - 空母の位置を微調整し、航空部隊の行動をサポート\n    - 広範囲の索敵を継続\n    - 敵航空部隊の動きに注意\n\n    目標:\n    - 敵空母の早期発見\n    - 航空部隊の安全確保\n    - 戦術的優位性の確立\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 5, \"y\": 6},\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: Carrier target was rejected. x=5 y=6 is not on sea.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"地形エラーが発生しました。海上の安全な位置に空母を移動させる必要があります。\n\n    戦術修正:\n    - 陸地を避けた海上の移動経路を選択\n    - 航空部隊の索敵をサポートする位置に移動\n    - 現在の索敵ルートは継続\n\n    目的:\n    - 安全な空母移動\n    - ASQ1の索敵支援\n    - 敵空母発見の可能性を維持\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 5, \"y\": 5},\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: Carrier target was rejected. x=5 y=5 is not on sea. Please specify a valid coordinate, such as x=5 y=4.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"地形エラーが再度発生しました。海上の安全な位置に空母を移動させる必要があります。\n\n    戦術修正:\n    - 陸地を避けた海上の有効な移動経路を慎重に選択\n    - 航空部隊の索敵をサポートする位置に移動\n    - 現在の索敵ルートは継続\n\n    目的:\n    - 安全な空母移動\n    - ASQ1の索敵支援\n    - 敵空母発見の可能性を維持\",\n\n    \"action\": {\n        \"carrier_target\": {\"x\": 5, \"y\": 4},\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 11 of 30.\n\nRecent events:\n- your squadron(ASQ2) landed on the carrier while at (4, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (14, 11) (previously at (15, 12)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (4, 5), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (8, 8), outbound toward (15, 12), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"現在の戦況を詳細に分析します。\n\n    戦術評価:\n    - ASQ2が空母に帰投完了\n    - ASQ1は(8, 8)から(15, 12)に向けて索敵中\n    - 敵航空部隊BSQ1の最終確認位置は(14, 11)\n    - 敵空母の位置は依然として不明\n\n    次の戦略:\n    1. ASQ2を迅速に再発艦\n    2. 異なる方向から索敵を実施\n    3. 敵航空部隊の動きを追跡\n\n    索敵計画:\n    - ASQ2は(13, 10)付近を目標に発艦\n    - 複数の角度から敵空母の位置を特定\n    - 情報収集と戦術的優位性の確立\n\n    推測される敵空母位置:\n    - (14, 11)または(15, 11)周辺\n    - 次のターンで確定的な情報を得る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 13,\n            \"y\": 10\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 12 of 30.\n\nRecent events:\n- your squadron(ASQ2) set a new target toward position (13, 10) while at (5, 5).\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (11, 10), outbound toward (15, 12), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (5, 5), outbound toward (13, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"現在の索敵状況を詳細に分析します。\n\n    戦術評価:\n    - ASQ1は(11, 10)から(15, 12)に向けて索敵中\n    - ASQ2は(5, 5)から(13, 10)に向けて発艦\n    - 敵空母の位置は依然として不明\n    - 両航空部隊が異なる方向から索敵を実施\n\n    戦略的考察:\n    1. 広範囲の索敵を継続\n    2. 敵航空部隊の動きを注意深く監視\n    3. 敵空母の位置特定に注力\n\n    次のアクション:\n    - 現在の索敵ルートを維持\n    - 航空部隊の移動を継続\n    - 敵空母発見に備えて警戒\n\n    目標:\n    - 効率的な海域偵察\n    - 敵空母の早期発見\n    - 戦術的優位性の確立\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 13 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (16, 12) while at (14, 12).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (16, 12) (previously at (16, 13)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (14, 12), outbound toward (15, 12), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (8, 7), outbound toward (13, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"重要な発見がありました！敵航空部隊BSQ1の位置を特定しました。\n\n    戦術分析:\n    - BSQ1が(16, 12)に移動\n    - ASQ1は(14, 12)で索敵中\n    - ASQ2は(8, 7)から(13, 10)に向けて移動中\n    - 敵空母の位置はまだ不明\n\n    戦略的考察:\n    1. BSQ1の位置から敵空母を推測\n    2. 航空部隊の索敵を継続\n    3. 敵空母の位置特定に注力\n\n    推測される敵空母位置:\n    - (16, 11)または(17, 12)付近の可能性\n    - 次のターンで確定的な情報を得る必要がある\n\n    次のアクション:\n    - ASQ1の索敵を継続\n    - ASQ2も索敵範囲を拡大\n    - 敵空母発見に向けて戦術的優位性を確立\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 14 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (13, 10) while at (15, 12).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (17, 14) while at (15, 12).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (13, 10) while at (11, 9).\n- your squadron(ASQ1) is returning to the carrier while at (15, 12).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (13, 10) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (17, 14) (previously at (19, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (15, 12), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (11, 9), outbound toward (13, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが複雑化しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1は(13, 10)に移動\n    - BSQ2は(17, 14)に位置\n    - ASQ1は帰投中\n    - ASQ2は(11, 9)から(13, 10)に向けて移動中\n    - 敵空母の位置は依然として不明\n\n    重要な発見:\n    1. 敵航空部隊の位置が徐々に明確になってきた\n    2. BSQ1とBSQ2の位置から、敵空母は近くにいる可能性が高い\n\n    推測される敵空母位置:\n    - (15, 12)または(16, 13)付近\n    - 次のターンで確定的な情報を得る必要がある\n\n    次の戦略:\n    - ASQ1を迅速に再発艦\n    - ASQ2の索敵を継続\n    - 敵空母の位置を特定し、攻撃準備\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 15,\n            \"y\": 12\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: launch_target was rejected. Currently, all air squadrons are deployed on missions, and there are no squadrons aboard the carrier. Orders cannot be issued to squadrons that are already deployed.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"エラーが発生しました。現在、全ての航空部隊が既に出撃中であり、空母に待機中の航空部隊はありません。\n\n    戦術的制約:\n    - ASQ1は帰投中\n    - ASQ2は(11, 9)から(13, 10)に向けて移動中\n    - 新たな発艦は不可能\n\n    現状分析:\n    1. 敵航空部隊の位置が徐々に明確になってきた\n    2. BSQ1とBSQ2の位置から、敵空母は近くにいる可能性が高い\n\n    次のアクション:\n    - 現在の航空部隊の移動を継続\n    - 帰投中の航空部隊の安全確保\n    - 敵空母の位置を注意深く監視\n\n    戦略的目標:\n    - 情報収集の継続\n    - 攻撃のチャンスを逃さない\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 15 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (10, 9) while at (12, 9).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (14, 11) while at (12, 9).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (10, 9) while at (13, 10).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (14, 11) while at (13, 10).\n- your squadron(ASQ2) is returning to the carrier while at (13, 10).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (10, 9) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (14, 11) (previously at (19, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (12, 9), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (13, 10), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが大きく変化しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1は(10, 9)に移動\n    - BSQ2は(14, 11)に位置\n    - ASQ1とASQ2は共に帰投中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. 敵航空部隊が南西方向に大きく移動\n    2. BSQ1とBSQ2の位置関係が変化\n    3. 敵空母の位置を推測するには、さらなる情報が必要\n\n    推測される敵空母位置:\n    - (12, 10)または(13, 11)付近\n    - 敵航空部隊の移動パターンから推測\n\n    次の戦略:\n    - 帰投した航空部隊を迅速に再発艦\n    - 敵航空部隊の動きを注意深く監視\n    - 敵空母の位置特定に注力\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 16 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (12, 12) while at (10, 7).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (11, 10) while at (9, 7).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (12, 13) while at (10, 8).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (11, 10) while at (10, 8).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (12, 13) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (11, 10) (previously at (19, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (9, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (10, 8), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが再び変化しています。詳細に分析します。\n\n    戦術分析:\n    - BSQ1は(12, 13)に移動\n    - BSQ2は(11, 10)に位置\n    - ASQ1とASQ2は共に帰投中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. 敵航空部隊が北西方向に移動を続けている\n    2. BSQ1とBSQ2の位置関係が徐々に変化\n    3. 敵空母の位置を特定するには、さらなる情報収集が必要\n\n    推測される敵空母位置:\n    - (11, 11)または(12, 12)付近\n    - 敵航空部隊の移動パターンから推測\n\n    次の戦略:\n    - 帰投した航空部隊を迅速に再発艦\n    - 敵航空部隊の動きを継続監視\n    - 敵空母の位置特定に全力を注ぐ\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 17 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (8, 8) while at (6, 5).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (8, 8) while at (7, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (12, 13) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (8, 8) (previously at (19, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: position (6, 5), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (7, 5), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが大きく変化しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1の最終確認位置は(12, 13)のまま\n    - BSQ2は(8, 8)に大きく移動\n    - ASQ1とASQ2は共に帰投中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ2が南西方向に大きく移動\n    2. BSQ1の位置が長時間変化していない\n    3. 敵空母の位置を特定するには、さらなる情報収集が必要\n\n    推測される敵空母位置:\n    - (9, 9)または(10, 10)付近\n    - 敵航空部隊の移動パターンから推測\n\n    次の戦略:\n    - 帰投した航空部隊を迅速に再発艦\n    - 敵航空部隊の動きを継続監視\n    - 敵空母の位置特定に全力を注ぐ\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 18 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (7, 7) while at (5, 5).\n- your squadron(ASQ1) landed on the carrier while at (5, 4).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (7, 6) while at (6, 4).\n- your squadron(ASQ2) landed on the carrier while at (5, 4).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (5, 5) while at (5, 4).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (12, 13) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (5, 5) (previously at (19, 14)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 100/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが非常に接近しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ2が(5, 5)に接近\n    - ASQ1とASQ2が空母に帰投完了\n    - 敵空母の位置は依然として不明\n    - AC1が直接BSQ2を視認\n\n    重要な観察:\n    1. BSQ2が急速に南下している\n    2. BSQ1の位置は依然として(12, 13)のまま\n    3. 敵航空部隊が我が空母の非常に近くに接近\n\n    推測される敵空母位置:\n    - (6, 6)または(7, 7)付近\n    - BSQ2の移動パターンから推測\n\n    緊急戦略:\n    - 迅速に航空部隊を発艦\n    - 敵航空部隊の動きを即座に追跡\n    - 敵空母の位置を特定し、攻撃態勢を準備\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 7,\n            \"y\": 7\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 19 of 30.\n\nRecent events:\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ2) while at (5, 4).\n- your carrier(AC1) hit an enemy squadron(BSQ2) causing 26 damage while at (5, 4).\n- your squadron(ASQ1) set a new target toward position (7, 7) while at (6, 4).  The distance is 3. But unless the enemy carrier is right there, that's too close for reconnaissance. Should point further away.\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (12, 13) (previously at (16, 13)), HP 40/40.\n- Enemy squadron BSQ2: last known position (5, 5) (previously at (19, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (6, 4), outbound toward (7, 7), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"状況が急変しています。重要な分析を行います。\n\n    戦術分析:\n    - AC1がBSQ2に攻撃を実施し、26ダメージを与えた\n    - BSQ2のHPが21/40に減少\n    - ASQ1は(7, 7)への索敵は近すぎるため、再検討が必要\n    - BSQ1の位置は依然として(12, 13)のまま\n\n    重要な観察:\n    1. 敵航空部隊が空母の非常に近くに接近\n    2. AC1の攻撃により、BSQ2に大きなダメージ\n    3. 索敵範囲の再設定が必要\n\n    次の戦略:\n    - ASQ1の索敵目標を遠方に変更\n    - ASQ2を別の方向に発艦\n    - 敵空母の位置を特定\n    - 敵航空部隊への攻撃継続\n\n    推測される敵空母位置:\n    - (10, 10)または(11, 11)付近\n    - BSQ2とBSQ1の位置関係から推測\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 12,\n            \"y\": 12\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 20 of 30.\n\nRecent events:\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (7, 7) while at (5, 4).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (8, 8) while at (7, 7).\n- your squadron(ASQ1) is returning to the carrier while at (7, 7).\n- your squadron(ASQ2) set a new target toward position (12, 12) while at (5, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ2: last known position (8, 8) (previously at (19, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (7, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (5, 5), outbound toward (12, 12), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"戦況が流動的に変化しています。詳細に分析します。\n\n    戦術分析:\n    - BSQ2が(8, 8)に位置\n    - ASQ1は帰投中\n    - ASQ2は(12, 12)に向けて索敵中\n    - BSQ1の位置情報が不明になっている\n\n    重要な観察:\n    1. BSQ2は継続的に南西方向に移動\n    2. 敵空母の位置特定が依然として最優先課題\n    3. AC1がBSQ2を直接視認\n\n    次の戦略:\n    - ASQ2の索敵を継続\n    - 帰投するASQ1の安全確保\n    - 敵空母の位置を特定するための情報収集\n    - BSQ2への攻撃機会を探る\n\n    推測される敵空母位置:\n    - (9, 9)または(10, 10)付近\n    - BSQ2の移動パターンから推測\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 21 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (9, 9) while at (6, 5).\n- your squadron(ASQ1) landed on the carrier while at (5, 4).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (11, 9) while at (7, 9).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ2: last known position (11, 9) (previously at (19, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (7, 9), outbound toward (12, 12), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊BSQ2の動きが継続的に変化しています。詳細に分析します。\n\n    戦術分析:\n    - BSQ2が(11, 9)に位置\n    - ASQ1は空母に帰投完了\n    - ASQ2は(12, 12)に向けて索敵中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ2は南西方向に継続的に移動\n    2. 敵空母の位置特定が最優先課題\n    3. ASQ2の索敵ルートは適切に設定されている\n\n    次の戦略:\n    - ASQ2の索敵を継続\n    - ASQ1を別の方向に発艦\n    - 敵空母の位置を特定するための情報収集\n    - BSQ2への攻撃機会を探る\n\n    推測される敵空母位置:\n    - (10, 10)または(12, 11)付近\n    - BSQ2の移動パターンから推測\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 14,\n            \"y\": 14\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 22 of 30.\n\nRecent events:\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (14, 11) while at (10, 11).\n- your squadron(ASQ1) set a new target toward position (14, 14) while at (5, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ2: last known position (14, 11) (previously at (19, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (5, 5), outbound toward (14, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (10, 11), outbound toward (12, 12), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊BSQ2の移動パターンが継続的に変化しています。詳細に分析します。\n\n    戦術分析:\n    - BSQ2が(14, 11)に位置\n    - ASQ1は(14, 14)に向けて索敵中\n    - ASQ2は(12, 12)に向けて索敵中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ2は北東方向に移動を続けている\n    2. 敵空母の位置特定が最優先課題\n    3. 両航空部隊が異なる方向から索敵を実施\n\n    次の戦略:\n    - 現在の索敵ルートを維持\n    - 両航空部隊の情報収集を継続\n    - 敵空母の位置を特定\n    - BSQ2への攻撃機会を探る\n\n    推測される敵空母位置:\n    - (13, 12)または(15, 13)付近\n    - BSQ2の移動パターンから推測\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 23 of 30.\n\nRecent events:\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (17, 12) while at (12, 12).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (15, 11) while at (12, 12).\n- your squadron(ASQ2) is returning to the carrier while at (12, 12).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (15, 11) (previously at (16, 11)), HP 40/40.\n- Enemy squadron BSQ2: last known position (17, 12) (previously at (19, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (7, 9), outbound toward (14, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (12, 12), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"重要な発見がありました！敵航空部隊の位置が明確になってきています。\n\n    戦術分析:\n    - BSQ2が(17, 12)に位置\n    - BSQ1が(15, 11)に出現\n    - ASQ2は帰投中\n    - ASQ1は(14, 14)に向けて索敵中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. 両敵航空部隊が北東方向に移動\n    2. BSQ1が再び活動を開始\n    3. 敵空母の位置特定が最優先課題\n\n    推測される敵空母位置:\n    - (16, 12)または(17, 13)付近\n    - BSQ1とBSQ2の位置関係から推測\n\n    次の戦略:\n    - ASQ1の索敵を継続\n    - 帰投するASQ2の安全確保\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 24 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (13, 8) while at (10, 11).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (13, 8) while at (10, 8).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (13, 8) (previously at (16, 11)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (10, 11), outbound toward (14, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (10, 8), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが再び変化しています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1が(13, 8)に移動\n    - ASQ1は(14, 14)に向けて索敵中\n    - ASQ2は帰投中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ1が南西方向に大きく移動\n    2. BSQ2の最新位置が不明\n    3. 敵空母の位置特定が最優先課題\n\n    推測される敵空母位置:\n    - (14, 9)または(15, 10)付近\n    - BSQ1の移動パターンから推測\n\n    次の戦略:\n    - ASQ1の索敵を継続\n    - 帰投するASQ2の安全確保\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 25 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (12, 8) while at (11, 12).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (10, 6) while at (7, 5).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (10, 6) (previously at (16, 11)), HP 40/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (13, 14), outbound toward (14, 14), HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (7, 5), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊BSQ1の動きが非常に不規則になっています。重要な情報を分析します。\n\n    戦術分析:\n    - BSQ1が(10, 6)に移動\n    - ASQ1は(14, 14)付近に向けて索敵中\n    - ASQ2は帰投中\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ1が南西方向に大きく移動\n    2. BSQ2の位置が完全に不明\n    3. 敵空母の位置特定が最優先課題\n\n    推測される敵空母位置:\n    - (9, 7)または(10, 8)付近\n    - BSQ1の急激な移動パターンから推測\n\n    次の戦略:\n    - ASQ1の索敵を継続\n    - 帰投するASQ2の安全確保\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 26 of 30.\n\nRecent events:\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (8, 6) while at (5, 5).\n- your squadron(ASQ2) landed on the carrier while at (5, 4).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (6, 5) while at (5, 4).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (16, 12) while at (14, 14).\n- your squadron(ASQ1) is returning to the carrier while at (14, 14).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (6, 5) (previously at (16, 11)), HP 40/40.\n- Enemy squadron BSQ2: last known position (16, 12) (previously at (18, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (14, 14), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが極めて複雑になっています。重要な情報を詳細に分析します。\n\n    戦術分析:\n    - BSQ1が(6, 5)に移動し、AC1の非常に近くに接近\n    - BSQ2が(16, 12)に位置\n    - ASQ1は帰投中\n    - ASQ2は空母に帰投完了\n    - 敵空母の位置は依然として不明\n\n    重要な観察:\n    1. BSQ1が急激に南西方向に移動\n    2. BSQ2は北東方向に位置\n    3. 敵航空部隊の動きが非常に不規則\n    4. 敵空母の位置特定が最優先課題\n\n    推測される敵空母位置:\n    - (10, 8)または(12, 10)付近\n    - BSQ1とBSQ2の位置関係から推測\n\n    次の戦略:\n    - ASQ2を迅速に再発艦\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを積極的に探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 12,\n            \"y\": 10\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 27 of 30.\n\nRecent events:\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (4, 5) while at (5, 4).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (13, 10) while at (12, 10).\n- your squadron(ASQ2) set a new target toward position (12, 10) while at (5, 5).  The distance is 9. But unless the enemy carrier is right there, that's too close for reconnaissance. Should point further away.\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (4, 5) (previously at (16, 11)), HP 40/40.\n- Enemy squadron BSQ2: last known position (13, 10) (previously at (18, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 74/100, speed 2, vision 4.\n- Your squadron ASQ1: position (12, 10), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (5, 5), outbound toward (12, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"敵航空部隊の動きが極めて不規則で予測困難になっています。重要な情報を詳細に分析します。\n\n    戦術分析:\n    - BSQ1が(4, 5)に移動し、AC1の非常に近くに接近\n    - BSQ2が(13, 10)に位置\n    - ASQ1は帰投中\n    - ASQ2の索敵目標が近すぎるため再検討が必要\n\n    重要な観察:\n    1. BSQ1が再び急激に移動\n    2. BSQ2は北東方向に位置\n    3. 敵航空部隊の動きが非常に不規則\n    4. 敵空母の位置特定が最優先課題\n\n    推測される敵空母位置:\n    - (12, 11)または(14, 12)付近\n    - BSQ1とBSQ2の位置関係から推測\n\n    次の戦略:\n    - ASQ2の索敵目標を遠方に変更\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを積極的に探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": {\n            \"x\": 16,\n            \"y\": 16\n        }\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: launch_target was rejected. Currently, all air squadrons are deployed on missions, and there are no squadrons aboard the carrier. Orders cannot be issued to squadrons that are already deployed.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"エラーが発生しました。現在、全ての航空部隊が既に出撃中であり、空母に待機中の航空部隊はありません。\n\n    戦術的制約:\n    - ASQ1は帰投中\n    - ASQ2は(12, 10)に向けて移動中\n    - 新たな発艦は不可能\n\n    現状分析:\n    1. 敵航空部隊の動きが非常に不規則\n    2. BSQ1とBSQ2の位置が大きく変化\n    3. 敵空母の位置は依然として不明\n\n    次のアクション:\n    - 現在の航空部隊の移動を継続\n    - 帰投中の航空部隊の安全確保\n    - 敵空母の位置を注意深く監視\n\n    戦略的目標:\n    - 情報収集の継続\n    - 攻撃のチャンスを逃さない\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 28 of 30.\n\nRecent events:\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ1) while at (5, 4).\n- your carrier(AC1) hit an enemy squadron(BSQ1) causing 29 damage while at (5, 4).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (10, 7) while at (9, 7).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (4, 5) while at (8, 7).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (10, 7) while at (8, 7).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (4, 5) (previously at (16, 11)), HP 22/40.\n- Enemy squadron BSQ2: last known position (10, 7) (previously at (18, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 45/100, speed 2, vision 4.\n- Your squadron ASQ1: position (9, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (8, 7), outbound toward (12, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"戦況が激化しています。重要な情報を詳細に分析します。\n\n    戦術分析:\n    - AC1がBSQ1に攻撃し、29ダメージを与えた\n    - BSQ1のHPが22/40に減少\n    - BSQ2は(10, 7)に位置\n    - ASQ1は帰投中\n    - ASQ2は(12, 10)に向けて移動中\n    - AC1のHPが45/100に減少\n\n    重要な観察:\n    1. 直接的な空母間の交戦が発生\n    2. 敵航空部隊の位置が徐々に明確に\n    3. 敵空母の位置は依然として不明\n\n    推測される敵空母位置:\n    - (9, 8)または(11, 9)付近\n    - BSQ1とBSQ2の位置関係から推測\n\n    次の戦略:\n    - 現在の航空部隊の移動を継続\n    - 敵空母の位置を特定\n    - 攻撃のチャンスを積極的に探る\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 29 of 30.\n\nRecent events:\n- your squadron(ASQ2) spotted an enemy squadron(BSQ2) at (8, 6) while at (10, 9).\n- your carrier(AC1) spotted an enemy squadron(BSQ1) at (7, 8) while at (5, 4).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (7, 6) while at (5, 4).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (7, 8) while at (6, 5).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (7, 6) while at (6, 5).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (7, 8) while at (11, 9).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (7, 8) (previously at (16, 11)), HP 22/40.\n- Enemy squadron BSQ2: last known position (7, 6) (previously at (18, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 45/100, speed 2, vision 4.\n- Your squadron ASQ1: position (6, 5), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (11, 9), outbound toward (12, 10), HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"戦況が非常に緊迫しています。敵航空部隊が急速に接近しています。\n\n    戦術分析:\n    - BSQ1とBSQ2が非常に近接した位置(7, 8)と(7, 6)に\n    - AC1の周辺に敵航空部隊が集中\n    - AC1のHPは45/100と低下\n    - ASQ1は帰投中\n    - ASQ2は(12, 10)に向けて移動中\n\n    重要な観察:\n    1. 敵航空部隊が我が空母を包囲しつつある\n    2. 敵空母の位置は依然として不明\n    3. 直接的な戦闘の可能性が非常に高い\n\n    推測される敵空母位置:\n    - (6, 7)または(8, 7)付近\n    - BSQ1とBSQ2の位置から推測\n\n    次の戦略:\n    - 空母の生存が最優先\n    - 敵航空部隊への攻撃的な対応\n    - 最後の索敵機会を活用\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 30 of 30.\n\nRecent events:\n- your squadron(ASQ1) spotted an enemy squadron(BSQ1) at (7, 9) while at (5, 5).\n- your squadron(ASQ1) spotted an enemy squadron(BSQ2) at (6, 6) while at (5, 5).\n- your squadron(ASQ1) landed on the carrier while at (5, 4).\n- your carrier(AC1) spotted an enemy squadron(BSQ2) at (4, 5) while at (5, 4).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (10, 9) while at (12, 10).\n- your squadron(ASQ2) is returning to the carrier while at (12, 10).\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n- Enemy squadron BSQ1: last known position (10, 9) (previously at (16, 11)), HP 22/40.\n- Enemy squadron BSQ2: last known position (4, 5) (previously at (18, 14)), HP 21/40.\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 45/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (12, 10), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\n    \"thinking\": \"最終ターンを迎え、戦況を総合的に分析します。\n\n    最終戦術評価:\n    - 敵航空部隊BSQ1とBSQ2が広範囲に散らばっている\n    - AC1のHPは45/100と低下\n    - 敵空母の位置は30ターン経過しても特定できず\n    - 両軍の航空部隊の状況は拮抗\n\n    決定的な観察:\n    1. 敵空母の位置特定に失敗\n    2. 直接的な空母間戦闘は限定的\n    3. 最終的な勝敗は接近戦と索敵能力に依存\n\n    最終判断:\n    - HPの観点から、やや不利な状況\n    - 敵空母の位置が不明なため、勝利の可能性は低い\n    - 索敵戦術に致命的な欠陥があった可能性\n\n    教訓:\n    - より広範囲かつ系統的な索敵が必要\n    - 航空部隊の機動性をさらに活用すべき\",\n\n    \"action\": {\n        \"carrier_target\": null,\n        \"launch_target\": null\n    }\n}"
+  },
+  {
+    "role": "user",
+    "content": "Aborted:\n\n Below is the last battle situation.\nResult (from your perspective): you have lost.\n\nTurn 30 of 30.\n\nRecent events:\n- your carrier(AC1) initiated an attack on an enemy squadron(BSQ2) while at (5, 4).\n- your carrier(AC1) hit an enemy squadron(BSQ2) causing 13 damage while at (5, 4).\n- your squadron(ASQ2) spotted an enemy squadron(BSQ1) at (12, 11) while at (10, 7).\n\nYour forces:\n- Your carrier AC1: position (5, 4), en route to target (5, 4), HP 32/100, speed 2, vision 4.\n- Your squadron ASQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron ASQ2: position (9, 7), returning to the carrier, HP 40/40, operational range 22, speed 4, vision 5.\n\nEnemy intelligence:\n- Enemy carrier BC1: position (28, 22), en route to target (28, 22), HP 100/100, speed 2, vision 4.\n- Enemy squadron BSQ1: position (13, 12), returning to the carrier, HP 22/40, operational range 22, speed 4, vision 5.\n- Enemy squadron BSQ2: position (4, 5), returning to the carrier, HP 12/40, operational range 22, speed 4, vision 5.\n"
+  }
+]

@@ -1,0 +1,257 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='619' height='496' viewBox='0 0 619 496' font-family='monospace' font-size='14'>
+  <rect x='0' y='0' width='619' height='496' fill='#ffffff'/>
+  <text x='309.5' y='24.0' text-anchor='middle' font-size='18' font-weight='bold'>LLM Win Ranking</text>
+  <rect x='24' y='36' width='571' height='28' fill='#e5e7eb' stroke='#4b5563'/>
+  <text x='36' y='54.0' text-anchor='start' font-weight='bold'>
+    model
+  </text>
+  <text x='158' y='54.0' text-anchor='start' font-weight='bold'>
+    wins
+  </text>
+  <text x='238' y='54.0' text-anchor='start' font-weight='bold'>
+    matches
+  </text>
+  <text x='318' y='54.0' text-anchor='start' font-weight='bold'>
+    win_rate
+  </text>
+  <text x='398' y='54.0' text-anchor='start' font-weight='bold'>
+    price/match
+  </text>
+  <text x='499' y='54.0' text-anchor='start' font-weight='bold'>
+    tokens/match
+  </text>
+  <rect x='24' y='64' width='571' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='80.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Sonnet-4.5</tspan>
+  </text>
+  <text x='158' y='88.0' text-anchor='start'>
+    10
+  </text>
+  <text x='238' y='88.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='88.0' text-anchor='start'>
+    0.909
+  </text>
+  <text x='398' y='88.0' text-anchor='start'>
+    0.232918
+  </text>
+  <text x='499' y='88.0' text-anchor='start'>
+    394691.27
+  </text>
+  <rect x='24' y='104' width='571' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='122.0' text-anchor='start'>
+    gpt-4o
+  </text>
+  <text x='158' y='122.0' text-anchor='start'>
+    8
+  </text>
+  <text x='238' y='122.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='122.0' text-anchor='start'>
+    0.727
+  </text>
+  <text x='398' y='122.0' text-anchor='start'>
+    0.407945
+  </text>
+  <text x='499' y='122.0' text-anchor='start'>
+    287767.09
+  </text>
+  <rect x='24' y='132' width='571' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='148.0' text-anchor='start'>
+    gemini-
+    <tspan x='36' dy='16'>2.5-flash</tspan>
+  </text>
+  <text x='158' y='156.0' text-anchor='start'>
+    7
+  </text>
+  <text x='238' y='156.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='156.0' text-anchor='start'>
+    0.636
+  </text>
+  <text x='398' y='156.0' text-anchor='start'>
+    0.056200
+  </text>
+  <text x='499' y='156.0' text-anchor='start'>
+    327638.73
+  </text>
+  <rect x='24' y='172' width='571' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='188.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Haiku-3.5</tspan>
+  </text>
+  <text x='158' y='196.0' text-anchor='start'>
+    5
+  </text>
+  <text x='238' y='196.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='196.0' text-anchor='start'>
+    0.455
+  </text>
+  <text x='398' y='196.0' text-anchor='start'>
+    0.056027
+  </text>
+  <text x='499' y='196.0' text-anchor='start'>
+    343356.09
+  </text>
+  <rect x='24' y='212' width='571' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='228.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Sonnet-4</tspan>
+  </text>
+  <text x='158' y='236.0' text-anchor='start'>
+    5
+  </text>
+  <text x='238' y='236.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='236.0' text-anchor='start'>
+    0.455
+  </text>
+  <text x='398' y='236.0' text-anchor='start'>
+    0.213445
+  </text>
+  <text x='499' y='236.0' text-anchor='start'>
+    384614.73
+  </text>
+  <rect x='24' y='252' width='571' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='268.0' text-anchor='start'>
+    gemini-
+    <tspan x='36' dy='16'>2.5-flash-lite</tspan>
+  </text>
+  <text x='158' y='276.0' text-anchor='start'>
+    5
+  </text>
+  <text x='238' y='276.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='276.0' text-anchor='start'>
+    0.455
+  </text>
+  <text x='398' y='276.0' text-anchor='start'>
+    0.022818
+  </text>
+  <text x='499' y='276.0' text-anchor='start'>
+    381403.18
+  </text>
+  <rect x='24' y='292' width='571' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='310.0' text-anchor='start'>
+    gpt-4.1
+  </text>
+  <text x='158' y='310.0' text-anchor='start'>
+    5
+  </text>
+  <text x='238' y='310.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='310.0' text-anchor='start'>
+    0.455
+  </text>
+  <text x='398' y='310.0' text-anchor='start'>
+    0.237700
+  </text>
+  <text x='499' y='310.0' text-anchor='start'>
+    331320.45
+  </text>
+  <rect x='24' y='320' width='571' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='338.0' text-anchor='start'>
+    gpt-5
+  </text>
+  <text x='158' y='338.0' text-anchor='start'>
+    5
+  </text>
+  <text x='238' y='338.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='338.0' text-anchor='start'>
+    0.455
+  </text>
+  <text x='398' y='338.0' text-anchor='start'>
+    0.118027
+  </text>
+  <text x='499' y='338.0' text-anchor='start'>
+    325140.73
+  </text>
+  <rect x='24' y='348' width='571' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='366.0' text-anchor='start'>
+    gpt-4o-mini
+  </text>
+  <text x='158' y='366.0' text-anchor='start'>
+    3
+  </text>
+  <text x='238' y='366.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='366.0' text-anchor='start'>
+    0.273
+  </text>
+  <text x='398' y='366.0' text-anchor='start'>
+    0.028773
+  </text>
+  <text x='499' y='366.0' text-anchor='start'>
+    328949.82
+  </text>
+  <rect x='24' y='376' width='571' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='394.0' text-anchor='start'>
+    gpt-5-mini
+  </text>
+  <text x='158' y='394.0' text-anchor='start'>
+    3
+  </text>
+  <text x='238' y='394.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='394.0' text-anchor='start'>
+    0.273
+  </text>
+  <text x='398' y='394.0' text-anchor='start'>
+    0.035709
+  </text>
+  <text x='499' y='394.0' text-anchor='start'>
+    364539.18
+  </text>
+  <rect x='24' y='404' width='571' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='422.0' text-anchor='start'>
+    gpt-4.1-mini
+  </text>
+  <text x='158' y='422.0' text-anchor='start'>
+    2
+  </text>
+  <text x='238' y='422.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='422.0' text-anchor='start'>
+    0.182
+  </text>
+  <text x='398' y='422.0' text-anchor='start'>
+    0.088027
+  </text>
+  <text x='499' y='422.0' text-anchor='start'>
+    470386.09
+  </text>
+  <rect x='24' y='432' width='571' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='448.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Haiku-3</tspan>
+  </text>
+  <text x='158' y='456.0' text-anchor='start'>
+    1
+  </text>
+  <text x='238' y='456.0' text-anchor='start'>
+    11
+  </text>
+  <text x='318' y='456.0' text-anchor='start'>
+    0.091
+  </text>
+  <text x='398' y='456.0' text-anchor='start'>
+    0.024118
+  </text>
+  <text x='499' y='456.0' text-anchor='start'>
+    496123.27
+  </text>
+</svg>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carrier war</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <!-- Entrance View -->
+    <div id="view-entrance" class="view">
+      <div class="center">
+        <h1>Carrier war</h1>
+        <p class="muted">ユーザ名を入力してください</p>
+        <div class="form-row">
+          <input id="usernameInput" type="text" placeholder="ユーザ名" />
+          <button id="enterLobby">ロビーへ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lobby View -->
+    <div id="view-lobby" class="view hidden">
+      <header class="topbar">
+        <div class="title">ロビー</div>
+        <div class="controls">
+          <span id="lobbyUser" class="hint"></span>
+        </div>
+      </header>
+      <main class="lobby">
+        <section id="lobby-pvp">
+            <div class="pvp-actions">
+            <button id="btnCreateMatch">マッチ作成</button>
+            <span class="divider"></span>
+            <!-- CPU もプロバイダ方式に統一 -->
+            <div class="dropdown" id="llmDropdown_cpu">
+              <button id="btnLLM_cpu"><span class="stack">CPU</span></button>
+              <div id="llmMenu_cpu" class="dropdown-menu hidden" role="menu" aria-labelledby="btnLLM_cpu">
+                <div class="muted">読み込み中...</div>
+              </div>
+            </div>
+            <span class="divider"></span>
+            <!-- LLM対戦（プロバイダごとにボタン＋モデル選択） -->
+            <div class="dropdown" id="llmDropdown_openai">
+              <button id="btnLLM_openai"><span class="stack">OpenAI</span></button>
+              <div id="llmMenu_openai" class="dropdown-menu hidden" role="menu" aria-labelledby="btnLLM_openai">
+                <div class="muted">読み込み中...</div>
+              </div>
+            </div>
+            <div class="dropdown" id="llmDropdown_anthropic">
+              <button id="btnLLM_anthropic"><span class="stack">Anthropic</span></button>
+              <div id="llmMenu_anthropic" class="dropdown-menu hidden" role="menu" aria-labelledby="btnLLM_anthropic">
+                <div class="muted">読み込み中...</div>
+              </div>
+            </div>
+            <div class="dropdown" id="llmDropdown_gemini">
+              <button id="btnLLM_gemini"><span class="stack">Gemini</span></button>
+              <div id="llmMenu_gemini" class="dropdown-menu hidden" role="menu" aria-labelledby="btnLLM_gemini">
+                <div class="muted">読み込み中...</div>
+              </div>
+            </div>
+          </div>
+          <div id="matchList" class="match-list empty">読み込み中...</div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Match Room View (PvP) -->
+    <div id="view-match" class="view hidden">
+      <header class="topbar">
+        <div class="title machInfo"><span id="matchInfo" class="hint"></span></div>
+        <div class="controls">
+          <span class="divider"></span>
+          <button id="btnAIInspector" aria-label="AIインスペクタ">AI</button>
+          <button id="btnLeaveMatch">ロビーへ戻る</button>
+        </div>
+      </header>
+      <main class="match-room">
+
+        <section class="match-layout">
+          <aside class="match-sidebar">
+            <section>
+              <div class="section-head">
+                <button class="mode-btn" id="btnMatchModeMove" data-match-mode="move">空母</button>
+              </div>
+              <div id="matchCarrierStatus" class="panel"></div>
+            </section>
+            <section>
+              <div class="section-head">
+                <button class="mode-btn" id="btnMatchModeLaunch" data-match-mode="launch">航空部隊</button>
+              </div>
+              <div id="matchSquadronList" class="panel"></div>
+            </section>
+            <div class="sidebar-controls">
+              <span id="matchHint" class="hint"></span>
+              <button id="btnSubmitReady">Done</button>
+            </div>
+          </aside>
+          <div class="match-board">
+            <canvas id="matchCanvas" width="540" height="540" aria-label="PvPマップ"></canvas>
+            <div class="legend">
+              <div><span class="chip chip-carrier"></span>空母</div>
+              <div><span class="chip chip-circle" style="background: var(--squad); border: 1px solid #9b7f2e"></span>航空部隊</div>
+              <div><span class="chip" style="background: var(--enemy); border: 1px solid #7a2c2c"></span>敵空母</div>
+              <div><span class="chip chip-circle" style="background: var(--enemy); border: 1px solid #7a2c2c"></span>敵航空部隊</div>
+            </div>
+            <div id="matchLog" class="log"></div>
+          </div>
+          <!-- AI inspector drawer -->
+          <aside id="aiInspector" class="ai-inspector hidden" aria-label="AIインスペクタ" tabindex="-1">
+            <div class="ai-head">
+              <div class="ai-title">AIインスペクタ</div>
+              <button id="btnAIInspectorClose" aria-label="閉じる">×</button>
+            </div>
+            <div id="aiInspectorBody" class="ai-body"></div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="/static/hexmaplib.js"></script>
+    <script src="/static/lobby.js"></script>
+    <script src="/static/game_carrier_war.js"></script>
+  </body>
+  </html>

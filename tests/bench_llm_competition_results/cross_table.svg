@@ -1,0 +1,560 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1410' height='508' viewBox='0 0 1410 508' font-family='monospace' font-size='14'>
+  <rect x='0' y='0' width='1410' height='508' fill='#ffffff'/>
+  <text x='705.0' y='24.0' text-anchor='middle' font-size='18' font-weight='bold'>Matchup Cross Table (Wins / Matches)</text>
+  <rect x='24' y='36' width='1362' height='40' fill='#e5e7eb' stroke='#4b5563'/>
+  <text x='36' y='60.0' text-anchor='start' font-weight='bold'>
+    Model
+  </text>
+  <text x='158' y='52.0' text-anchor='start' font-weight='bold'>
+    Claude-
+    <tspan x='158' dy='16'>Haiku-3</tspan>
+  </text>
+  <text x='259' y='52.0' text-anchor='start' font-weight='bold'>
+    Claude-
+    <tspan x='259' dy='16'>Haiku-3.5</tspan>
+  </text>
+  <text x='360' y='52.0' text-anchor='start' font-weight='bold'>
+    Claude-
+    <tspan x='360' dy='16'>Sonnet-4</tspan>
+  </text>
+  <text x='461' y='52.0' text-anchor='start' font-weight='bold'>
+    Claude-
+    <tspan x='461' dy='16'>Sonnet-4.5</tspan>
+  </text>
+  <text x='562' y='52.0' text-anchor='start' font-weight='bold'>
+    gemini-
+    <tspan x='562' dy='16'>2.5-flash</tspan>
+  </text>
+  <text x='663' y='52.0' text-anchor='start' font-weight='bold'>
+    gemini-
+    <tspan x='663' dy='16'>2.5-flash-lite</tspan>
+  </text>
+  <text x='785' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-4.1
+  </text>
+  <text x='886' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-4.1-mini
+  </text>
+  <text x='994' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-4o
+  </text>
+  <text x='1095' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-4o-mini
+  </text>
+  <text x='1196' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-5
+  </text>
+  <text x='1297' y='60.0' text-anchor='start' font-weight='bold'>
+    gpt-5-mini
+  </text>
+  <rect x='24' y='76' width='1362' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='92.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Haiku-3</tspan>
+  </text>
+  <line x1='146' y1='76' x2='247' y2='116' stroke='#9ca3af' stroke-width='2'/>
+  <text x='158' y='100.0' text-anchor='start'>
+    -
+  </text>
+  <text x='259' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='461' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='994' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='100.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1297' y='100.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='116' width='1362' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='132.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Haiku-3.5</tspan>
+  </text>
+  <text x='158' y='140.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <line x1='247' y1='116' x2='348' y2='156' stroke='#9ca3af' stroke-width='2'/>
+  <text x='259' y='140.0' text-anchor='start'>
+    -
+  </text>
+  <text x='360' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='461' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='140.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='663' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='140.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='886' y='140.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='140.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1297' y='140.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='156' width='1362' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='172.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Sonnet-4</tspan>
+  </text>
+  <text x='158' y='180.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='180.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <line x1='348' y1='156' x2='449' y2='196' stroke='#9ca3af' stroke-width='2'/>
+  <text x='360' y='180.0' text-anchor='start'>
+    -
+  </text>
+  <text x='461' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='180.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='785' y='180.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='886' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='994' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1196' y='180.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1297' y='180.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <rect x='24' y='196' width='1362' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='212.0' text-anchor='start'>
+    Claude-
+    <tspan x='36' dy='16'>Sonnet-4.5</tspan>
+  </text>
+  <text x='158' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='360' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <line x1='449' y1='196' x2='550' y2='236' stroke='#9ca3af' stroke-width='2'/>
+  <text x='461' y='220.0' text-anchor='start'>
+    -
+  </text>
+  <text x='562' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='663' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='785' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='886' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='220.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1297' y='220.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <rect x='24' y='236' width='1362' height='40' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='252.0' text-anchor='start'>
+    gemini-
+    <tspan x='36' dy='16'>2.5-flash</tspan>
+  </text>
+  <text x='158' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='260.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='461' y='260.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='550' y1='236' x2='651' y2='276' stroke='#9ca3af' stroke-width='2'/>
+  <text x='562' y='260.0' text-anchor='start'>
+    -
+  </text>
+  <text x='663' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='785' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='886' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='260.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='260.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1297' y='260.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='276' width='1362' height='40' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='292.0' text-anchor='start'>
+    gemini-
+    <tspan x='36' dy='16'>2.5-flash-lite</tspan>
+  </text>
+  <text x='158' y='300.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='300.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='360' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='461' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='651' y1='276' x2='773' y2='316' stroke='#9ca3af' stroke-width='2'/>
+  <text x='663' y='300.0' text-anchor='start'>
+    -
+  </text>
+  <text x='785' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='300.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='300.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1196' y='300.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1297' y='300.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <rect x='24' y='316' width='1362' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='334.0' text-anchor='start'>
+    gpt-4.1
+  </text>
+  <text x='158' y='334.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='461' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='773' y1='316' x2='874' y2='344' stroke='#9ca3af' stroke-width='2'/>
+  <text x='785' y='334.0' text-anchor='start'>
+    -
+  </text>
+  <text x='886' y='334.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='334.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1095' y='334.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='334.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1297' y='334.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='344' width='1362' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='362.0' text-anchor='start'>
+    gpt-4.1-mini
+  </text>
+  <text x='158' y='362.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='362.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='461' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='874' y1='344' x2='982' y2='372' stroke='#9ca3af' stroke-width='2'/>
+  <text x='886' y='362.0' text-anchor='start'>
+    -
+  </text>
+  <text x='994' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1196' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1297' y='362.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='372' width='1362' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='390.0' text-anchor='start'>
+    gpt-4o
+  </text>
+  <text x='158' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='360' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='461' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='562' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='663' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='785' y='390.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <line x1='982' y1='372' x2='1083' y2='400' stroke='#9ca3af' stroke-width='2'/>
+  <text x='994' y='390.0' text-anchor='start'>
+    -
+  </text>
+  <text x='1095' y='390.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1196' y='390.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1297' y='390.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <rect x='24' y='400' width='1362' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='418.0' text-anchor='start'>
+    gpt-4o-mini
+  </text>
+  <text x='158' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='259' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='418.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='461' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='418.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='1083' y1='400' x2='1184' y2='428' stroke='#9ca3af' stroke-width='2'/>
+  <text x='1095' y='418.0' text-anchor='start'>
+    -
+  </text>
+  <text x='1196' y='418.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1297' y='418.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='428' width='1362' height='28' fill='#f9fafb' stroke='#4b5563'/>
+  <text x='36' y='446.0' text-anchor='start'>
+    gpt-5
+  </text>
+  <text x='158' y='446.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='259' y='446.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='360' y='446.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='461' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='446.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='446.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1095' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <line x1='1184' y1='428' x2='1285' y2='456' stroke='#9ca3af' stroke-width='2'/>
+  <text x='1196' y='446.0' text-anchor='start'>
+    -
+  </text>
+  <text x='1297' y='446.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <rect x='24' y='456' width='1362' height='28' fill='#ffffff' stroke='#4b5563'/>
+  <text x='36' y='474.0' text-anchor='start'>
+    gpt-5-mini
+  </text>
+  <text x='158' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='259' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='360' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='461' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='562' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='663' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='785' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='886' y='474.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='994' y='474.0' text-anchor='start'>
+    0/1 (0.000)
+  </text>
+  <text x='1095' y='474.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <text x='1196' y='474.0' text-anchor='start'>
+    1/1 (1.000)
+  </text>
+  <line x1='1285' y1='456' x2='1386' y2='484' stroke='#9ca3af' stroke-width='2'/>
+  <text x='1297' y='474.0' text-anchor='start'>
+    -
+  </text>
+  <line x1='146' y1='36' x2='146' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='247' y1='36' x2='247' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='348' y1='36' x2='348' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='449' y1='36' x2='449' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='550' y1='36' x2='550' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='651' y1='36' x2='651' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='773' y1='36' x2='773' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='874' y1='36' x2='874' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='982' y1='36' x2='982' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='1083' y1='36' x2='1083' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='1184' y1='36' x2='1184' y2='484' stroke='#4b5563' stroke-width='1'/>
+  <line x1='1285' y1='36' x2='1285' y2='484' stroke='#4b5563' stroke-width='1'/>
+</svg>

@@ -1,0 +1,431 @@
+{
+  "winner_side": "A",
+  "winner_model": "Claude-Haiku-3.5",
+  "B": {
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "usage": {
+      "prompt_tokens": 507857,
+      "cache_read_tokens": 450944,
+      "cache_write_tokens": 0,
+      "completion_tokens": 6951,
+      "reasoning_tokens": 0,
+      "total_tokens": 514808,
+      "prompt_price": 0.0217,
+      "cached_price": 0.043,
+      "completion_price": 0.0106,
+      "total_price": 0.0753
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 6,
+      "carrier_request_count": 30,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 10,
+      "squadron_request_errors": 2,
+      "spotted_enemy_turn": 17,
+      "trip_count": {
+        "BC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            15,
+            2
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            17,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            2
+          ],
+          [
+            26,
+            2
+          ],
+          [
+            28,
+            1
+          ],
+          [
+            29,
+            2
+          ]
+        ],
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            18,
+            7
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            23,
+            3
+          ],
+          [
+            24,
+            3
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            29,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ],
+        "BSQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            15,
+            2
+          ],
+          [
+            19,
+            7
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            24,
+            3
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            27,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "anthropic",
+    "model": "Claude-Haiku-3.5",
+    "usage": {
+      "prompt_tokens": 370643,
+      "cache_read_tokens": 348569,
+      "cache_write_tokens": 21906,
+      "completion_tokens": 9573,
+      "reasoning_tokens": 0,
+      "total_tokens": 380216,
+      "prompt_price": 0.0001,
+      "cached_price": 0.0266,
+      "cache_write_price": 0.0209,
+      "completion_price": 0.0365,
+      "total_price": 0.0632
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 0,
+      "carrier_request_count": 10,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 9,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 12,
+      "trip_count": {
+        "AC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            15,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            19,
+            1
+          ]
+        ],
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            23,
+            3
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            28,
+            2
+          ],
+          [
+            29,
+            4
+          ],
+          [
+            30,
+            2
+          ]
+        ],
+        "ASQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            19,
+            3
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            24,
+            4
+          ],
+          [
+            26,
+            4
+          ]
+        ]
+      }
+    }
+  }
+}

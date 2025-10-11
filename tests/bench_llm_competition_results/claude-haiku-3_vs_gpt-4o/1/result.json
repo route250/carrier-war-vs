@@ -1,0 +1,485 @@
+{
+  "competition_id": "claude-haiku-3_vs_gpt-4o",
+  "status": {
+    "type": "state",
+    "match_id": "49f5be23-9e5f-43d6-9163-0a12ecb2cd49",
+    "status": "over",
+    "turn": 27,
+    "max_turn": 30,
+    "waiting_for": "none",
+    "map_w": 30,
+    "map_h": 30,
+    "map": null,
+    "units": {
+      "carrier": {
+        "id": "AC1",
+        "hp": 0,
+        "max_hp": 100,
+        "x": null,
+        "y": null,
+        "x0": null,
+        "y0": null,
+        "vision": 4,
+        "speed": 2,
+        "fuel": 99999,
+        "state": null,
+        "target": null
+      },
+      "squadrons": [
+        {
+          "id": "ASQ1",
+          "hp": 16,
+          "max_hp": 40,
+          "x": null,
+          "y": null,
+          "x0": null,
+          "y0": null,
+          "vision": 5,
+          "speed": 4,
+          "fuel": 22,
+          "state": "onboard",
+          "target": null
+        },
+        {
+          "id": "ASQ2",
+          "hp": 40,
+          "max_hp": 40,
+          "x": null,
+          "y": null,
+          "x0": null,
+          "y0": null,
+          "vision": 5,
+          "speed": 4,
+          "fuel": 22,
+          "state": "onboard",
+          "target": null
+        }
+      ],
+      "turn_visible": null
+    },
+    "intel": {
+      "carrier": {
+        "id": "BC1",
+        "hp": 71,
+        "max_hp": 100,
+        "x": 16,
+        "y": 11,
+        "x0": 16,
+        "y0": 11,
+        "vision": 4,
+        "speed": 2,
+        "fuel": 99999,
+        "state": null,
+        "target": {
+          "x": 16,
+          "y": 11
+        }
+      },
+      "squadrons": [
+        {
+          "id": "BSQ1",
+          "hp": 15,
+          "max_hp": 40,
+          "x": 10,
+          "y": 6,
+          "x0": 10,
+          "y0": 6,
+          "vision": 5,
+          "speed": 4,
+          "fuel": 22,
+          "state": "returning",
+          "target": {
+            "x": 9,
+            "y": 7
+          }
+        },
+        {
+          "id": "BSQ2",
+          "hp": 12,
+          "max_hp": 40,
+          "x": 9,
+          "y": 7,
+          "x0": 11,
+          "y0": 8,
+          "vision": 5,
+          "speed": 4,
+          "fuel": 22,
+          "state": "returning",
+          "target": {
+            "x": 16,
+            "y": 11
+          }
+        }
+      ],
+      "turn_visible": null
+    },
+    "logs": null,
+    "result": "lose",
+    "ai_diag": null,
+    "you_name": null,
+    "opponent_name": null
+  },
+  "winner_side": "B",
+  "winner_model": "gpt-4o",
+  "B": {
+    "provider": "openai",
+    "model": "gpt-4o",
+    "model_id": "gpt-4o",
+    "usage": {
+      "prompt_tokens": 275035,
+      "cache_read_tokens": 218624,
+      "cache_write_tokens": 0,
+      "completion_tokens": 2731,
+      "reasoning_tokens": 0,
+      "total_tokens": 277766,
+      "prompt_price": 0.1345,
+      "cached_price": 0.2606,
+      "completion_price": 0.026,
+      "total_price": 0.4211
+    },
+    "activity": {
+      "last_turn": 27,
+      "json_errors": 0,
+      "carrier_request_count": 7,
+      "carrier_request_errors": 4,
+      "squadron_request_count": 8,
+      "squadron_request_errors": 0,
+      "spotted_enemy_turn": 6,
+      "trip_count": {
+        "BC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            11,
+            2
+          ]
+        ],
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            14,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            24,
+            1
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            4
+          ]
+        ],
+        "BSQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            17,
+            2
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            25,
+            2
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "anthropic",
+    "model": "Claude-Haiku-3",
+    "model_id": "claude-3-haiku-20240307",
+    "usage": {
+      "prompt_tokens": 309737,
+      "cache_read_tokens": 291737,
+      "cache_write_tokens": 17802,
+      "completion_tokens": 6918,
+      "reasoning_tokens": 0,
+      "total_tokens": 316655,
+      "prompt_price": 0.0,
+      "cached_price": 0.0083,
+      "cache_write_price": 0.0051,
+      "completion_price": 0.0082,
+      "total_price": 0.0165
+    },
+    "activity": {
+      "last_turn": 27,
+      "json_errors": 0,
+      "carrier_request_count": 24,
+      "carrier_request_errors": 2,
+      "squadron_request_count": 2,
+      "squadron_request_errors": 1,
+      "spotted_enemy_turn": 7,
+      "trip_count": {
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ]
+        ],
+        "AC1": [
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            15,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            24,
+            2
+          ],
+          [
+            25,
+            2
+          ],
+          [
+            26,
+            2
+          ],
+          [
+            27,
+            2
+          ]
+        ],
+        "ASQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ]
+        ]
+      }
+    }
+  }
+}

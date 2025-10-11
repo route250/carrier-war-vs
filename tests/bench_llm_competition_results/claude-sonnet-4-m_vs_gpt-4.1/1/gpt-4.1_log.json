@@ -1,0 +1,22 @@
+[
+  {
+    "role": "user",
+    "content": "Below is the current battle situation from your perspective.\n\nTurn 1 of 30.\n\n\nYour forces:\n- Your carrier BC1: position (23, 21), stationary, HP 100/100, speed 2, vision 4.\n- Your squadron BSQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron BSQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母は(3,3)近傍に初期配置されているため、まずはその周辺の海域を索敵する必要がある。自軍空母は(23,21)とマップ右下寄りに位置しており、航空部隊の航続距離22を最大限活かすためにも、まずは敵初期位置方向の広範囲を索敵する。空母自体は現状安全圏にあるため、まずは移動せず航空部隊を発艦し索敵を優先する。BSQ1は敵初期位置(3,3)を、BSQ2はその周辺(7,7)を目標に発艦させる。これにより敵空母の初期位置および移動方向の手がかりを早期に得ることを狙う。\",\"action\":{\"carrier_target\":null,\"launch_target\":{\"x\":3,\"y\":3}}}"
+  },
+  {
+    "role": "user",
+    "content": "ERROR: invalid your order, rejected: launch_target was rejected. x=3 y=3 is out of squadron range. Please specify a valid coordinate, such as x=9 y=6.\nPlease fix your order."
+  },
+  {
+    "role": "assistant",
+    "content": "{\"thinking\":\"敵空母の初期位置(3,3)は自軍空母(23,21)から遠く、航空部隊の航続距離22を超えている。まずは航続距離ギリギリの範囲で敵空母の初期位置に近い海域を索敵する必要がある。最遠到達可能な座標の一つ(9,6)を目標にBSQ1を発艦し、BSQ2はその周辺(12,9)を目標に発艦させることで、敵空母の初期位置付近の広範囲をカバーし索敵効率を高める。空母自体は現状安全圏なので移動しない。\",\"action\":{\"carrier_target\":null,\"launch_target\":{\"x\":9,\"y\":6}}}"
+  },
+  {
+    "role": "user",
+    "content": "Aborted:\n\n Below is the last battle situation.\nResult (from your perspective): the battle ended in a draw.\n\nTurn 1 of 30.\n\n\nYour forces:\n- Your carrier BC1: position (23, 21), stationary, HP 100/100, speed 2, vision 4.\n- Your squadron BSQ1: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n- Your squadron BSQ2: on board a carrier, ready to launch., HP 40/40, operational range 22, speed 4, vision 5.\n\nEnemy intelligence:\n- Enemy carrier position unknown.\n"
+  }
+]

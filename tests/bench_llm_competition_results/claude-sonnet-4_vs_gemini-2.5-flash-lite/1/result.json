@@ -1,0 +1,453 @@
+{
+  "winner_side": "B",
+  "winner_model": "Claude-Sonnet-4",
+  "B": {
+    "provider": "anthropic",
+    "model": "Claude-Sonnet-4",
+    "usage": {
+      "prompt_tokens": 378769,
+      "cache_read_tokens": 359888,
+      "cache_write_tokens": 18694,
+      "completion_tokens": 7951,
+      "reasoning_tokens": 0,
+      "total_tokens": 386720,
+      "prompt_price": 0.0005,
+      "cached_price": 0.103,
+      "cache_write_price": 0.0669,
+      "completion_price": 0.1137,
+      "total_price": 0.2172
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 0,
+      "carrier_request_count": 4,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 4,
+      "squadron_request_errors": 4,
+      "spotted_enemy_turn": 5,
+      "trip_count": {
+        "BC1": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            15,
+            2
+          ]
+        ],
+        "BSQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            14,
+            5
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            20,
+            4
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            23,
+            4
+          ],
+          [
+            24,
+            4
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            4
+          ],
+          [
+            28,
+            4
+          ],
+          [
+            29,
+            4
+          ]
+        ],
+        "BSQ2": [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            14,
+            4
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            22,
+            4
+          ],
+          [
+            23,
+            4
+          ],
+          [
+            24,
+            4
+          ],
+          [
+            25,
+            4
+          ],
+          [
+            26,
+            4
+          ],
+          [
+            27,
+            1
+          ],
+          [
+            28,
+            4
+          ],
+          [
+            29,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  "A": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash-lite",
+    "usage": {
+      "prompt_tokens": 378318,
+      "cache_read_tokens": 215033,
+      "cache_write_tokens": 0,
+      "completion_tokens": 7961,
+      "reasoning_tokens": 0,
+      "total_tokens": 386279,
+      "prompt_price": 0.0156,
+      "cached_price": 0.0051,
+      "completion_price": 0.003,
+      "total_price": 0.0237
+    },
+    "activity": {
+      "last_turn": 30,
+      "json_errors": 0,
+      "carrier_request_count": 0,
+      "carrier_request_errors": 0,
+      "squadron_request_count": 5,
+      "squadron_request_errors": 7,
+      "spotted_enemy_turn": 7,
+      "trip_count": {
+        "ASQ1": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            16,
+            4
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            19,
+            4
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            21,
+            4
+          ],
+          [
+            22,
+            4
+          ],
+          [
+            23,
+            4
+          ],
+          [
+            24,
+            4
+          ],
+          [
+            26,
+            2
+          ],
+          [
+            27,
+            4
+          ],
+          [
+            28,
+            4
+          ],
+          [
+            29,
+            4
+          ],
+          [
+            30,
+            4
+          ]
+        ],
+        "ASQ2": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            4
+          ],
+          [
+            13,
+            4
+          ],
+          [
+            23,
+            1
+          ]
+        ]
+      }
+    }
+  }
+}
