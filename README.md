@@ -6,9 +6,7 @@ This is a turn-based naval battle simulation game with simple rules and controls
 
 Game concept video:
 
-<video src="docs/assets/carrier_war_move1.mp4" controls loop style="max-width:30%;height:auto">
-	If the video cannot be played in your environment, please refer to docs/assets/carrier_war_move1.mp4.
-</video>
+<video src="docs/assets/carrier_war_move1.mp4"><video>
 
 ## Features
 - Turn-based with simultaneous execution
