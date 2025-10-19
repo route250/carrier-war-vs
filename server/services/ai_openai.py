@@ -136,6 +136,8 @@ def is_legacy_model(model_name: str) -> bool:
         return True
     if model_name.startswith("gpt-5-chat"):
         return True
+    if "gpt-oss" in model_name:
+        return True
     return False
 
 def is_resoning_model(model_name: str) -> bool:
@@ -148,7 +150,6 @@ def is_resoning_model(model_name: str) -> bool:
 class OpenAIConfig(LLMBaseConfig):
     model: str = field(default=OPENAI_MODELS.models[0].name)
     api_key: Optional[str] = None
-    base_url: Optional[str] = os.getenv("OPENAI_BASE_URL")  # プロキシや互換API用
     temperature: float = 0.2
 
 class CarrierBotOpenAI(LLMBase):
@@ -163,7 +164,7 @@ class CarrierBotOpenAI(LLMBase):
         ai_model: AIModel|None = None,
         config: LLMBaseConfig|None = None,
     ) -> None:
-        ai_model = OPENAI_MODELS.get_model(name=name,config=config)
+        ai_model = OPENAI_MODELS.get_model(name=name,config=config) if ai_model is None else ai_model
         assert ai_model is not None, f"Unknown OpenAI model: {name}"
         config = config or LLMBaseConfig()
         config.model = ai_model.model
@@ -201,8 +202,8 @@ class CarrierBotOpenAI(LLMBase):
             return False
         try:
             # base_url 指定がある場合に対応
-            if self._config.base_url:
-                self._client = OpenAI(api_key=self._config.api_key, base_url=self._config.base_url)
+            if self.aimodel.base_url:
+                self._client = OpenAI(api_key=self._config.api_key, base_url=self.aimodel.base_url)
             else:
                 self._client = OpenAI(api_key=self._config.api_key)
             return True
@@ -285,14 +286,18 @@ class CarrierBotOpenAI(LLMBase):
         if is_legacy_model(self.aimodel.model):
             if output_format:
                 try:
-                    fmt = output_format.to_json_mode() # type: ignore
+                    if issubclass(output_format, ResponseModel):
+                        fmt = output_format.to_json_format() # type: ignore
+                    else:
+                        fmt = output_format.model_json_schema() # type: ignore
                     if fmt:
                         xmsgs.append(ChatCompletionSystemMessageParam(
                             role='system',
                             content=f"You must respond in JSON format exactly as specified: {fmt}.",
                         ))
                     output_format = None
-                except Exception:
+                except Exception as ex:
+                    print(f"Failed to generate JSON schema: {ex}")
                     pass
 
         # モデル名が ^o[0-9] で始まる場合は temperature を 1.0 にする

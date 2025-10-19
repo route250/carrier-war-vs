@@ -320,7 +320,6 @@ class LLMBaseConfig:
     """LLM共通の設定項目"""
     model: str|None = None
     api_key: str|None = None
-    base_url: str|None = None
     temperature: float|None = None
     max_input_tokens: int|None = None
     max_output_tokens: int|None = None
@@ -340,6 +339,7 @@ class AIModel(BaseModel, frozen=True):
     output_price: float | None = None # per 1M tokens
     tpm: int | None = None  # tokens per minute
     rpm: int | None = None  # requests per minute
+    base_url: str | None = None  # API base URL (if applicable)
 
 class AIProvider(BaseModel, frozen=True):
     name: str # e.g. "CPU", "OpenAI", "Anthropic", "Gemini"

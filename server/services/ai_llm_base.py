@@ -126,9 +126,25 @@ class Action(BaseModel):
     carrier_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_CARRIER_TARGET}")
     launch_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_LAUNCH_TARGET}")
 
+    @staticmethod
+    def to_json_format() -> str:
+        fmt = "{"
+        fmt += f" \"carrier_target\": {{\"x\": <int>, \"y\": <int>}} | null,"
+        fmt += f" \"launch_target\": {{\"x\": <int>, \"y\": <int>}} | null"
+        fmt += "}"
+        return fmt
+
 class ResponseModel(BaseModel):
     thinking: str = Field(..., description=f"{DESCRIPTION_THINKING}")
     action: Action = Field(..., description="CarrierとSquadronの移動先座標、偵察先座標、攻撃目標の座標を指示する")
+
+    @staticmethod
+    def to_json_format() -> str:
+        fmt = "{"
+        fmt += f" \"thinking\": \"{DESCRIPTION_THINKING}\","
+        fmt += f" \"action\": {Action.to_json_format()}"
+        fmt += "}"
+        return fmt
 
 class LLMTokenUsage:
     def __init__(self, *, prompt:int=0, cache_read:int=0, completion:int=0, reasoning:int=0, cache_write:int=0):

@@ -177,3 +177,6 @@ dustbox/
 output/
 **/.DS_Store
 .run
+**/*.env
+**/.env
+*.log

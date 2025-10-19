@@ -10,7 +10,8 @@ from server.services.ai_openai import OpenAIConfig, CarrierBotOpenAI
 from server.services.ai_anthropic import AnthropicConfig, CarrierBotAnthropic
 from server.services.ai_gemini import GeminiConfig, CarrierBotGemini
 from server.services.ai_cpu import Config, CarrierBotMedium
-from server.services.ai_llm_base import LLMBase
+from server.services.ai_llm_base import LLMBase, LLMBaseConfig
+from server.services.ai_iointelligence import CarrierBotIOIntelligence
 
 from pathlib import Path
 from dotenv import load_dotenv
@@ -50,6 +51,9 @@ class LlmTestRun:
         elif provider == 'gemini':
             config = GeminiConfig(model=model)
             bot = CarrierBotGemini(store=self.store, match_id=match_id, name=model, config=config)
+        elif provider == 'iointelligence':
+            config = LLMBaseConfig(model=model)
+            bot = CarrierBotIOIntelligence(store=self.store, match_id=match_id, name=model, config=config)
         else:
             raise ValueError(f"Unknown provider: {provider}")
 
@@ -135,6 +139,8 @@ class LlmTestRun:
 def main():
     provider = "anthropic"
     model = "Claude-Haiku-3"
+    provider = "iointelligence"
+    model = "gpt-oss-20b"
 
     run = LlmTestRun()
     run.setUp()

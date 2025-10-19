@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+        "name": "Python デバッガー: 現在のファイル",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "env": {
+            "PYTHONPATH": "${workspaceFolder}/src"
+        }
+    },
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Launch FastAPI Server",
+      "program": "${workspaceFolder}/server/main.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "envFile": "${workspaceFolder}/config.env"
+    }
+  ]
+}
