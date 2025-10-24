@@ -16,8 +16,9 @@ from server.schemas import MatchCreateRequest, MatchJoinRequest, Position
 from server.services.ai_openai import OpenAIConfig, CarrierBotOpenAI
 from server.services.ai_anthropic import AnthropicConfig, CarrierBotAnthropic
 from server.services.ai_gemini import GeminiConfig, CarrierBotGemini
+from server.services.ai_iointelligence import CarrierBotIOIntelligence
 from server.services.ai_cpu import Config, CarrierBotMedium
-from server.services.ai_llm_base import LLMBase, LLMTokenUsage, parse_output_to_model
+from server.services.ai_llm_base import LLMBase, LLMBaseConfig, LLMTokenUsage, parse_output_to_model
 from tests.bench_plot import plot_bench_results
 
 
@@ -51,7 +52,7 @@ class CellTypeResponse(BaseModel):
     answer: Literal["yes", "no"]
 
     @staticmethod
-    def to_json_mode() -> str:
+    def to_json_format() -> str:
         return f"{{ \"answer\": 'yes' | 'no' }}"
 
 class LandCountResponse(BaseModel):
@@ -59,7 +60,7 @@ class LandCountResponse(BaseModel):
     land_count: int
 
     @staticmethod
-    def to_json_mode() -> str:
+    def to_json_format() -> str:
         return f"{{ \"land_count\": integer }}"
 
 class NeighborListResponse(BaseModel):
@@ -67,7 +68,7 @@ class NeighborListResponse(BaseModel):
     neighbors: list[Position]
 
     @staticmethod
-    def to_json_mode() -> str:
+    def to_json_format() -> str:
         return f"{{ \"neighbors\": [ {{ \"x\": integer, \"y\": integer }}, ... ] }}"
 
 
@@ -177,6 +178,7 @@ def execute_benchmarks():
         # anthropic claude
         ('anthropic', 'claude-haiku-3'),
         ('anthropic', 'claude-haiku-3.5'),
+        ('anthropic', 'claude-haiku-4.5'),
         ('anthropic', 'claude-sonnet-4'),
         ('anthropic', 'claude-sonnet-4.5'),
         ('anthropic', 'claude-Opus-4.1'),
@@ -186,18 +188,18 @@ def execute_benchmarks():
         ('gemini', 'gemini-2.5-flash-lite'),
         ('gemini', 'gemini-2.5-flash'),
 
+        # iointelligence
+        ('iointelligence', 'gpt-oss-120b'), 
+        ('iointelligence', 'gpt-oss-20b'), 
+        ('iointelligence', 'deepseek-r1'), 
+        ('iointelligence', 'qwen3-coder-480b-a35b-instruct'), 
+        ('iointelligence', 'qwen3-next-80b-a3b-instruct'), 
+        ('iointelligence', 'qwen3-235b-a22b-thinking-2507'),
+        ('iointelligence', 'qwen2-5-vl-32b'),
+        ('iointelligence', 'llama4-17b'), 
+        ('iointelligence', 'llama3-3-70b'),
+        #('iointelligence', 'llama3-2-90b-vision-instruct'), 
     ]
-
-    # case_list = [
-    #     ('openai', 'gpt-4-turbo'),
-    #     ('openai', 'gpt-4.1-nano'),
-    #     ('openai', 'gpt-4.1-mini'),
-    #     ('openai', 'gpt-4o-mini'),
-    #     ('openai', 'gpt-5-nano'),
-    #     ('openai', 'gpt-5-mini'),
-    #     ('anthropic', 'claude-haiku-3'),
-    #     ('gemini', 'gemini-2.0-flash-lite'),
-    # ]
 
     # モデル候補ごとにマッチを立ち上げ、3種類の質問テンプレートで精度を測定
     for provider,model in case_list:
@@ -219,6 +221,9 @@ def execute_benchmarks():
             config = GeminiConfig(model=model)
             ai_model = CarrierBotGemini.get_model_names().get_model(model)
             bot = CarrierBotGemini(store=store, match_id=match_id, name=model, config=config)
+        elif provider == 'iointelligence':
+            ai_model = CarrierBotIOIntelligence.get_model_names().get_model(model)
+            bot = CarrierBotIOIntelligence(store=store, match_id=match_id, name=model)
         else:
             raise ValueError(f"Unknown provider: {provider}")
 

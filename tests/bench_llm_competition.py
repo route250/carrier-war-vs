@@ -5,6 +5,7 @@ import time
 import csv
 
 from pandas import Series
+
 if __name__ == '__main__':
     # ai_gemini.py is at server/services; project root is two levels up
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -39,6 +40,7 @@ from server.schemas import MatchCreateRequest, Config
 from server.services.ai_openai import OpenAIConfig, CarrierBotOpenAI
 from server.services.ai_anthropic import AnthropicConfig, CarrierBotAnthropic
 from server.services.ai_gemini import GeminiConfig, CarrierBotGemini
+from server.services.ai_iointelligence import CarrierBotIOIntelligence
 from server.services.ai_cpu import Config, CarrierBotMedium
 from server.services.ai_llm_base import LLMBase
 from tests.plotlib import write_table_svg, write_scatter_svg, resolve_model_category, COLOR_MAP
@@ -184,6 +186,9 @@ class LLMCompetition:
         elif provider == 'gemini':
             config = GeminiConfig(model=model)
             bot = CarrierBotGemini(store=self.store, match_id=self.match.match_id, name=model, config=config)
+        elif provider == 'iointelligence':
+            #ai_model = CarrierBotIOIntelligence.get_model_names().get_model(model)
+            bot = CarrierBotIOIntelligence(store=self.store, match_id=self.match.match_id, name=model)
         else:
             bot = CarrierBotMedium(store=self.store, match_id=self.match.match_id, config=None)
             # raise ValueError(f"Unknown provider: {provider}")
@@ -614,6 +619,10 @@ def main():
         #Config(provider='anthropic',llm_model='Claude-Sonnet-4-M'),
         Config(provider='gemini',llm_model='gemini-2.5-flash-lite'),
         Config(provider='gemini',llm_model='gemini-2.5-flash'),
+    ]
+    clist = [
+        Config(provider='iointelligence',llm_model='gpt-oss-20b'),
+        Config(provider='iointelligence',llm_model='qwen2-5-vl-32b'),
     ]
     # clist = [
     #     Config(provider='openai',llm_model='gpt-5-nano'),

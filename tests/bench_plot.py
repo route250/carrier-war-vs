@@ -57,12 +57,20 @@ def draw_scatter(
     y_col: str = "TotalPrice",
     x_label: str = "Accuracy (%)",
     y_label: str = "TotalPrice",
-    x_limit: tuple[float, float] | None = (0, 100),
+    x_limit: tuple[float, float] | None = (0, 110),
+    x_reference: float | None = 100.0,
+    y_limit: tuple[float, float] | None = None,
 ) -> None:
+    plot_df = df
+    if y_col == "TotalPrice" and "Provider" in df.columns:
+        # TotalPriceの比較ではiointelligence系モデルを除外して視認性を確保する
+        mask = df["Provider"].str.lower().fillna("") != "iointelligence"
+        plot_df = df[mask]
+
     write_scatter_svg(
         str(output_path),
         title,
-        df,
+        plot_df,
         x_col,
         y_col,
         "Model",
@@ -70,6 +78,8 @@ def draw_scatter(
         y_label=y_label,
         point_colors=True,
         x_limit=x_limit,
+        x_reference=x_reference,
+        y_limit=y_limit,
     )
 
 def plot_bench_results():
@@ -92,11 +102,11 @@ def plot_bench_results():
 
     # 2枚目: 最高価格の{max_rate}%以下のモデルのみで描画
     max_rate = 10  # 最高価格の10%以下
-    max_price = df["TotalPrice"].max()
-    if pd.isna(max_price):
+    max_value = df["TotalPrice"].max()
+    if pd.isna(max_value):
         filtered_df = df.iloc[0:0]
     else:
-        threshold = max_price * (max_rate / 100)
+        threshold = max_value * (max_rate / 100)
         filtered_df = df[df["TotalPrice"] <= threshold]
 
     if not filtered_df.empty:
@@ -116,6 +126,23 @@ def plot_bench_results():
         y_col="Elapsed",
         y_label="Elapsed Time",
     )
+
+    max_rate = 20  # 最高価格の10%以下
+    max_value = df["Elapsed"].max()
+    if pd.isna(max_value):
+        filtered_df = df.iloc[0:0]
+    else:
+        threshold = max_value * (max_rate / 100)
+        filtered_df = df[df["Elapsed"] <= threshold]
+
+    if not filtered_df.empty:
+        draw_scatter(
+            output_dir / "bench_plot_time2.svg",
+            "Accuracy vs Elapsed Time (<=300ms)",
+            filtered_df,
+            y_col="Elapsed",
+            y_label="Elapsed Time",
+        )
 
 if __name__ == "__main__":
     plot_bench_results()

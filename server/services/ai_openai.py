@@ -12,8 +12,10 @@ import math
 import os
 import re
 from dataclasses import dataclass, field
+import time
 from typing import Any, Dict, Optional, List
 
+import httpx
 from pydantic import BaseModel
 
 # If tests or imports run this module directly, ensure project-local `config.env` is loaded so
@@ -42,7 +44,8 @@ from server.schemas import PlayerOrders, AIModel, AIProvider, AIListResponse
 # openai SDK（新API）。requirements.txtで `openai` 指定済み。
 USE_OPENAI = False
 try:
-    from openai import OpenAI
+    from openai import OpenAI, Omit, APIConnectionError, APITimeoutError
+    import openai
     from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
     from openai.types.chat.chat_completion_tool_message_param import ChatCompletionToolMessageParam
     from openai.types.chat.chat_completion_user_message_param import ChatCompletionUserMessageParam
@@ -50,9 +53,13 @@ try:
     from openai.types.chat.chat_completion_function_message_param import ChatCompletionFunctionMessageParam
     from openai.types.chat.chat_completion_assistant_message_param import ChatCompletionAssistantMessageParam
     from openai.types.chat.chat_completion_developer_message_param import ChatCompletionDeveloperMessageParam
+    from openai.types.chat.completion_create_params import ResponseFormat
     from openai.types.responses.response_input_param import ResponseInputParam
     from openai.types.responses.easy_input_message_param import EasyInputMessageParam
     from openai.types.responses.response import Response
+    from openai.types.shared_params.response_format_json_schema import ResponseFormatJSONSchema
+    from openai.types.shared_params.response_format_json_object import ResponseFormatJSONObject
+    from openai.lib._parsing import type_to_response_format_param
     USE_OPENAI = True
 except Exception:  # ランタイム環境により未導入の可能性に備える
     USE_OPENAI = False
@@ -105,12 +112,12 @@ OPENAI_MODELS = AIProvider(name="OpenAI", models=[
             AIModel(name="gpt-5-mini-M", model="gpt-5-mini", reasoning='medium', max_input_tokens=4000000, max_output_tokens=128000, input_price=0.25, cached_price=0.025, output_price=2.0),
             AIModel(name="gpt-5-mini-H", model="gpt-5-mini", reasoning='high', max_input_tokens=4000000, max_output_tokens=128000, input_price=0.25, cached_price=0.025, output_price=2.0),
             AIModel(name="gpt-4.1-mini", model="gpt-4.1-mini", max_input_tokens=1047576, max_output_tokens=32768, input_price=0.4, cached_price=0.1, output_price=1.6),
-            AIModel(name="gpt-3.5-turbo", model="gpt-3.5-turbo", max_input_tokens=4096, max_output_tokens=4096, input_price=0.5, output_price=1.5),
-            AIModel(name="gpt-4-turbo", model="gpt-4-turbo", max_input_tokens=128000, max_output_tokens=4096, input_price=10, output_price=30),
-            AIModel(name="gpt-4", model="gpt-4", max_input_tokens=8192, max_output_tokens=8192, input_price=30, output_price=60),
+            AIModel(name="gpt-3.5-turbo", model="gpt-3.5-turbo", max_input_tokens=4096, max_output_tokens=4096, input_price=0.5, output_price=1.5, input_strategy='summarize', output_format="json_object"),
+            AIModel(name="gpt-4-turbo", model="gpt-4-turbo", max_input_tokens=128000, max_output_tokens=4096, input_price=10, output_price=30, input_strategy='summarize', output_format="json_object"),
+            AIModel(name="gpt-4", model="gpt-4", max_input_tokens=8192, max_output_tokens=8192, input_price=30, output_price=60, input_strategy='summarize', output_format="json_object"),
             AIModel(name="o4-mini", model="o4-mini", reasoning='minimal', max_input_tokens=200000, max_output_tokens=100000, input_price=1.1, cached_price=0.55, output_price=4.4),
             AIModel(name="o3-mini", model="o3-mini", reasoning='minimal', max_input_tokens=200000, max_output_tokens=100000, input_price=1.1, cached_price=0.55, output_price=4.4),
-            AIModel(name="gpt-5-chat", model="gpt-5-chat-latest", max_input_tokens=128000, max_output_tokens=16000, input_price=1.25, cached_price=0.125, output_price=10.0, input_strategy='summarize'),
+            AIModel(name="gpt-5-chat", model="gpt-5-chat-latest", max_input_tokens=128000, max_output_tokens=16000, input_price=1.25, cached_price=0.125, output_price=10.0, input_strategy='summarize', output_format='json_object'),
             AIModel(name="gpt-5", model="gpt-5", reasoning='minimal', max_input_tokens=4000000, max_output_tokens=128000, input_price=1.25, cached_price=0.125, output_price=10.0),
             AIModel(name="gpt-5-L", model="gpt-5", reasoning='low', max_input_tokens=4000000, max_output_tokens=128000, input_price=1.25, cached_price=0.125, output_price=10.0),
             AIModel(name="gpt-5-M", model="gpt-5", reasoning='medium', max_input_tokens=4000000, max_output_tokens=128000, input_price=1.25, cached_price=0.125, output_price=10.0),
@@ -128,23 +135,27 @@ OPENAI_MODELS = AIProvider(name="OpenAI", models=[
         # AIModel(name="o1", model="o1", max_input_tokens=200000, max_output_tokens=1000000)
         # AIModel(name="o1-mini", model="o1-mini", max_input_tokens=128000, max_output_tokens=65536)
 
-def is_legacy_model(model_name: str) -> bool:
-    """モデル名が旧世代モデルかどうかを返す。"""
-    if model_name.startswith("gpt-3.5"):
-        return True
-    if model_name=="gpt-4" or model_name.startswith("gpt-4-"):
-        return True
-    if model_name.startswith("gpt-5-chat"):
-        return True
-    if "gpt-oss" in model_name:
-        return True
-    return False
 
 def is_resoning_model(model_name: str) -> bool:
     """モデル名が推論強化モデルかどうかを返す。"""
     if model_name.startswith("gpt-5") or model_name.startswith("o3") or model_name.startswith("o4"):
         return True
     return False
+
+def to_response_format( output_model: type[BaseModel]|None, output_strict: bool = False ) -> ResponseFormat|Omit:
+    if USE_OPENAI is None or not USE_OPENAI:
+        return Omit()
+    if output_model is None or not issubclass(output_model, BaseModel):
+        return Omit()
+    try:
+        resp_fmt = type_to_response_format_param(output_model)
+        json_schema = resp_fmt.get("json_schema", {}) if isinstance(resp_fmt, dict) else {}
+        if isinstance(output_strict,bool) and isinstance(json_schema.get('strict'), bool) and json_schema.get('strict') != output_strict:
+            json_schema['strict'] = output_strict
+        return resp_fmt
+    except Exception:
+        pass
+    return Omit()
 
 @dataclass
 class OpenAIConfig(LLMBaseConfig):
@@ -201,11 +212,12 @@ class CarrierBotOpenAI(LLMBase):
         if not self._config.api_key and not os.getenv("OPENAI_API_KEY"):
             return False
         try:
+            to = httpx.Timeout(timeout=300, connect=30.0, pool=False)
             # base_url 指定がある場合に対応
             if self.aimodel.base_url:
-                self._client = OpenAI(api_key=self._config.api_key, base_url=self.aimodel.base_url)
+                self._client = OpenAI(api_key=self._config.api_key, base_url=self.aimodel.base_url, timeout=to, max_retries=0)
             else:
-                self._client = OpenAI(api_key=self._config.api_key)
+                self._client = OpenAI(api_key=self._config.api_key, timeout=to, max_retries=0)
             return True
         except Exception:
             self._client = None
@@ -283,22 +295,28 @@ class CarrierBotOpenAI(LLMBase):
             raise RuntimeError("OpenAI client not initialized")
 
         xmsgs: List[ChatCompletionMessageParam] = self.convert_to_completion_input(msg)
-        if is_legacy_model(self.aimodel.model):
-            if output_format:
+        ofmt = Omit()
+        if output_format:
+            if self.aimodel.output_format == 'json_schema':
+               ofmt = to_response_format(output_format, output_strict=True)
+            else:
                 try:
-                    if issubclass(output_format, ResponseModel):
+                    if hasattr(output_format, "to_json_format"):
                         fmt = output_format.to_json_format() # type: ignore
+                        content = f"You must respond in JSON format exactly as specified: {fmt}." if fmt else ""
                     else:
                         fmt = output_format.model_json_schema() # type: ignore
-                    if fmt:
-                        xmsgs.append(ChatCompletionSystemMessageParam(
-                            role='system',
-                            content=f"You must respond in JSON format exactly as specified: {fmt}.",
-                        ))
-                    output_format = None
+                        content = f"You must respond in JSON schema exactly as specified: {fmt}." if fmt else ""
                 except Exception as ex:
                     print(f"Failed to generate JSON schema: {ex}")
-                    pass
+                    
+                if content:
+                    xmsgs.append(ChatCompletionSystemMessageParam(role='system', content=content))
+                else:
+                    raise RuntimeError(f"invalid object for output_format {type(output_format)}")
+                output_format = None
+                if self.aimodel.output_format=='json_object':
+                    ofmt=ResponseFormatJSONObject(type='json_object')
 
         # モデル名が ^o[0-9] で始まる場合は temperature を 1.0 にする
         max_tokens = self.get_max_output_tokens()
@@ -309,26 +327,37 @@ class CarrierBotOpenAI(LLMBase):
         kwargs = {}
         if self.aimodel.reasoning:
             kwargs['reasoning_effort'] = self.aimodel.reasoning
-        try:
-            if not output_format:
-                resp = self._client.chat.completions.create(
-                    model=self.aimodel.model,
-                    messages=xmsgs,
-                    temperature=temperature,
-                    max_completion_tokens=max_tokens,
-                    **kwargs
-                )
-            else:
-                resp = self._client.chat.completions.parse(
-                    model=self.aimodel.model,
-                    messages=xmsgs,
-                    temperature=temperature,
-                    max_completion_tokens=max_tokens,
-                    response_format=output_format,
-                    **kwargs
-                )
-        except Exception as ex:
-            raise LLMError(f"OpenAI API error: {ex}", ex)
+
+        max_try:int = 8
+        for ntry in range(max_try):
+            try:
+                if output_format is not None and ofmt is None:
+                    resp = self._client.chat.completions.parse(
+                        model=self.aimodel.model,
+                        messages=xmsgs,
+                        temperature=temperature,
+                        max_completion_tokens=max_tokens,
+                        response_format=output_format,
+                        **kwargs
+                    )
+                else:
+                    client: OpenAI = self._client  # type: ignore
+                    resp = client.chat.completions.create(
+                        model=self.aimodel.model,
+                        messages=xmsgs,
+                        temperature=temperature,
+                        max_completion_tokens=max_tokens,
+                        response_format=ofmt,
+                        **kwargs
+                    )
+                break
+            except Exception as ex:
+                if isinstance(ex, (APIConnectionError, APITimeoutError)):
+                    if ntry < max_try - 1:
+                        print(f"OpenAI API connection error, retrying... ({ntry+1}/{max_try}): {ex}")
+                        time.sleep(7.0*ntry)
+                        continue
+                raise LLMError(f"OpenAI API error: {ex}", ex)
         choice = resp.choices[0] if resp and len(resp.choices)>0 else None
         if choice is None:
             raise RuntimeError("empty response from model")
@@ -407,10 +436,10 @@ class CarrierBotOpenAI(LLMBase):
             prev_response_id = None
             sys_prompt, next_input = self.convert_to_response_input(msg)
 
-        if is_legacy_model(self.aimodel.model):
+        if self.aimodel.output_format == 'json':
             if output_format:
                 try:
-                    fmt = output_format.to_json_mode() # type: ignore
+                    fmt = output_format.to_json_format() # type: ignore
                     if fmt:
                         fmt = f"\n\nYou must respond in JSON format exactly as specified: {fmt}."
                         if isinstance(next_input, str):

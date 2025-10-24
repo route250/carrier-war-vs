@@ -50,6 +50,8 @@ COLOR_MAP = {
     "Other": OTHER_COLOR,
 }
 
+MODEL_PREFIXES_TO_HIDE = ("claude-", "gemini-")
+
 def resolve_model_category(model: str | None) -> str:
     model_lower = (model or "").lower()
     if "claude" in model_lower:
@@ -62,6 +64,16 @@ def resolve_model_category(model: str | None) -> str:
 
 def ensure_parent_dir(path: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
+
+
+def strip_model_prefix(label: str | None) -> str:
+    """散布図などでの表示用に既知のモデル接頭辞を削除する。"""
+    text = label or ""
+    lower = text.lower()
+    for prefix in MODEL_PREFIXES_TO_HIDE:
+        if lower.startswith(prefix):
+            return text[len(prefix):]
+    return text
 
 def write_table_svg(
     path: str,
@@ -224,6 +236,8 @@ def write_scatter_svg(
     y_label: str | None = None,
     x_limit: tuple[float, float] | None = (0, 100),
     point_colors: bool = False,
+    x_reference: float | None = None,
+    y_limit: tuple[float, float] | None = None,
 ) -> None:
     valid_rows = df[[x_col, y_col, model_col]].dropna(subset=[x_col, y_col])
     points: list[tuple[str, float, float]] = [
@@ -238,6 +252,8 @@ def write_scatter_svg(
         y_label if y_label else y_col,
         point_colors=point_colors,
         x_lim=x_limit,
+        x_reference=x_reference,
+        y_lim=y_limit,
     )
 
 def pt_write_scatter_svg(
@@ -250,6 +266,7 @@ def pt_write_scatter_svg(
     point_colors: bool = False,
     x_lim: tuple[float, float] | None = None,
     y_lim: tuple[float, float] | None = None,
+    x_reference: float | None = None,
 ) -> None:
     if plt is None or adjust_text is None:
         raise RuntimeError("matplotlib または adjustText が見つかりません。`pip install matplotlib adjustText` を実行してください。")
@@ -264,6 +281,9 @@ def pt_write_scatter_svg(
         ax.set_xlim(*x_lim)
     if y_lim is not None:
         ax.set_ylim(*y_lim)
+    if x_reference is not None:
+        # 精度100%位置の視認性を高めるための補助線
+        ax.axvline(x_reference, color='#1f2937', linestyle='-', linewidth=1.0, alpha=0.6)
 
     if not points:
         ax.text(0.5, 0.5, "No data available", ha='center', va='center', transform=ax.transAxes)
@@ -275,7 +295,10 @@ def pt_write_scatter_svg(
             ax.scatter(xs, ys, c=cc, s=60, alpha=0.85, edgecolors='white', linewidths=0.5)
         else:
             ax.scatter(xs, ys, c=ys, cmap='viridis', s=60, alpha=0.85, edgecolors='white', linewidths=0.5)
-        texts = [ax.text(x, y, label, fontsize=10, ha='center', va='center') for label, x, y in points]
+        texts = [
+            ax.text(x, y, strip_model_prefix(label), fontsize=10, ha='center', va='center')
+            for label, x, y in points
+        ]
         adjust_text(
             texts,
             ax=ax,

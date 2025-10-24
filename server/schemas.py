@@ -340,6 +340,7 @@ class AIModel(BaseModel, frozen=True):
     tpm: int | None = None  # tokens per minute
     rpm: int | None = None  # requests per minute
     base_url: str | None = None  # API base URL (if applicable)
+    output_format: Literal['json_schema', 'json_object', 'json_text' ] = 'json_schema'  # 出力フォーマットの指定方法
 
 class AIProvider(BaseModel, frozen=True):
     name: str # e.g. "CPU", "OpenAI", "Anthropic", "Gemini"
