@@ -139,7 +139,7 @@ async function createMatch() {
     const res = await fetch('/v1/match/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: 'pvp', display_name: name }) });
     if (!res.ok) throw new Error(`status ${res.status}`);
     const json = await res.json();
-    APP.match = { id: json.match_id, token: json.player_token, side: json.side };
+    APP.match = { id: json.match_id, token: json.player_token, side: json.side, mode: json.mode || 'pvp' };
     if (typeof window.openMatchRoom === 'function') {
       window.openMatchRoom();
     } else {
@@ -156,7 +156,7 @@ async function joinMatch(matchId) {
     const res = await fetch(`/v1/match/${matchId}/join`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ display_name: name }) });
     if (!res.ok) throw new Error(`status ${res.status}`);
     const json = await res.json();
-    APP.match = { id: json.match_id, token: json.player_token, side: json.side };
+    APP.match = { id: json.match_id, token: json.player_token, side: json.side, mode: 'pvp' };
     if (typeof window.openMatchRoom === 'function') {
       window.openMatchRoom();
     } else {
@@ -247,7 +247,7 @@ async function createLLMMatch(provider, model) {
     const res = await fetch('/v1/match/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     if (!res.ok) throw new Error(`status ${res.status}`);
     const json = await res.json();
-    APP.match = { id: json.match_id, token: json.player_token, side: json.side };
+    APP.match = { id: json.match_id, token: json.player_token, side: json.side, mode: json.mode || 'pve' };
     if (typeof window.openMatchRoom === 'function') {
       window.openMatchRoom();
     } else {

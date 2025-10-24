@@ -8,7 +8,8 @@ const CARRIER_MAX_HP = 100;
 
 // 依存する共有オブジェクト
 const APP = window.APP || (window.APP = {});
-const el = window.el || (window.el = {
+const el = window.el || (window.el = {});
+Object.assign(el, {
   viewMatch: document.getElementById('view-match'),
   matchInfo: document.getElementById('matchInfo'),
   btnLeaveMatch: document.getElementById('btnLeaveMatch'),
@@ -20,7 +21,86 @@ const el = window.el || (window.el = {
   matchHint: document.getElementById('matchHint'),
   btnMatchModeMove: document.getElementById('btnMatchModeMove'),
   btnMatchModeLaunch: document.getElementById('btnMatchModeLaunch'),
+  matchCarrierStatusB: document.getElementById('matchCarrierStatusB'),
+  matchSquadronListB: document.getElementById('matchSquadronListB'),
+  matchHintB: document.getElementById('matchHintB'),
+  btnSubmitReadyB: document.getElementById('btnSubmitReadyB'),
+  btnMatchModeMoveB: document.getElementById('btnMatchModeMoveB'),
+  btnMatchModeLaunchB: document.getElementById('btnMatchModeLaunchB'),
 });
+
+const MATCH_UI = {
+  A: {
+    sidebar: document.querySelector('.match-sidebar:not(.match-sidebar-b)'),
+    matchCarrierStatus: document.getElementById('matchCarrierStatus'),
+    matchSquadronList: document.getElementById('matchSquadronList'),
+    matchHint: document.getElementById('matchHint'),
+    btnSubmitReady: document.getElementById('btnSubmitReady'),
+    btnMatchModeMove: document.getElementById('btnMatchModeMove'),
+    btnMatchModeLaunch: document.getElementById('btnMatchModeLaunch'),
+  },
+  B: {
+    sidebar: document.querySelector('.match-sidebar-b'),
+    matchCarrierStatus: document.getElementById('matchCarrierStatusB'),
+    matchSquadronList: document.getElementById('matchSquadronListB'),
+    matchHint: document.getElementById('matchHintB'),
+    btnSubmitReady: document.getElementById('btnSubmitReadyB'),
+    btnMatchModeMove: document.getElementById('btnMatchModeMoveB'),
+    btnMatchModeLaunch: document.getElementById('btnMatchModeLaunchB'),
+  },
+};
+
+APP.activeUISide = (typeof APP.activeUISide === 'string') ? APP.activeUISide : 'A';
+let MATCH_MODE = typeof window.MATCH_MODE === 'string' ? window.MATCH_MODE : 'move';
+window.MATCH_MODE = MATCH_MODE;
+
+function getActiveUISide() {
+  return (APP.activeUISide === 'B') ? 'B' : 'A';
+}
+
+function computeDesiredUISide() {
+  const match = APP.match || {};
+  const mode = String(match.mode || APP.matchState?.mode || '').toLowerCase();
+  const side = String(match.side || '').toUpperCase();
+  if (mode === 'pvp' && side === 'B') return 'B';
+  return 'A';
+}
+
+function applyMatchSidebarLayout(side) {
+  const wantB = side === 'B';
+  const hasB = !!(MATCH_UI.B?.matchCarrierStatus && MATCH_UI.B?.btnSubmitReady);
+  const next = wantB && hasB ? 'B' : 'A';
+  APP.activeUISide = next;
+  const root = document.documentElement;
+  root.style.setProperty('--sidea-width', next === 'A' ? '1fr' : '0px');
+  root.style.setProperty('--sideb-width', next === 'B' ? '1fr' : '0px');
+  const active = MATCH_UI[next];
+  const inactive = MATCH_UI[next === 'A' ? 'B' : 'A'];
+  if (active?.sidebar) active.sidebar.setAttribute('data-collapsed', 'false');
+  if (inactive?.sidebar) inactive.sidebar.setAttribute('data-collapsed', 'true');
+  if (inactive?.btnMatchModeMove) inactive.btnMatchModeMove.classList.remove('active');
+  if (inactive?.btnMatchModeLaunch) inactive.btnMatchModeLaunch.classList.remove('active');
+  if (inactive?.matchHint) inactive.matchHint.textContent = '';
+  if (inactive?.btnMatchModeMove) inactive.btnMatchModeMove.disabled = true;
+  if (inactive?.btnMatchModeLaunch) inactive.btnMatchModeLaunch.disabled = true;
+  if (inactive?.btnSubmitReady) inactive.btnSubmitReady.disabled = true;
+  el.matchCarrierStatus = active?.matchCarrierStatus || null;
+  el.matchSquadronList = active?.matchSquadronList || null;
+  el.matchHint = active?.matchHint || null;
+  el.btnSubmitReady = active?.btnSubmitReady || null;
+  el.btnMatchModeMove = active?.btnMatchModeMove || null;
+  el.btnMatchModeLaunch = active?.btnMatchModeLaunch || null;
+}
+
+function ensureMatchSidebarSide(force = false) {
+  const desired = computeDesiredUISide();
+  if (force || getActiveUISide() !== desired) {
+    applyMatchSidebarLayout(desired);
+    setMatchMode(MATCH_MODE);
+    return true;
+  }
+  return false;
+}
 
 function clearMatchLog() {
   if (el.matchLog) el.matchLog.innerHTML = '';
@@ -120,7 +200,11 @@ function openMatchRoom() {
   window.stopLobbySSE();
   goView('match');
   APP.aiMon = { open: false, items: [] };
-  updateMatchControls();
+  const root = document.documentElement;
+  root.style.setProperty('--inspector-width', '0px');
+  const inspector = document.getElementById('aiInspector');
+  if (inspector) inspector.classList.add('hidden');
+  ensureMatchSidebarSide(true);
   clearMatchLog();
   APP.matchLoggedUpToTurn = 0;
   // ゲームSSE開始
@@ -134,6 +218,13 @@ async function leaveMatchToLobby() {
   }
   stopMatchSSE();
   APP.match = null;
+  APP.activeUISide = 'A';
+  applyMatchSidebarLayout('A');
+  setMatchMode(MATCH_MODE);
+  const root = document.documentElement;
+  root.style.setProperty('--inspector-width', '0px');
+  const inspector = document.getElementById('aiInspector');
+  if (inspector) inspector.classList.add('hidden');
   goView('lobby');
   window.startLobbySSE();
 }
@@ -266,43 +357,52 @@ function updateMatchControls() {
   const disableAll = !APP.match || !s || status !== 'active';
   const canSubmit = !disableAll && (wait === 'you' || wait === 'orders');
   const canEdit = !disableAll && (wait === 'you' || wait === 'orders');
-  // 追加: 発艦可能編隊があるかチェック
   const sqArr = APP.matchState?.units?.squadrons || [];
   const launchable = Array.isArray(sqArr) ? sqArr.filter(x => x && x.state === 'onboard' && (x.hp ?? 0) > 0).length > 0 : false;
-  if (el.btnMatchModeMove) el.btnMatchModeMove.disabled = disableAll || !canEdit;
-  if (el.btnMatchModeLaunch) el.btnMatchModeLaunch.disabled = disableAll || !canEdit || !launchable;
-  if (el.btnSubmitReady) el.btnSubmitReady.disabled = disableAll || !canSubmit;
-  try {
-    if (el.btnMatchModeMove) el.btnMatchModeMove.classList.toggle('active', !disableAll && canEdit && MATCH_MODE === 'move');
-    if (el.btnMatchModeLaunch) el.btnMatchModeLaunch.classList.toggle('active', !disableAll && canEdit && MATCH_MODE === 'launch');
-  } catch {}
+  const activeSide = getActiveUISide();
+  for (const [side, ui] of Object.entries(MATCH_UI)) {
+    if (!ui) continue;
+    const isActive = side === activeSide;
+    if (ui.btnMatchModeMove) {
+      ui.btnMatchModeMove.disabled = disableAll || !canEdit || !isActive;
+      ui.btnMatchModeMove.classList.toggle('active', isActive && !disableAll && canEdit && MATCH_MODE === 'move');
+    }
+    if (ui.btnMatchModeLaunch) {
+      ui.btnMatchModeLaunch.disabled = disableAll || !canEdit || !launchable || !isActive;
+      ui.btnMatchModeLaunch.classList.toggle('active', isActive && !disableAll && canEdit && MATCH_MODE === 'launch');
+    }
+    if (ui.btnSubmitReady) ui.btnSubmitReady.disabled = disableAll || !canSubmit || !isActive;
+    if (!isActive && ui.matchHint) ui.matchHint.textContent = '';
+  }
 }
 
 // キャンバス操作
-let MATCH_MODE = 'move';
 function setMatchMode(m) {
-  // 発艦モードへ切替時に発艦可能編隊が無ければ拒否
   if (m === 'launch') {
     const sqArr = APP.matchState?.units?.squadrons || [];
     const launchable = Array.isArray(sqArr) ? sqArr.filter(x => x && x.state === 'onboard' && (x.hp ?? 0) > 0).length > 0 : false;
     if (!launchable) {
-      if (el.matchHint) el.matchHint.textContent = '発艦可能な編隊がありません';
+      const activeUI = MATCH_UI[getActiveUISide()];
+      if (activeUI?.matchHint) activeUI.matchHint.textContent = '発艦可能な編隊がありません';
       return;
     }
   }
   MATCH_MODE = m;
-  if (el.btnMatchModeMove) el.btnMatchModeMove.classList.toggle('active', m === 'move');
-  if (el.btnMatchModeLaunch) el.btnMatchModeLaunch.classList.toggle('active', m === 'launch');
-  if (el.matchHint) {
-    if (m === 'move') {
-      el.matchHint.textContent = '目的地をクリック';
-    } else if (m === 'launch') {
-      const sqs = APP.matchState?.units?.squadrons || [];
-      const bases = Array.isArray(sqs) ? sqs.filter(x => x && x.state === 'onboard' && (x.hp ?? 0) > 0) : [];
-      const maxFuel = bases.length ? Math.max(...bases.map(x => (typeof x.fuel === 'number') ? x.fuel : 0)) : null;
-      el.matchHint.textContent = (maxFuel != null) ? `目標地点をクリック（航続距離:${maxFuel}）` : '発艦可能な編隊がありません';
-    }
+  window.MATCH_MODE = MATCH_MODE;
+  let hintText = '';
+  if (m === 'move') {
+    hintText = '目的地をクリック';
+  } else if (m === 'launch') {
+    const sqs = APP.matchState?.units?.squadrons || [];
+    const bases = Array.isArray(sqs) ? sqs.filter(x => x && x.state === 'onboard' && (x.hp ?? 0) > 0) : [];
+    const maxFuel = bases.length ? Math.max(...bases.map(x => (typeof x.fuel === 'number') ? x.fuel : 0)) : null;
+    hintText = (maxFuel != null) ? `目標地点をクリック（航続距離:${maxFuel}）` : '発艦可能な編隊がありません';
   }
+  for (const [side, ui] of Object.entries(MATCH_UI)) {
+    if (!ui?.matchHint) continue;
+    ui.matchHint.textContent = (side === getActiveUISide()) ? hintText : '';
+  }
+  updateMatchControls();
 }
 
 function onMatchCanvasClick(ev) {
@@ -384,6 +484,7 @@ function handleMatchStateUpdate(nextState) {
     }
   } catch {}
   APP.matchState = nextState;
+  ensureMatchSidebarSide();
   try { if (nextState && nextState.ai_diag) onAIDiag(nextState.ai_diag); } catch {}
   try { updateAIIndicator(nextState); } catch {}
   renderMatchView();
@@ -403,14 +504,11 @@ function toggleAIInspector() {
   APP.aiMon.open = !APP.aiMon.open;
   const pane = document.getElementById('aiInspector');
   const root = document.documentElement;
-  if( APP.aiMon.open ) {
-    root.style.setProperty('--sideb-width', '1fr');
-    pane.classList.toggle('hidden', false);
-    renderAIInspector();
-  } else {
-    root.style.setProperty('--sideb-width', '0px');
-    pane.classList.toggle('hidden', true);
-  }
+  const open = !!APP.aiMon.open;
+  root.style.setProperty('--inspector-width', open ? '1fr' : '0px');
+  if (!pane) return;
+  pane.classList.toggle('hidden', !open);
+  if (open) renderAIInspector();
 }
 function onAIDiag(diag) {
   try {
@@ -542,12 +640,15 @@ function initPlayBindings() {
   document.getElementById('btnAIInspector')?.addEventListener('click', toggleAIInspector);
   document.getElementById('btnAIInspectorClose')?.addEventListener('click', toggleAIInspector);
   el.btnLeaveMatch && el.btnLeaveMatch.addEventListener('click', leaveMatchToLobby);
-  el.btnSubmitReady && el.btnSubmitReady.addEventListener('click', submitReady);
+  const submitButtons = [MATCH_UI.A?.btnSubmitReady, MATCH_UI.B?.btnSubmitReady].filter(Boolean);
+  submitButtons.forEach((btn) => btn.addEventListener('click', submitReady));
   el.matchCanvas && el.matchCanvas.addEventListener('click', onMatchCanvasClick);
   el.matchCanvas && el.matchCanvas.addEventListener('mousemove', onMatchCanvasMove);
   el.matchCanvas && el.matchCanvas.addEventListener('mouseleave', onMatchCanvasLeave);
-  el.btnMatchModeMove && el.btnMatchModeMove.addEventListener('click', () => setMatchMode('move'));
-  el.btnMatchModeLaunch && el.btnMatchModeLaunch.addEventListener('click', () => setMatchMode('launch'));
+  const moveButtons = [MATCH_UI.A?.btnMatchModeMove, MATCH_UI.B?.btnMatchModeMove].filter(Boolean);
+  moveButtons.forEach((btn) => btn.addEventListener('click', () => setMatchMode('move')));
+  const launchButtons = [MATCH_UI.A?.btnMatchModeLaunch, MATCH_UI.B?.btnMatchModeLaunch].filter(Boolean);
+  launchButtons.forEach((btn) => btn.addEventListener('click', () => setMatchMode('launch')));
 }
 
 window.addEventListener('DOMContentLoaded', initPlayBindings);

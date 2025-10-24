@@ -13,6 +13,7 @@
   --enemy-squad: #ffb37a;
   --sidea-width: 1fr;
   --sideb-width: 0px;
+  --inspector-width: 0px;
 }
 
 * { box-sizing: border-box; }
@@ -87,11 +88,12 @@ body {
 .match-board #matchLog { flex: 1 1 auto; min-height: 0; height: auto; }
 .match-layout {
   display: grid;
-  grid-template-columns: var(--sidea-width) minmax(100px, 1.3fr) var(--sideb-width);
+  grid-template-columns: var(--sidea-width) minmax(100px, 1.3fr) var(--sideb-width) var(--inspector-width);
   gap: 8px;
   align-items: start;
 }
 .match-sidebar { height: 100%; background: var(--panel); border: 1px solid #27323c; border-radius: 8px; padding: 6px; }
+.match-sidebar[data-collapsed="true"] { visibility: hidden; pointer-events: none; }
 .match-sidebar .section-head { display: flex; align-items: center; justify-content: space-between; margin: 2px 0 4px; }
 .match-sidebar .mode-btn { font-size: 11px; padding: 2px 6px; line-height: 1.2; }
 .match-sidebar .mode-btn.active { outline: 2px solid var(--accent); }
