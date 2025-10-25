@@ -32,7 +32,7 @@ except Exception:
     pass
 
 from server.services.ai_llm_base import (
-    LLMError, LLMTokenUsage,
+    LLMError, LLMRateLimitError, LLMTokenUsage,
     LLMBase,
     LLMBaseConfig,
     ResponseModel,
@@ -44,7 +44,7 @@ from server.schemas import PlayerOrders, AIModel, AIProvider, AIListResponse
 # openai SDK（新API）。requirements.txtで `openai` 指定済み。
 USE_OPENAI = False
 try:
-    from openai import OpenAI, Omit, APIConnectionError, APITimeoutError
+    from openai import OpenAI, Omit, APIConnectionError, APITimeoutError,RateLimitError
     import openai
     from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
     from openai.types.chat.chat_completion_tool_message_param import ChatCompletionToolMessageParam
@@ -319,7 +319,7 @@ class CarrierBotOpenAI(LLMBase):
                     ofmt=ResponseFormatJSONObject(type='json_object')
 
         # モデル名が ^o[0-9] で始まる場合は temperature を 1.0 にする
-        max_tokens = self.get_max_output_tokens()
+        max_tokens = self.get_max_output_tokens() or Omit()
         if is_resoning_model(self.aimodel.model):
             temperature = None
         else:
@@ -357,6 +357,8 @@ class CarrierBotOpenAI(LLMBase):
                         print(f"OpenAI API connection error, retrying... ({ntry+1}/{max_try}): {ex}")
                         time.sleep(7.0*ntry)
                         continue
+                if isinstance(ex, RateLimitError) and 'Daily quota exceeded' in str(ex):
+                    raise LLMRateLimitError(f"OpenAI API rate limit exceeded: {ex}", retry_after=None, ) from ex
                 raise LLMError(f"OpenAI API error: {ex}", ex)
         choice = resp.choices[0] if resp and len(resp.choices)>0 else None
         if choice is None:

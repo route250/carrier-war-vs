@@ -329,7 +329,7 @@ class AIModel(BaseModel, frozen=True):
     name: str  # display label for UI
     model: str    # internal model ID
     max_input_tokens: int
-    max_output_tokens: int
+    max_output_tokens: int| None = None  # None means unlimited
     temperature: float = 0.2
     input_strategy: Literal['truncate', 'summarize', 'api'] = 'api'  # 入力が長すぎる場合の挙動
     reasoning: Literal['minimal', 'low', 'medium', 'high'] | None = None  # 推論モデルか？

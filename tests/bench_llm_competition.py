@@ -48,6 +48,11 @@ from tests.plotlib import write_table_svg, write_scatter_svg, resolve_model_cate
 
 OUTPUT_DIR = os.path.join('tests', 'bench_llm_competition_results')
 
+
+def _build_output_path(base_name: str, suffix: str | None, extension: str) -> str:
+    suffix_part = f"_{suffix}" if suffix else ""
+    return os.path.join(OUTPUT_DIR, f"{base_name}{suffix_part}.{extension}")
+
 def ensure_parent_dir(path: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
@@ -94,27 +99,27 @@ def get_result_paths():
                 results.append(result_path)
     return results
 
-def get_ranking_csv_path():
+def get_ranking_csv_path(suffix: str | None = None):
     """
     ランキング表のCSV保存先パスを取得する。
     モデル名、勝った回数、勝率(勝った回数/対戦回数)の3列で、勝った回数で降順ソートしたものを保存する。
     """
-    return os.path.join(OUTPUT_DIR, f"ranking.csv")
+    return _build_output_path("ranking", suffix, "csv")
 
-def get_ranking_svg_path():
+def get_ranking_svg_path(suffix: str | None = None):
     """ランキング表のSVG保存先パスを取得する。"""
-    return os.path.join(OUTPUT_DIR, f"ranking.svg")
+    return _build_output_path("ranking", suffix, "svg")
 
-def get_cross_table_csv_path():
+def get_cross_table_csv_path(suffix: str | None = None):
     """
     対戦結果表のCSV保存先パスを取得する。
     モデル名を行と列に並べて、各セルに勝敗結果を入れたものを保存する。
     """
-    return os.path.join(OUTPUT_DIR, f"cross_table.csv")
+    return _build_output_path("cross_table", suffix, "csv")
 
-def get_cross_table_svg_path():
+def get_cross_table_svg_path(suffix: str | None = None):
     """対戦結果表のSVG保存先パスを取得する。"""
-    return os.path.join(OUTPUT_DIR, f"cross_table.svg")
+    return _build_output_path("cross_table", suffix, "svg")
 
 def get_cost_csv_path():
     """
@@ -428,7 +433,7 @@ def results():
     matches_df.to_csv(os.path.join(OUTPUT_DIR, "match_results.csv"), index=False)
 
     # --- ランキング集計 ---
-    ranking_df = (
+    ranking_all_df = (
         usage_df.groupby("model")
         .agg(
             provider=("provider", "first"),
@@ -441,20 +446,25 @@ def results():
         )
         .reset_index()
     )
-    ranking_df["win_rate"] = ranking_df.apply(
+    ranking_all_df["win_rate"] = ranking_all_df.apply(
         lambda r: (r["wins"] / r["matches"]) if r["matches"] else 0.0,
         axis=1,
     )
-    ranking_df["price/match"] = ranking_df.apply(
+    ranking_all_df["price/match"] = ranking_all_df.apply(
         lambda r: (float(r["total_price"]) / r["matches"]) if r["matches"] else 0.0,
         axis=1,
     )
-    ranking_df["tokens/match"] = ranking_df.apply(
+    ranking_all_df["tokens/match"] = ranking_all_df.apply(
         lambda r: (float(r["total_tokens"]) / r["matches"]) if r["matches"] else 0.0,
         axis=1,
     )
-    ranking_df = ranking_df.sort_values(["wins", "win_rate", "model"], ascending=[False, False, True])
-    ranking_df.to_csv(get_ranking_csv_path(), index=False)
+    ranking_all_df = ranking_all_df.sort_values(["wins", "win_rate", "model"], ascending=[False, False, True])
+
+    model_providers = (
+        usage_df.groupby("model")["provider"].first().to_dict() if not usage_df.empty else {}
+    )
+    ranking_non_io_df = ranking_all_df[ranking_all_df["provider"] != "iointelligence"].copy()
+    ranking_io_df = ranking_all_df[ranking_all_df["provider"] == "iointelligence"].copy()
 
     ranking_headers = [
         "model",
@@ -464,69 +474,96 @@ def results():
         "price/match",
         "tokens/match",
     ]
-    ranking_rows = [
-        [
-            row["model"],
-            str(int(row["wins"])),
-            str(int(row["matches"])),
-            f"{float(row['win_rate']):.3f}",
-            f"{float(row['price/match']):.6f}",
-            f"{float(row['tokens/match']):.2f}",
-        ]
-        for _, row in ranking_df.iterrows()
-    ]
 
-    write_table_svg(
-        get_ranking_svg_path(),
-        "LLM Win Ranking",
-        ranking_headers,
-        ranking_rows,
-    )
+    def export_ranking(df, suffix: str | None, title: str) -> None:
+        df.to_csv(get_ranking_csv_path(suffix), index=False)
+        ranking_rows = [
+            [
+                row["model"],
+                str(int(row["wins"])),
+                str(int(row["matches"])),
+                f"{float(row['win_rate']):.3f}",
+                f"{float(row['price/match']):.6f}",
+                f"{float(row['tokens/match']):.2f}",
+            ]
+            for _, row in df.iterrows()
+        ]
+        write_table_svg(
+            get_ranking_svg_path(suffix),
+            title,
+            ranking_headers,
+            ranking_rows,
+        )
+
+    export_ranking(ranking_non_io_df, None, "LLM Win Ranking")
+    export_ranking(ranking_io_df, "iointelligence", "LLM Win Ranking (IOIntelligence Only)")
 
     # --- クロステーブル ---
-    ordered_models = sorted(models)
-    cross_headers = ["Model"] + ordered_models
-    if not cross_df.empty:
-        cross_df = cross_df.groupby(["row_model", "col_model"]).sum().reset_index()
-    cross_rows: list[list[str]] = []
-    diagonal_cells: set[tuple[int, int]] = set()
-    for row_idx, row_model in enumerate(ordered_models):
-        row_list: list[str] = [row_model]
-        for col_offset, col_model in enumerate(ordered_models, start=1):
-            if row_model == col_model:
-                row_list.append("-")
-                diagonal_cells.add((row_idx, col_offset))
-                continue
-            if cross_df.empty:
-                row_list.append("")
-                continue
-            cell = cross_df[(cross_df["row_model"] == row_model) & (cross_df["col_model"] == col_model)]
-            if cell.empty:
-                row_list.append("")
-            else:
-                wins = int(cell["wins"].iloc[0])
-                losses = int(cell["losses"].iloc[0])
-                draws = int(cell["draws"].iloc[0])
-                total_matches = wins + losses + draws
-                if total_matches == 0:
-                    row_list.append("0/0 (0.000)")
-                else:
-                    win_rate = wins / total_matches
-                    row_list.append(f"{wins}/{total_matches} ({win_rate:.3f})")
-        cross_rows.append(row_list)
-
-    write_csv(get_cross_table_csv_path(), cross_headers, cross_rows)
-    write_table_svg(
-        get_cross_table_svg_path(),
-        "Matchup Cross Table (Wins / Matches)",
-        cross_headers,
-        cross_rows,
-        vertical_lines=True,
-        diagonal_cells=diagonal_cells,
+    cross_grouped_df = (
+        cross_df.groupby(["row_model", "col_model"]).sum().reset_index()
+        if not cross_df.empty
+        else cross_df
     )
+    models_non_io = sorted(
+        [m for m in models if model_providers.get(m) != "iointelligence"]
+    )
+    models_io = sorted([m for m in models if model_providers.get(m) == "iointelligence"])
+
+    def export_cross_table(model_list: list[str], suffix: str | None, title: str) -> None:
+        cross_headers = ["Model"] + model_list
+        filtered_df = (
+            cross_grouped_df[
+                cross_grouped_df["row_model"].isin(model_list)
+                & cross_grouped_df["col_model"].isin(model_list)
+            ]
+            if (not cross_grouped_df.empty and model_list)
+            else cross_grouped_df
+        )
+        cross_rows: list[list[str]] = []
+        diagonal_cells: set[tuple[int, int]] = set()
+        for row_idx, row_model in enumerate(model_list):
+            row_list: list[str] = [row_model]
+            for col_offset, col_model in enumerate(model_list, start=1):
+                if row_model == col_model:
+                    row_list.append("-")
+                    diagonal_cells.add((row_idx, col_offset))
+                    continue
+                if filtered_df.empty:
+                    row_list.append("")
+                    continue
+                cell = filtered_df[
+                    (filtered_df["row_model"] == row_model)
+                    & (filtered_df["col_model"] == col_model)
+                ]
+                if cell.empty:
+                    row_list.append("")
+                else:
+                    wins = int(cell["wins"].iloc[0])
+                    losses = int(cell["losses"].iloc[0])
+                    draws = int(cell["draws"].iloc[0])
+                    total_matches = wins + losses + draws
+                    if total_matches == 0:
+                        row_list.append("0/0 (0.000)")
+                    else:
+                        win_rate = wins / total_matches
+                        row_list.append(f"{wins}/{total_matches} ({win_rate:.3f})")
+            cross_rows.append(row_list)
+
+        write_csv(get_cross_table_csv_path(suffix), cross_headers, cross_rows)
+        write_table_svg(
+            get_cross_table_svg_path(suffix),
+            title,
+            cross_headers,
+            cross_rows,
+            vertical_lines=True,
+            diagonal_cells=diagonal_cells,
+        )
+
+    export_cross_table(models_non_io, None, "Matchup Cross Table (Wins / Matches)")
+    export_cross_table(models_io, "iointelligence", "Matchup Cross Table (IOIntelligence Only)")
 
     # --- コスト集計 ---
-    cost_df = ranking_df.copy()
+    cost_df = ranking_non_io_df.copy()
     cost_df["price/match"] = cost_df.apply(
         lambda r: (float(r["total_price"]) / r["matches"]) if r["matches"] else 0.0,
         axis=1,
@@ -623,6 +660,7 @@ def main():
     clist = [
         Config(provider='iointelligence',llm_model='gpt-oss-20b'),
         Config(provider='iointelligence',llm_model='qwen2-5-vl-32b'),
+        Config(provider='iointelligence',llm_model='llama4-17b'),
     ]
     # clist = [
     #     Config(provider='openai',llm_model='gpt-5-nano'),

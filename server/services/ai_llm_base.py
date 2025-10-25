@@ -494,12 +494,12 @@ class LLMBase(AIThreadABC, ABC):
         else:
             raise RuntimeError("this model does not support max_input_tokens")
 
-    def get_max_output_tokens(self) -> int:
+    def get_max_output_tokens(self) -> int|None:
         n = min( parse_int(self.aimodel.max_output_tokens,INT_MAX), parse_int(self._config.max_output_tokens,INT_MAX) )
         if n<=INT_MAX:
             return n
         else:
-            raise RuntimeError("this model does not support max_output_tokens")
+            return None # raise RuntimeError("this model does not support max_output_tokens")
 
     def get_input_strategy(self) -> Literal['truncate', 'summarize', 'api']:
         s = self._config.input_strategy or self.aimodel.input_strategy or 'api'
@@ -636,6 +636,11 @@ class LLMBase(AIThreadABC, ABC):
             t0 = time.perf_counter()
             try:
                 content = self.LLM(msgs, output_format=ResponseModel)
+            except LLMRateLimitError as ex:
+                abort_ex = ex
+                self.stat = AIStat.ERROR
+                self._dbg_print(payload.turn, f"[t:{t}] Rate limit error: {ex}, retry_after={ex.retry_after}")
+                raise ex
             except Exception as ex:
                 abort_ex = ex
                 self.stat = AIStat.ERROR
