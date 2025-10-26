@@ -42,7 +42,7 @@ from server.services.ai_anthropic import AnthropicConfig, CarrierBotAnthropic
 from server.services.ai_gemini import GeminiConfig, CarrierBotGemini
 from server.services.ai_iointelligence import CarrierBotIOIntelligence
 from server.services.ai_cpu import Config, CarrierBotMedium
-from server.services.ai_llm_base import LLMBase
+from server.services.ai_llm_base import LLMBase, LLMBaseConfig
 from tests.plotlib import write_table_svg, write_scatter_svg, resolve_model_category, COLOR_MAP
 
 
@@ -193,6 +193,7 @@ class LLMCompetition:
             bot = CarrierBotGemini(store=self.store, match_id=self.match.match_id, name=model, config=config)
         elif provider == 'iointelligence':
             #ai_model = CarrierBotIOIntelligence.get_model_names().get_model(model)
+            config = LLMBaseConfig(model=model,max_input_tokens=4000)
             bot = CarrierBotIOIntelligence(store=self.store, match_id=self.match.match_id, name=model)
         else:
             bot = CarrierBotMedium(store=self.store, match_id=self.match.match_id, config=None)
@@ -221,11 +222,14 @@ class LLMCompetition:
         self.bot1 = self._create_bot( self.c1.provider, self.c1.llm_model )
         if self.bot1 is None or self.bot1.aimodel.name != self.c1.llm_model:
             raise ValueError("bot1 is None")
+        if isinstance(self.bot1, CarrierBotIOIntelligence) and os.getenv("IOINTELLIGENCE_API_KEY_1"):
+            self.bot1._config.api_key = os.getenv("IOINTELLIGENCE_API_KEY_1")
  
         self.bot2 = self._create_bot( self.c2.provider, self.c2.llm_model )
         if self.bot2 is None or self.bot2.aimodel.name != self.c2.llm_model:
             raise ValueError("bot2 is None")
-
+        if isinstance(self.bot2, CarrierBotIOIntelligence) and os.getenv("IOINTELLIGENCE_API_KEY_2"):
+            self.bot2._config.api_key = os.getenv("IOINTELLIGENCE_API_KEY_2")
 
         if not overwrite and self.exists():
             print(f"Skipping existing competition {self.competition_id} {self.bot1.aimodel.name} vs {self.bot2.aimodel.name}")
@@ -264,12 +268,14 @@ class LLMCompetition:
                     # 強制終了を避けるため、短時間だけ join してリソースを解放する。
                     t.join(timeout=1)
         print(f"end {self.competition_id} {self.match.map.result}")
-        final_status = self.match.build_state_payload()
-        self.bot1.save_history(self.log_c1)
-        self.bot2.save_history(self.log_c2)
+
         if self.bot1.stat == AIStat.ERROR or self.bot2.stat == AIStat.ERROR:
             print(f"Error: {self.competition_id} bot1.stat={self.bot1.stat}, bot2.stat={self.bot2.stat}")
             return False
+
+        final_status = self.match.build_state_payload()
+        self.bot1.save_history(self.log_c1)
+        self.bot2.save_history(self.log_c2)
         # 対戦結果をJSONで保存
         result:dict[str,Any] = {
             "competition_id": self.competition_id,
@@ -659,9 +665,44 @@ def main():
     ]
     clist = [
         Config(provider='iointelligence',llm_model='gpt-oss-20b'),
+        Config(provider='iointelligence',llm_model='gpt-oss-120b'),
+        #
+        Config(provider='iointelligence',llm_model='deepseek-r1'),
+        #
+        Config(provider='iointelligence',llm_model='qwen3-coder-480b-a35b-instruct'),
+        Config(provider='iointelligence',llm_model='qwen3-next-80b-a3b-instruct'),
+        Config(provider='iointelligence',llm_model='qwen3-235b-a22b-thinking-2507'),
         Config(provider='iointelligence',llm_model='qwen2-5-vl-32b'),
+        #
         Config(provider='iointelligence',llm_model='llama4-17b'),
+        Config(provider='iointelligence',llm_model='llama3-3-70b'),
+        Config(provider='iointelligence',llm_model='llama3-2-90b-vision-instruct'),
     ]
+    vslist = []
+    for c1 in clist:
+        for c2 in clist:
+            if c1.llm_model == c2.llm_model:
+                continue
+            vslist.append( (c1,c2) )
+
+    ccclist = []
+    while len(vslist)>0:
+        i = 0
+        mcount = {}
+        while( i<len(vslist)):
+            c1,c2 = vslist[i]
+            if c1.llm_model not in mcount and c2.llm_model not in mcount:
+                mcount[c1.llm_model] = 1
+                mcount[c2.llm_model] = 1
+                ccclist.append( (c1,c2) )
+                vslist.pop(i)
+            else:
+                i+=1
+
+    for c1,c2 in ccclist:
+        print(f"{c1.llm_model} vs {c2.llm_model}")
+    print("-----")
+
     # clist = [
     #     Config(provider='openai',llm_model='gpt-5-nano'),
     # ]
@@ -671,8 +712,7 @@ def main():
     today_oai_cost = get_today_oai_cost()
     print(f"Today cost so far: ${today_oai_cost:.4f}")
     if n>0:
-        for c1 in clist:
-            for c2 in clist:
+        for c1,c2 in ccclist:
                 if c1.llm_model == c2.llm_model:
                     continue
                 if today_oai_cost>4.0:

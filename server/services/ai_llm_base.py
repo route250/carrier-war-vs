@@ -446,6 +446,13 @@ def parse_output_to_model(content: str, *, output_format: Type[T] | None = None)
 # =========================
 # ベースクラス
 # =========================
+class HistMsg:
+    def __init__(self, turn:int, role:str, content:str):
+        self.turn = turn
+        self.role = role
+        self.content = content
+    def to_dict(self) -> dict[str,str]:
+        return {"role": self.role, "content": self.content}
 
 class LLMBase(AIThreadABC, ABC):
     """LLMベースボット。
@@ -467,7 +474,7 @@ class LLMBase(AIThreadABC, ABC):
         self._config.model = ai_model.model
         self.use_output_format:bool = False
         # user/assistant の履歴（systemは毎回先頭に付与）
-        self._history: list[dict[str, str]] = []
+        self._history: list[HistMsg] = []
         self._history_window_start: int = 0
         self._history_window_end: int = 0
         self.max_turn:int = 0 # マッチの最大ターン数
@@ -532,8 +539,9 @@ class LLMBase(AIThreadABC, ABC):
         elif self.get_input_strategy() == 'summarize':
             self._dbg_print(self._last_turn, f"Summarizing history (size={self._history_window_end - self._history_window_start})...")
 
-            msgs = [m for m in self._history[self._history_window_start:self._history_window_end]]
-
+            msgs = [m.to_dict() for m in self._history[self._history_window_start:self._history_window_end]]
+            last_turn = self._history[self._history_window_end -1].turn if self._history_window_end -1 >=0 else 0
+            start_turn = last_turn -1 if last_turn -1 >=0 else 0
             if self.aimodel.cached_price and self.aimodel.cached_price>0:
                 # キャッシュ効くならプロンプトも入れる
                 msgs.insert(0, {"role": ROLE_SYSTEM, "content": system_prompt})
@@ -546,15 +554,17 @@ class LLMBase(AIThreadABC, ABC):
 
             if content:
                 self._dbg_print(self._last_turn, f"Summary: {content}")
-                result_msg = {"role": ROLE_AI, "content": content}
-                self._history.insert(self._history_window_end, request_msg)
-                self._history.insert(self._history_window_end+1, result_msg)
+                self._history.insert(self._history_window_end, HistMsg(start_turn, ROLE_USER, summary_prompt))
+                self._history.insert(self._history_window_end+1, HistMsg(last_turn, ROLE_AI, content))
                 self._history_window_start = self._history_window_end+1
                 self._history_window_end = self._history_window_start
 
         elif self.get_input_strategy() == 'truncate':
             self._dbg_print(self._last_turn, f"Truncating history (size={self._history_window_end - self._history_window_start})...")
-            self._history_window_start = self._history_window_end
+            last_turn = self._history[self._history_window_end -1].turn if self._history_window_end -1 >=0 else 0
+            start_turn = last_turn -3 if last_turn -3 >=0 else 0
+            start_index = next((i for i, m in enumerate(self._history) if m.turn == start_turn), self._history_window_end)
+            self._history_window_start = start_index
 
     def _ask_review(self, system_prompt: str,review_prompt:str) -> str:
         self._dbg_print(self._last_turn, "Reviewing knowledge...")
@@ -570,12 +580,14 @@ class LLMBase(AIThreadABC, ABC):
         return True
 
     def abort(self, payload:MatchStatePayload|None):
+        turn = payload.turn if payload else self._last_turn
         user_msg = match_state_payload_to_text(payload) if payload else "No match data"
-        self._append_history({"role": ROLE_USER, "content": f"Aborted:\n\n {user_msg}"})
+        self._append_history(turn, ROLE_USER, f"Aborted:\n\n {user_msg}")
 
     def over(self, payload:MatchStatePayload|None):
+        turn = payload.turn if payload else self._last_turn
         user_msg = match_state_payload_to_text(payload) if payload else "No match data"
-        self._append_history({"role": ROLE_USER, "content": f"Over:\n\n {user_msg}"})
+        self._append_history(turn, ROLE_USER, f"Over:\n\n {user_msg}")
 
     # --- Core ---
     def think(self, payload: MatchStatePayload) -> PlayerOrders:  # type: ignore[override]
@@ -664,8 +676,8 @@ class LLMBase(AIThreadABC, ABC):
                     msgs.append( {"role": ROLE_AI, "content": content} )
                     msgs.append( {"role": ROLE_USER, "content": f"JSON decode error: {ex}"} )
                     continue
-            self._append_history({"role": ROLE_USER, "content": user_msg})
-            self._append_history({"role": ROLE_AI, "content": content})
+            self._append_history(payload.turn, ROLE_USER, user_msg)
+            self._append_history(payload.turn, ROLE_AI, content)
 
             if abort_ex is not None:
                 thinking_list.append(f"Exception: {abort_ex}")
@@ -751,8 +763,8 @@ class LLMBase(AIThreadABC, ABC):
             finally:
                 ms += int((time.perf_counter() - t0) * 1000)
             self._debug_print(9999, None, content)
-            self._append_history({"role": ROLE_USER, "content": user_msg})
-            self._append_history({"role": ROLE_AI, "content": content})
+            self._append_history(self._last_turn, ROLE_USER, user_msg)
+            self._append_history(self._last_turn, ROLE_AI, content)
 
             thinking = ""
             errs = []
@@ -945,15 +957,19 @@ class LLMBase(AIThreadABC, ABC):
         return ""
 
     def _build_messages(self, user_msg: str|None=None) -> list[dict[str, str]]:
-        msgs: list[dict[str, str]] = [m for m in self._history[self._history_window_start:]]
+        msgs: list[dict[str, str]] = [m.to_dict() for m in self._history[self._history_window_start:]]
         if user_msg:
             msgs.append({"role": ROLE_USER, "content": user_msg})
         return msgs
 
-    def _append_history(self, msg: dict[str, str]) -> None:
-        if "role" not in msg or "content" not in msg:
-            return
-        self._history.append({"role": msg["role"], "content": str(msg["content"])})
+    def _append_history(self, turn:int, role:str, content:str) -> None:
+        if not isinstance(turn,int) or turn<0:
+            raise ValueError("invalid turn")
+        if not isinstance(role,str) or role.strip()=="":
+            raise ValueError("invalid role")
+        if not isinstance(content,str) or content.strip()=="":
+            raise ValueError("invalid content")
+        self._history.append(HistMsg(turn=turn, role=role, content=content))
 
     def _debug_print(self, turn: int, state_json: dict[str, Any]|None, content: str) -> None:
         llm=self._diag_model_name()

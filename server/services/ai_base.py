@@ -142,7 +142,9 @@ class AIThreadABC(ABC):
                 self.stat = AIStat.CLEANUP
                 self._dbg_print(self._last_turn,f"[{self.side}] cleanup")
                 self.cleanup()
-
+        except Exception as e:
+            self.stat = AIStat.ERROR
+            self._dbg_print(self._last_turn,f"[{self.side}] exception occurred: {e}")
         finally:
             self.stat = AIStat.STOPPING if self.stat != AIStat.ERROR else AIStat.ERROR
             # マッチから抜ける
