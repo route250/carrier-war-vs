@@ -352,14 +352,15 @@ class CarrierBotOpenAI(LLMBase):
                     )
                 break
             except Exception as ex:
+                exmsg = str(ex)[:200]
                 if isinstance(ex, (APIConnectionError, APITimeoutError)):
                     if ntry < max_try - 1:
-                        print(f"OpenAI API connection error, retrying... ({ntry+1}/{max_try}): {ex}")
+                        print(f"OpenAI API connection error, retrying... ({ntry+1}/{max_try}): {exmsg}")
                         time.sleep(7.0*ntry)
                         continue
                 if isinstance(ex, RateLimitError) and 'Daily quota exceeded' in str(ex):
-                    raise LLMRateLimitError(f"OpenAI API rate limit exceeded: {ex}", retry_after=None, ) from ex
-                raise LLMError(f"OpenAI API error: {ex}", ex)
+                    raise LLMRateLimitError(f"OpenAI API rate limit exceeded: {exmsg}", retry_after=None, ) from ex
+                raise LLMError(f"OpenAI API error: {exmsg}", ex)
         choice = resp.choices[0] if resp and len(resp.choices)>0 else None
         if choice is None:
             raise RuntimeError("empty response from model")

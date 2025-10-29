@@ -22,9 +22,10 @@ from pydantic import BaseModel, Field, constr, ValidationError
 from abc import ABC, abstractmethod
 
 from server.services.ai_base import AIStat, AIThreadABC
-from server.schemas import AIModel, LLMBaseConfig, MatchStatePayload, PlayerOrders, Position, SQUADRON_RANGE
-from server.services.ai_llm_prompts import match_state_payload_to_text
-from server.services.hexmap import rawmap_to_text
+from server.schemas import AIModel, LLMBaseConfig, MatchStatePayload, PlayerOrders, Position
+from server.services.ai_llm_prompts import build_system_prompt ,match_state_payload_to_text, default_knowledge, build_summary_prompt
+from server.services.ai_llm_prompts import ResponseModel
+
 from typing import TypeVar, Type
 
 
@@ -34,117 +35,6 @@ from typing import TypeVar, Type
 ROLE_SYSTEM = "system"
 ROLE_USER = "user"
 ROLE_AI = "assistant"
-
-# 役割/基本方針
-SYSTEM_PROMPT: str = (
-    "海戦型SLGの指揮官として自軍ユニットを操作してゲームをプレイし勝利を目指して下さい。\n"
-    "ゲームのルールから勝利条件を満たすための作戦を計画立案し実行し常に最善のプランへ修正し勝利を目指して下さい。\n"
-)
-SYSTEM_PROMPT_RULE:str = (
-    "# ルール\n"
-    " - 空母(carrier):\n"
-    "     海上のみ移動可能。航空部隊の発着艦と対空戦闘のみ可能。空母へは攻撃できない。"
-    "     {enemy_location}\n"
-	" - 航空部隊(squadron):\n"
-    "     launch_targetに目標座標を指定してorderすると発艦して目標座標へ向かう。\n"
-    "     launch_targetは空母を中心に距離{Range}ヘクス以内に指定できる。\n"
-    "     行動中は帰投まで目標変更できない。\n"
-	" - 索敵:\n"
-    "     空母・航空部隊は索敵範囲の敵を発見可能(移動経路含む)\n"
-    "     航空部隊は目標地点に到達した後、敵空母を発見できなければ帰還に移る。索敵範囲はvisionの範囲のみ\n"
-	" - 戦闘:\n"
-	"     航空部隊 vs 空母のみ（航空部隊同士は戦闘しない）\n"
-    "     航空部隊は航空部隊に攻撃できない。\n"
-    "     航空部隊は往路に空母を発見すると攻撃に移る。復路では攻撃せず報告だけする。\n"
-	" - 勝敗:\n"
-	"     敵空母撃沈または敵航空部隊全滅で勝ち\n"
-	"     {max_turn}ターン終了 → HP多い方勝ち。HPが同じなら先に敵空母を発見した方が勝ち\n"
-    "# 作戦のヒント\n"
-    " - 敵空母を発見する為には、航空部隊を発艦して索敵させる必要があります。可能な限り遠方で敵空母を発見するための行動を取りましょう。\n"
-    " - 空母同士の航空戦では、相手よりも先に敵空母を発見できれば圧倒的有利です。\n"
-    "   航空機の航続距離は限られているため、索敵したい海域に少し空母を近づける必要があります。ただし近づけ過ぎると敵に発見されるリスクが高まります。\n"
-    " - 敵に発見・攻撃された場合は、波状攻撃から逃れるために敵に見つからない位置を予想して空母を移動させる。\n"
-    "   また、敵機が北方向や帰還していく方向から敵空母の位置を推定することも出来るはずです。\n"
-    " - 敵空母を先に発見できなければ、ほぼ負け確定です。"
-)
-# 基本ナレッジ
-BASE_KNOWLEDGE:str = (
-    "# ナレッジ\n"
-    " - 敵を発見してからではなく、敵を発見するために航空部隊を飛ばしましょう。\n"
-    " - 敵空母の位置を予測・推定し、できるだけ早く遠くで敵空母を発見することが重要です。\n"
-    " - 索敵情報の敵航空機の動きを活用して、敵空母の位置を予想し航空部隊の航続範囲まで空母を移動しましょう。\n"
-    " - 敵航空部隊の進路を予想して空母が発見されないように空母を移動しましょう。\n"
-)
-DESCRIPTION_THINKING = "(必須)敵空母が存在する海域、存在しない海域の推定。索敵結果から推測を構築。作戦プランを作成更新。"
-DESCRIPTION_CARRIER_TARGET = "空母(carrier)の移動目標を指示すると目的地に向かって進み続ける。nullは変更なし"
-DESCRIPTION_LAUNCH_TARGET = (
-    "発艦指示。航空部隊(squadron)に対して索敵・攻撃の目標座標を指定し発艦させる。nullは指示なし。"
-    " (Specify the target coordinates for reconnaissance/attack for the squadron and launch. null means no instruction.)"
-)
-#
-#空母の移動目標（または null）
-#航空部隊の索敵・攻撃の目標位置（または null）
-# 出力フォーマットの厳密指定
-# SYSTEM_PROMPT_OUTPUT_FORMAT: str = (
-#     "出力は必ず以下のJSONオブジェクトのみで余計な説明やコードブロックは書かないでください。\n"
-#     f"thinking(必須):{DESCRIPTION_THINKING}\n"
-#     f"carrier_target:{DESCRIPTION_CARRIER_TARGET}\n"
-#     f"launch_target:{DESCRIPTION_LAUNCH_TARGET}\n"
-#     "{\n"
-#     "  \"thinking\": \"索敵プラン、敵空母の居る海域、存在しない海域の推定、発艦指示\",\n"
-#     "  \"action\": {\n"
-#     "    \"carrier_target\": {\"x\": <int>, \"y\": <int>} | null,\n"
-#     "    \"launch_target\": {\"x\": 目標X, \"y\": 目標Y} | null\n"
-#     "  }\n"
-#     "}\n"
-# )
-
-# 制約条件
-SYSTEM_PROMPT_CONSTRAINTS: str = (
-    "- 空母を移動する時は、carrier_target に座標を指定する。\n"
-    "- 航空部隊(onboard状態)を発艦する時は、launch_target に目標座標を指定する。\n"
-    "- thinking は必ず書くこと。分析や戦術、記録などを簡潔に述べる。"
-)
-
-# 要約プロンプト
-SUMMARY_PROMPT: str = (
-    "現時点までの作戦状況について、今後の作戦に必要な情報を短く要約して<think>タグに記述して下さい。今回は要約だけなので<carrier_target>タグと<launch_target>タグはnullにして下さい。\n"
-)
-
-REVIEW_PROMPT: str = (
-    "作戦終了です。今回の作戦をレビューして、失敗、成功、注意点などをまとめて。ナレッジの内容を書き直して下さい。\n"
-    "次の作戦へのLLMプロンプトとして短くまとめて下さい。\n"
-    "あなたが理解できればいいので出来るだけ短く。あなたが理解できるなら人間の言葉でなくてもよく出来るだけ短く\n"
-)
-
-
-class Coordinate(BaseModel):
-    x: int = Field(..., description="目標x座標")
-    y: int = Field(..., description="目標y座標")
-
-class Action(BaseModel):
-    carrier_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_CARRIER_TARGET}")
-    launch_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_LAUNCH_TARGET}")
-
-    @staticmethod
-    def to_json_format() -> str:
-        fmt = "{"
-        fmt += f" \"carrier_target\": {{\"x\": <int>, \"y\": <int>}} | null,"
-        fmt += f" \"launch_target\": {{\"x\": <int>, \"y\": <int>}} | null"
-        fmt += "}"
-        return fmt
-
-class ResponseModel(BaseModel):
-    thinking: str = Field(..., description=f"{DESCRIPTION_THINKING}")
-    action: Action = Field(..., description="CarrierとSquadronの移動先座標、偵察先座標、攻撃目標の座標を指示する")
-
-    @staticmethod
-    def to_json_format() -> str:
-        fmt = "{"
-        fmt += f" \"thinking\": \"{DESCRIPTION_THINKING}\","
-        fmt += f" \"action\": {Action.to_json_format()}"
-        fmt += "}"
-        return fmt
 
 class LLMTokenUsage:
     def __init__(self, *, prompt:int=0, cache_read:int=0, completion:int=0, reasoning:int=0, cache_write:int=0):
@@ -494,6 +384,17 @@ class LLMBase(AIThreadABC, ABC):
     def name(self) -> str:
         return self.aimodel.name
 
+
+    def set_api_key(self, api_key: str|None) -> None:
+        """APIキーを設定する。"""
+        if api_key and len(api_key) > 8:
+                dmp = api_key[:4] + "..." + api_key[-4:] if len(api_key) > 8 else api_key
+                print(f"Setting io.net API key to {dmp}")
+                self._config.api_key = api_key
+        else:
+            print("Clearing io.net API key")
+            self._config.api_key = None
+
     def get_max_input_tokens(self) -> int:
         n = min( parse_int(self.aimodel.max_input_tokens,INT_MAX),parse_int(self._config.max_input_tokens,INT_MAX) )
         if n<=INT_MAX:
@@ -546,7 +447,7 @@ class LLMBase(AIThreadABC, ABC):
                 # キャッシュ効くならプロンプトも入れる
                 msgs.insert(0, {"role": ROLE_SYSTEM, "content": system_prompt})
 
-            summary_prompt = SUMMARY_PROMPT
+            summary_prompt = build_summary_prompt( language=self._config.language )
             request_msg = {'role': ROLE_USER, 'content': summary_prompt}
             msgs.append( request_msg )
 
@@ -576,7 +477,7 @@ class LLMBase(AIThreadABC, ABC):
         return content
 
     def startup(self) -> bool:
-        self._knowledge_content = self.load_knowledge() or BASE_KNOWLEDGE
+        self._knowledge_content = self.load_knowledge() or default_knowledge(language=self._config.language)
         return True
 
     def abort(self, payload:MatchStatePayload|None):
@@ -609,7 +510,7 @@ class LLMBase(AIThreadABC, ABC):
         if self._total_token_usage:
             thinking_count0 += self._total_token_usage
 
-        system_prompt = self.build_system_prompt(output_format=True)
+        system_prompt = build_system_prompt( grid, side=self.side, max_turn=self.max_turn, language=self._config.language )
 
         orders = None
         #state_json = self._summarize_state(payload, w, h)
@@ -670,11 +571,12 @@ class LLMBase(AIThreadABC, ABC):
                         self._dbg_print(payload.turn, f"[t:{t}] fixed: {content}")
                     content = decoded
             except Exception as ex:
-                self._dbg_print(payload.turn, f"[t:{t}] JSON decode error: {ex}")
+                exmsg = str(ex)[:200]
+                self._dbg_print(payload.turn, f"[t:{t}] JSON decode error: {exmsg}")
                 if t==1:
                     self.store.add_json_errors(self.match_id,self.token)
                     msgs.append( {"role": ROLE_AI, "content": content} )
-                    msgs.append( {"role": ROLE_USER, "content": f"JSON decode error: {ex}"} )
+                    msgs.append( {"role": ROLE_USER, "content": f"JSON decode error: {exmsg}"} )
                     continue
             self._append_history(payload.turn, ROLE_USER, user_msg)
             self._append_history(payload.turn, ROLE_AI, content)
@@ -737,7 +639,7 @@ class LLMBase(AIThreadABC, ABC):
         if self._total_token_usage:
             thinking_count0 += self._total_token_usage
 
-        system_prompt = self.build_system_prompt(output_format=True)
+        system_prompt = build_system_prompt( self.maparray, side=self.side, max_turn=self.max_turn, language=self._config.language )
         msgs = self._build_messages(user_msg)
         msgs.insert(0, {"role": ROLE_SYSTEM, "content": system_prompt})
 
@@ -784,8 +686,8 @@ class LLMBase(AIThreadABC, ABC):
     def cleanup(self):
         """作戦終了後にレビューする"""
         try:
-            system_prompt = self.build_system_prompt()
-            review_prompt = REVIEW_PROMPT
+            #system_prompt = build_system_prompt( self.maparray, side=self.side, max_turn=self.max_turn, language=self._config.language )
+            #review_prompt = REVIEW_PROMPT
             t0 = time.perf_counter()
             # content = self._ask_review( system_prompt, review_prompt)
             ms = int((time.perf_counter() - t0) * 1000)
@@ -903,58 +805,6 @@ class LLMBase(AIThreadABC, ABC):
             "notes": "Return only the JSON object requested.",
         }
 
-    def _make_user_msg(self, state_json: dict[str, Any]) -> str:
-        return (
-            "以下は現在のゲーム状況です。制約を守って出力フォーマットのみ返答してください。\n"
-            + json.dumps(state_json, ensure_ascii=False)
-        )
-
-
-    def build_system_prompt(self, *, output_format:bool=False) -> str:
-        """分割定数を結合した最終 SYSTEM_PROMPT を返す。"""
-        prompt_list = [SYSTEM_PROMPT]
-
-        enemy_location = ""
-        if self.side == "A":
-            enemy_location = "敵空母の初期位置はマップの右下(26,26)近傍ランダム位置です。"
-        elif self.side == "B":
-            enemy_location = "敵空母の初期位置はマップの左上(3,3)近傍のランダム位置です。"
-        r = SQUADRON_RANGE
-        rule = SYSTEM_PROMPT_RULE.format( enemy_location=enemy_location, Range=r, max_turn=self.max_turn)
-        prompt_list.append(rule)
-
-        map_content = self.build_map_content()
-        if map_content and len(map_content) > 0:
-            prompt_list.append(map_content)
-
-        # if self._knowledge_content and len(self._knowledge_content) > 0:
-        #     prompt_list.append(self._knowledge_content)
-        # else:
-        #     prompt_list.append(BASE_KNOWLEDGE)
-
-        prompt_list.append(f"制約:\n{SYSTEM_PROMPT_CONSTRAINTS}")
-
-        return "\n\n".join(prompt_list)
-
-    def build_map_content(self) -> str:
-        """ヘクスマップ情報を JSON 文字列で返す。"""
-        try:
-            grid = self.maparray
-            h = len(grid)
-            w = len(grid[0]) if h > 0 else 0
-
-            if grid and w > 0 and h > 0:
-                xmap = []
-                xmap.append(f"ヘクスマップ width={w} height={h} legend(0=sea,1=land)")
-                xmap.append("```")
-                for line in rawmap_to_text(grid):
-                    xmap.append(line)
-                xmap.append("```")
-                return "\n".join(xmap)
-        except Exception as ex:
-            print(f"build_map_content error: {ex}", file=sys.stderr)
-            pass
-        return ""
 
     def _build_messages(self, user_msg: str|None=None) -> list[dict[str, str]]:
         msgs: list[dict[str, str]] = [m.to_dict() for m in self._history[self._history_window_start:]]

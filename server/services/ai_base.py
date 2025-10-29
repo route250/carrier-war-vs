@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from queue import Queue
 from server.schemas import MatchJoinRequest, MatchJoinResponse, MatchStatePayload, PlayerOrders, MatchStateResponse, MatchOrdersRequest, MatchOrdersResponse
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal
 if TYPE_CHECKING:
     from server.services.match import MatchStore
 
@@ -25,7 +25,7 @@ class AIThreadABC(ABC):
         self.store: MatchStore = store
         self.match_id = match_id
         self.token = None
-        self.side = None
+        self.side: Literal["A", "B"]|None = None
         self.q: Queue[MatchStatePayload|None] = Queue() # タイミング通知用のキュー（自身のイベントループ専用）
         self.stat:AIStat = AIStat.NOT_START
         self.maparray:list[list[int]] = []

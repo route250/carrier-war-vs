@@ -22,7 +22,6 @@ from server.services.ai_llm_base import (
     ROLE_SYSTEM, ROLE_USER, ROLE_AI,
     LLMTokenUsage,
     exists_env,
-    ResponseModel, Coordinate
 )
 from server.schemas import PlayerOrders, AIModel, AIProvider, AIListResponse
 

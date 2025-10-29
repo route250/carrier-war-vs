@@ -324,6 +324,7 @@ class LLMBaseConfig:
     max_input_tokens: int|None = None
     max_output_tokens: int|None = None
     input_strategy: Literal['truncate', 'summarize', 'api']|None = None  # 入力が長すぎる場合の挙動
+    language: Literal['ja', 'en'] = 'ja'  # 使用する言語
 
 class AIModel(BaseModel, frozen=True):
     name: str  # display label for UI
