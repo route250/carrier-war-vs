@@ -223,13 +223,13 @@ class LLMCompetition:
         if self.bot1 is None or self.bot1.aimodel.name != self.c1.llm_model:
             raise ValueError("bot1 is None")
         if isinstance(self.bot1, CarrierBotIOIntelligence) and os.getenv("IOINTELLIGENCE_API_KEY_1"):
-            self.bot1._config.api_key = os.getenv("IOINTELLIGENCE_API_KEY_1")
+            self.bot1.set_api_key(os.getenv("IOINTELLIGENCE_API_KEY_1"))
  
         self.bot2 = self._create_bot( self.c2.provider, self.c2.llm_model )
         if self.bot2 is None or self.bot2.aimodel.name != self.c2.llm_model:
             raise ValueError("bot2 is None")
         if isinstance(self.bot2, CarrierBotIOIntelligence) and os.getenv("IOINTELLIGENCE_API_KEY_2"):
-            self.bot2._config.api_key = os.getenv("IOINTELLIGENCE_API_KEY_2")
+            self.bot2.set_api_key(os.getenv("IOINTELLIGENCE_API_KEY_2"))
 
         if not overwrite and self.exists():
             print(f"Skipping existing competition {self.competition_id} {self.bot1.aimodel.name} vs {self.bot2.aimodel.name}")
@@ -703,10 +703,6 @@ def main():
         print(f"{c1.llm_model} vs {c2.llm_model}")
     print("-----")
 
-    # clist = [
-    #     Config(provider='openai',llm_model='gpt-5-nano'),
-    # ]
-    # overwrite = True
     n=1
     newruns = 0
     today_oai_cost = get_today_oai_cost()

@@ -24,7 +24,7 @@ from abc import ABC, abstractmethod
 from server.services.ai_base import AIStat, AIThreadABC
 from server.schemas import AIModel, LLMBaseConfig, MatchStatePayload, PlayerOrders, Position
 from server.services.ai_llm_prompts import build_system_prompt ,match_state_payload_to_text, default_knowledge, build_summary_prompt
-from server.services.ai_llm_prompts import ResponseModel
+from server.services.ai_llm_prompts import ResponseModel, ResponseModelJA
 
 from typing import TypeVar, Type
 
@@ -343,6 +343,8 @@ class HistMsg:
         self.content = content
     def to_dict(self) -> dict[str,str]:
         return {"role": self.role, "content": self.content}
+    def __repr__(self) -> str:
+        return f"HistMsg(turn={self.turn}, role={self.role}, content={self.content[:30]}...)"
 
 class LLMBase(AIThreadABC, ABC):
     """LLMベースボット。
@@ -511,7 +513,7 @@ class LLMBase(AIThreadABC, ABC):
             thinking_count0 += self._total_token_usage
 
         system_prompt = build_system_prompt( grid, side=self.side, max_turn=self.max_turn, language=self._config.language )
-
+        response_model = ResponseModel if self._config.language=='en' else ResponseModelJA
         orders = None
         #state_json = self._summarize_state(payload, w, h)
         #user_msg = self._make_user_msg(state_json)
@@ -521,7 +523,7 @@ class LLMBase(AIThreadABC, ABC):
         self._dbg_print(payload.turn,f"input\n{user_msg.replace('\n\n','\n')}")
 
         if self.get_input_strategy() != 'api':
-            token_over_count = self.count_tokens(msgs, output_format=ResponseModel) - self.get_max_input_tokens()
+            token_over_count = self.count_tokens(msgs, output_format=response_model) - self.get_max_input_tokens()
             if token_over_count > 0:
                 self._ask_summarize( token_over_count, system_prompt)
                 # 要約したら再構築
@@ -548,7 +550,7 @@ class LLMBase(AIThreadABC, ABC):
             self._dbg_print(payload.turn, f"[t:{t}] Thinking attempt ...")
             t0 = time.perf_counter()
             try:
-                content = self.LLM(msgs, output_format=ResponseModel)
+                content = self.LLM(msgs, output_format=response_model)
             except LLMRateLimitError as ex:
                 abort_ex = ex
                 self.stat = AIStat.ERROR
@@ -578,8 +580,6 @@ class LLMBase(AIThreadABC, ABC):
                     msgs.append( {"role": ROLE_AI, "content": content} )
                     msgs.append( {"role": ROLE_USER, "content": f"JSON decode error: {exmsg}"} )
                     continue
-            self._append_history(payload.turn, ROLE_USER, user_msg)
-            self._append_history(payload.turn, ROLE_AI, content)
 
             if abort_ex is not None:
                 thinking_list.append(f"Exception: {abort_ex}")
@@ -613,14 +613,19 @@ class LLMBase(AIThreadABC, ABC):
                 else:
                     self._dbg_print(payload.turn, f"[t:{t}] ERROR: " + "\n".join(errs))
                     thinking_list.append("Retrying...")
-                    user_msg = "ERROR: invalid your order, rejected: " + "\n".join(errs) + "\nPlease fix your order."
+                    user_err = "ERROR: invalid your order, rejected: " + "\n".join(errs) + "\nPlease fix your order."
                     msgs.append( {"role": ROLE_AI, "content": content} )
-                    msgs.append( {"role": ROLE_USER, "content": user_msg} )
+                    msgs.append( {"role": ROLE_USER, "content": user_err} )
             else:
                 self._dbg_print(payload.turn, f"[t:{t}] thinking done")
                 break
 
+        #
+        self._append_history(payload.turn, ROLE_USER, user_msg )
+        self._append_history(payload.turn, ROLE_AI, content )
+        # 集計
         thinking_count = self._total_token_usage - thinking_count0
+        self._dbg_print(payload.turn, f"Token usage for thinking: prompt={thinking_count.prompt_tokens}/{self._total_token_usage.prompt_tokens}, total={thinking_count.total_tokens}/{self._total_token_usage.total_tokens}")
         # モニタ用に保持（注文JSONは入れない）
         self._set_last_ai_diag(turn=payload.turn, ms=ms, thinking="\n".join(thinking_list), usage=thinking_count )
         
@@ -670,7 +675,6 @@ class LLMBase(AIThreadABC, ABC):
 
             thinking = ""
             errs = []
-            orders = None
             try:
                 # thinking 抽出（UI向け）
                 thinking = self._extract_thinking(content)

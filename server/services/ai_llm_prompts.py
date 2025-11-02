@@ -10,11 +10,15 @@ from server.services.hexmap import rawmap_to_text
 
 
 # 役割/基本方針
-SYSTEM_PROMPT: str = (
+SYSTEM_PROMPT_JA: str = (
     "海戦型SLGの指揮官として自軍ユニットを操作してゲームをプレイし勝利を目指して下さい。\n"
     "ゲームのルールから勝利条件を満たすための作戦を計画立案し実行し常に最善のプランへ修正し勝利を目指して下さい。\n"
 )
-SYSTEM_PROMPT_RULE:str = (
+SYSTEM_PROMPT_EN: str = (
+    "As a commander in a naval strategy game, operate your units to play the game and aim for victory.\n"
+    "Plan and execute operations to meet the victory conditions based on the game rules, constantly refining your plans to achieve the best possible outcome.\n"
+)
+SYSTEM_PROMPT_RULE_JA:str = (
     "# ルール\n"
     " - 空母(carrier):\n"
     "     海上のみ移動可能。航空部隊の発着艦と対空戦闘のみ可能。空母へは攻撃できない。"
@@ -42,12 +46,35 @@ SYSTEM_PROMPT_RULE:str = (
     "   また、敵機が北方向や帰還していく方向から敵空母の位置を推定することも出来るはずです。\n"
     " - 敵空母を先に発見できなければ、ほぼ負け確定です。"
 )
-DESCRIPTION_THINKING = "(必須)敵空母が存在する海域、存在しない海域の推定。索敵結果から推測を構築。作戦プランを作成更新。"
-DESCRIPTION_CARRIER_TARGET = "空母(carrier)の移動目標を指示すると目的地に向かって進み続ける。nullは変更なし"
-DESCRIPTION_LAUNCH_TARGET = (
-    "発艦指示。航空部隊(squadron)に対して索敵・攻撃の目標座標を指定し発艦させる。nullは指示なし。"
-    " (Specify the target coordinates for reconnaissance/attack for the squadron and launch. null means no instruction.)"
+SYSTEM_PROMPT_RULE_EN: str = (
+    "# Rules\n"
+    " - Carrier:\n"
+    "     Can move only over the sea. Capable only of launching and recovering aircraft and performing anti-aircraft combat. Carriers themselves cannot be attacked."
+    "     {enemy_location}\n"
+    " - Squadron:\n"
+    "     When you issue an order with a launch_target coordinate, the squadron launches and heads toward that target.\n"
+    "     The launch_target must be within {Range} hexes of the carrier.\n"
+    "     Once in action, its target cannot be changed until it returns.\n"
+    " - Reconnaissance:\n"
+    "     Carriers and squadrons can detect enemies within their search range (including along movement paths).\n"
+    "     After reaching the target point, if a squadron does not find an enemy carrier, it returns to base. The search range is limited to its vision range only.\n"
+    " - Combat:\n"
+    "     Only squadrons vs. carriers (squadrons do not fight each other).\n"
+    "     Squadrons cannot attack other squadrons.\n"
+    "     If a squadron discovers a carrier on its outbound route, it will attack. On the return route, it does not attack but only reports.\n"
+    "     HP does not recover during the game.\n"
+    " - Victory Conditions:\n"
+    "     You win by sinking the enemy carrier or annihilating all enemy squadrons.\n"
+    "     When {max_turn} turns have passed → the side with higher total HP wins. If HP is equal, the side that first discovered the enemy carrier wins.\n"
+    "# Tactical Hints\n"
+    " - To locate the enemy carrier, you must launch squadrons for reconnaissance. Act to discover the enemy carrier as far away as possible.\n"
+    " - In carrier-vs-carrier air battles, spotting the enemy carrier before your opponent gives you a decisive advantage.\n"
+    "   Because aircraft have limited range, you may need to move your carrier somewhat closer to the area you wish to scout. But getting too close increases the risk of being detected.\n"
+    " - If discovered or attacked by the enemy, move your carrier to a predicted position where it cannot be found, to escape successive attacks.\n"
+    "   You can also estimate the enemy carrier’s position from the direction enemy planes are coming from or returning to.\n"
+    " - If you fail to spot the enemy carrier first, defeat is almost certain."
 )
+
 #
 #空母の移動目標（または null）
 #航空部隊の索敵・攻撃の目標位置（または null）
@@ -113,13 +140,27 @@ REVIEW_PROMPT: str = (
 )
 
 
+DESCRIPTION_THINKING_JA = "(必須)敵空母が存在する海域、存在しない海域の推定。索敵結果から推測を構築。作戦プランを作成更新。"
+DESCRIPTION_THINKING_EN= "(required) Estimate the areas where the enemy carrier is present and absent. Build inferences from reconnaissance results. Create and update operational plans."
+DESCRIPTION_ACTION_JA = "CarrierとSquadronの移動先座標、偵察先座標、攻撃目標の座標を指示する"
+DESCRIPTION_ACTION_EN = "Indicate the destination coordinates for the Carrier and Squadron, as well as the reconnaissance and attack target coordinates."
+DESCRIPTION_CARRIER_TARGET_JA = "空母(carrier)の移動目標を指示すると目的地に向かって進み続ける。nullは変更なし"
+DESCRIPTION_CARRIER_TARGET_EN = "Specify the movement target for the carrier, which will continue to move toward the destination. null means no change."
+DESCRIPTION_LAUNCH_TARGET_JA = (
+    "発艦指示。航空部隊(squadron)に対して索敵・攻撃の目標座標を指定し発艦させる。nullは指示なし。"
+    " (Specify the target coordinates for reconnaissance/attack for the squadron and launch. null means no instruction.)"
+)
+DESCRIPTION_LAUNCH_TARGET_EN = (
+    "Launch order. Specify the target coordinates for reconnaissance/attack for the squadron and launch. null means no instruction."
+)
+
 class Coordinate(BaseModel):
     x: int = Field(..., description="目標x座標")
     y: int = Field(..., description="目標y座標")
 
 class Action(BaseModel):
-    carrier_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_CARRIER_TARGET}")
-    launch_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_LAUNCH_TARGET}")
+    carrier_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_CARRIER_TARGET_EN}")
+    launch_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_LAUNCH_TARGET_EN}")
 
     @staticmethod
     def to_json_format() -> str:
@@ -130,29 +171,53 @@ class Action(BaseModel):
         return fmt
 
 class ResponseModel(BaseModel):
-    thinking: str = Field(..., description=f"{DESCRIPTION_THINKING}")
-    action: Action = Field(..., description="CarrierとSquadronの移動先座標、偵察先座標、攻撃目標の座標を指示する")
+    thinking: str = Field(..., description=f"{DESCRIPTION_THINKING_EN}")
+    action: Action = Field(..., description=f"{DESCRIPTION_ACTION_EN}")
 
     @staticmethod
     def to_json_format() -> str:
         fmt = "{"
-        fmt += f" \"thinking\": \"{DESCRIPTION_THINKING}\","
+        fmt += f" \"thinking\": \"{DESCRIPTION_THINKING_EN}\","
         fmt += f" \"action\": {Action.to_json_format()}"
         fmt += "}"
         return fmt
 
+class ActionJA(BaseModel):
+    carrier_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_CARRIER_TARGET_JA}")
+    launch_target: Coordinate|None = Field(None, description=f"{DESCRIPTION_LAUNCH_TARGET_JA}")
+
+    @staticmethod
+    def to_json_format() -> str:
+        fmt = "{"
+        fmt += f" \"carrier_target\": {{\"x\": <int>, \"y\": <int>}} | null,"
+        fmt += f" \"launch_target\": {{\"x\": <int>, \"y\": <int>}} | null"
+        fmt += "}"
+        return fmt
+
+class ResponseModelJA(BaseModel):
+    thinking: str = Field(..., description=f"{DESCRIPTION_THINKING_JA}")
+    action: ActionJA = Field(..., description=f"{DESCRIPTION_ACTION_JA}")
+
+    @staticmethod
+    def to_json_format() -> str:
+        fmt = "{"
+        fmt += f" \"thinking\": \"{DESCRIPTION_THINKING_JA}\","
+        fmt += f" \"action\": {Action.to_json_format()}"
+        fmt += "}"
+        return fmt
 
 def build_system_prompt( grid:list[list[int]], side:Literal["A", "B"]|None, max_turn:int, language:Literal["ja", "en"] ) -> str:
     """分割定数を結合した最終 SYSTEM_PROMPT を返す。"""
-    prompt_list = [SYSTEM_PROMPT]
+    prompt_list = [SYSTEM_PROMPT_JA if language=="ja" else SYSTEM_PROMPT_EN]
 
     enemy_location = ""
     if side == "A":
-        enemy_location = "敵空母の初期位置はマップの右下(26,26)近傍ランダム位置です。"
+        enemy_location = "敵空母の初期位置はマップの右下(26,26)近傍ランダム位置です。" if language == "ja" else "The initial position of the enemy carrier is a random location near the bottom right of the map (26,26)."
     elif side == "B":
-        enemy_location = "敵空母の初期位置はマップの左上(3,3)近傍のランダム位置です。"
+        enemy_location = "敵空母の初期位置はマップの左上(3,3)近傍のランダム位置です。" if language == "ja" else "The initial position of the enemy carrier is a random location near the top left of the map (3,3)."
     r = SQUADRON_RANGE
-    rule = SYSTEM_PROMPT_RULE.format( enemy_location=enemy_location, Range=r, max_turn=max_turn)
+    rulefmt = SYSTEM_PROMPT_RULE_JA if language=="ja" else SYSTEM_PROMPT_RULE_EN
+    rule = rulefmt.format( enemy_location=enemy_location, Range=r, max_turn=max_turn)
     prompt_list.append(rule)
 
     map_content = build_map_content(grid, language)

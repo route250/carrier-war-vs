@@ -35,7 +35,6 @@ from server.services.ai_llm_base import (
     LLMError, LLMRateLimitError, LLMTokenUsage,
     LLMBase,
     LLMBaseConfig,
-    ResponseModel,
     ROLE_SYSTEM, ROLE_USER, ROLE_AI,
 )
 from server.schemas import PlayerOrders, AIModel, AIProvider, AIListResponse
